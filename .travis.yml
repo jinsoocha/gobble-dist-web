@@ -5,4 +5,4 @@ before_script:
   - npm run bundle-build
 script:
   - npm run lint
-  - NODE_ENV=test node src/app.js & npm test
+  - NODE_ENV=test node dist/server.bundle.js & npm test
