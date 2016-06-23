@@ -17,6 +17,7 @@ fs.readdirSync('node_modules')
 
 const SERVER_BUILD_DIR = path.join(__dirname, 'dist/');
 const SERVER_SRC_DIR = path.join(__dirname, 'server/');
+const COMMON_SRC_DIR = path.join(__dirname, 'common/');
 
 const serverConfig = {
   name: 'server',
@@ -34,11 +35,15 @@ const serverConfig = {
   module: {
     loaders: [{
       // regex includes both .js & .jsx
-      test: /\.js$/,
+      test: /.js$|.jsx$/,
       include: [
-        SERVER_SRC_DIR
+        SERVER_SRC_DIR,
+        COMMON_SRC_DIR
       ],
-      loader: 'babel-loader'
+      loader: 'babel-loader',
+      query: {
+        presets: ['react', 'es2015', 'stage-0']
+      }
     }]
   },
   externals: nodeModules,
