@@ -5,7 +5,7 @@ const jade = require('jade').__express;
 
 module.exports = (app, express) => {
   app.use(morgan('dev'));
-  app.use(express.static(path.join(__dirname, './../../client')));
+  app.use(express.static(path.join(__dirname, './../../dist')));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 

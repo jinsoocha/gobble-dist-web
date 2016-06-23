@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Gobble Front End - Isomorphic React-Redux.",
   "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
+    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server/app.js",
     "test": "./node_modules/.bin/mocha --reporter spec ./*.spec.js",
     "lint": "./node_modules/.bin/eslint ./"
   },
