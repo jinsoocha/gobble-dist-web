@@ -11,6 +11,8 @@ if (process.env.NODE_ENV === 'development') {
 const express = require('express');
 const app = express();
 
+require('./config/initialize')(app, express);
+
 app.get('/*', () => {
   res.send('It works!');
 });
