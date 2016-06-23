@@ -1,7 +1,9 @@
 const { requireAuth, checkAuth } = require('./../lib/auth-utils');
 
-module.exports = (app) => {
+const routeViews = (app) => {
   app.get('/*', (req, res) => {
     res.status(200).render('landing', {});
   });
 };
+
+export default routeViews;

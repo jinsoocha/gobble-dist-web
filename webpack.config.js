@@ -34,7 +34,7 @@ const serverConfig = {
   module: {
     loaders: [{
       // regex includes both .js & .jsx
-      test: /\.jsx$/,
+      test: /\.js$/,
       include: [
         SERVER_SRC_DIR
       ],

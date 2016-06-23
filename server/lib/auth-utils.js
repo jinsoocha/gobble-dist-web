@@ -1,4 +1,4 @@
-exports.requireAuth = (req, res, next) => {
+const requireAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   } else {
@@ -6,4 +6,6 @@ exports.requireAuth = (req, res, next) => {
   }
 };
 
-exports.checkAuth = (req) => req.isAuthenticated();
+const checkAuth = (req) => req.isAuthenticated();
+
+export { requireAuth, checkAuth };

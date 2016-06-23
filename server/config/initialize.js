@@ -1,9 +1,9 @@
-const path = require('path');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const jade = require('jade').__express;
+import path from 'path';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import { __express as jade } from 'jade';
 
-module.exports = (app, express) => {
+const initialize = (app, express) => {
   app.use(morgan('dev'));
   app.use(express.static(path.join(__dirname, './../../dist')));
   app.use(bodyParser.json());
@@ -13,3 +13,5 @@ module.exports = (app, express) => {
   app.set('view engine', 'jade');
   app.set('views', path.join(__dirname, './../views'));
 };
+
+export default initialize;

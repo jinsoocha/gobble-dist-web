@@ -1,22 +1,24 @@
-require('babel-polyfill');
+import 'babel-polyfill';
 
 // Load environment variables
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 if (process.env.NODE_ENV === 'development') {
   dotenv.config({ path: './env/development.env' });
 } else if (process.env.NODE_ENV === 'production') {
   dotenv.config({ path: './env/production.env' });
 }
 
-const express = require('express');
+import express from 'express';
 const app = express();
 
-require('./config/initialize')(app, express);
+import initialize from './config/initialize';
+initialize(app, express);
 
-require('./routes/view-routes')(app);
+import routeViews from './routes/view-routes';
+routeViews(app);
 
 app.listen(process.env.PORT, () => {
   console.log(`${process.env.APP_NAME} is listening on port ${process.env.PORT}.`);
 });
 
-module.exports = app;
+export default app;

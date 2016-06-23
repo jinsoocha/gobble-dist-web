@@ -12,6 +12,11 @@
   "author": "jackrzhang",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "eslint": "^2.13.0",
     "eslint-config-airbnb": "^9.0.1",
@@ -37,5 +42,9 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gobble43/gobble-dist-web"
   }
 }
