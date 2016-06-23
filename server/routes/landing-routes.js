@@ -1,4 +1,4 @@
-import { requireAuth, checkAuth } from './../lib/auth-utils';
+// import { requireAuth, checkAuth } from './../lib/auth-utils';
 
 // NOTE: Landing page does not utilize Redux
 import React from 'react';
@@ -11,7 +11,7 @@ const landingRoot = ReactDOM.renderToString(
 );
 
 const routeLanding = (app) => {
-  app.get('/*', (req, res) => {
+  app.get('/', (req, res) => {
     res.status(200).render('landing', {
       root: landingRoot
     });
