@@ -4,6 +4,7 @@ node_modules
 npm-debug.log
 
 *.bundle.js
+*.bundle.js.map
 
 env/development.env
 env/production.env

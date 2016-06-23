@@ -13,9 +13,7 @@ const app = express();
 
 require('./config/initialize')(app, express);
 
-app.get('/*', () => {
-  res.send('It works!');
-});
+require('./routes/view-routes')(app);
 
 app.listen(process.env.PORT, () => {
   console.log(`${process.env.APP_NAME} is listening on port ${process.env.PORT}.`);

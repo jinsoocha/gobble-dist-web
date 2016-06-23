@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Gobble Front End - Isomorphic React-Redux.",
   "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server/app.js",
+    "start": "NODE_ENV=development ./node_modules/.bin/nodemon dist/server.bundle.js",
     "test": "./node_modules/.bin/mocha --reporter spec ./**/*.spec.js",
+    "bundle": "webpack --watch",
     "lint": "./node_modules/.bin/eslint ./"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
     "eslint-plugin-react": "^5.2.2",
     "mocha": "^2.5.3",
     "nodemon": "^1.9.2",
+    "source-map-support": "^0.4.0",
     "supertest": "^1.2.0",
     "webpack": "^1.13.1"
   },
