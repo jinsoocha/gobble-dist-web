@@ -1,0 +1,11 @@
+extends ./base
+
+block styles
+  link(rel='stylesheet', href='style/login.css')
+
+block content
+    div.login-title Gobble
+  div.login-text Log In
+  div.login-button-container
+      a.login-button(href="/auth/google") Use Facebook Account
+    a.change-account-link(target="_blank", href="#") Change Facebook Account

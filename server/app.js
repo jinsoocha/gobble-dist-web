@@ -15,6 +15,9 @@ import initialize from './config/initialize';
 initialize(app, express);
 
 // Server-side Rendering
+import routeJadeViews from './routes/jade-only-routes';
+routeJadeViews(app);
+
 import routeLanding from './routes/landing-routes';
 routeLanding(app);
 
