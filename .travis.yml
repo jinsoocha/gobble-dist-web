@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - '6.2'
+before_script:
+  - npm run bundle-build
 script:
   - npm run lint
   - NODE_ENV=test node src/app.js & npm test
