@@ -4,7 +4,10 @@ const routeAuth = (app, passport) => {
     res.status(302).redirect('/login');
   });
 
-  app.get('/auth/facebook', passport.authenticate('facebook'));
+  app.get('/auth/facebook',
+  passport.authenticate('facebook', {
+    scope: ['user_friends']
+  }));
 
   // Passport automatically calls req.login() & establishes a session
   // upon successful authentication
