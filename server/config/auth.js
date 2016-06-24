@@ -52,10 +52,10 @@ const configAuth = (app, passport) => {
 
   // Passport session serialization setup
   passport.serializeUser((user, done) => {
-    done(null, user.get('facebookId'));
+    done(null, user);
   });
 
-  passport.deserializeUser((facebookId, done) => {
+  passport.deserializeUser((user, done) => {
     // Implement through gobble-db interface
     // User.where({ facebookId: facebookId }).fetch()
     //   .then((user) => {
