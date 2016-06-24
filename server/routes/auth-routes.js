@@ -1,7 +1,7 @@
 const routeAuth = (app, passport) => {
   app.get('/logout', (req, res) => {
     req.logout();
-    res.status(302).redirect('/login');
+    res.status(302).redirect('/');
   });
 
   app.get('/auth/facebook',
