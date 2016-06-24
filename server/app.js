@@ -27,8 +27,8 @@ routeAuth(app, passport);
 import routeJadeViews from './routes/jade-only-routes';
 routeJadeViews(app);
 
-import routeLanding from './routes/landing-routes';
-routeLanding(app);
+import routeIndex from './routes/index-routes';
+routeIndex(app);
 
 app.listen(process.env.PORT, () => {
   console.log(`${process.env.APP_NAME} is listening on port ${process.env.PORT}.`);

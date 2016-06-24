@@ -1,24 +1,15 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-class MainLayout extends Component {
-  componentWillMount() {
-    this.props.fetchUserIsAuth();
-  }
-
-  render() {
-    return (
-      <div className="main-layout">
-        <h3>{this.props.userIsAuth}</h3>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+const MainLayout = (props) => (
+  <div className="main-layout">
+    <h3>{String(props.userIsAuth)}</h3>
+    {props.children}
+  </div>
+);
 
 MainLayout.propTypes = {
   userIsAuth: PropTypes.bool.isRequired,
-  fetchUserIsAuth: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired
+  children: PropTypes.array.isRequired
 };
 
 export default MainLayout;
