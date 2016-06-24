@@ -6,6 +6,6 @@ const requireAuth = (req, res, next) => {
   }
 };
 
-const checkAuth = (req) => req.isAuthenticated();
+const isAuth = (req) => req.isAuthenticated();
 
-export { requireAuth, checkAuth };
+export { requireAuth, isAuth };

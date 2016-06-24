@@ -1,9 +1,9 @@
-import { checkAuth } from './../lib/auth-utils';
+import { isAuth } from './../lib/auth-utils';
 
-// NOTE: Landing page does not utilize Redux
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
+// NOTE: Landing page does not utilize Redux
 import Landing from './../../common/landing/Landing';
 const landingRoot = ReactDOM.renderToString(
   <Landing />
@@ -16,7 +16,7 @@ const userAppRoot = ReactDOM.renderToString(
 
 const routeLanding = (app) => {
   app.get('/', (req, res) => {
-    if (checkAuth(req)) {
+    if (isAuth(req)) {
       res.status(200).render('user-app', {
         root: userAppRoot
       });
