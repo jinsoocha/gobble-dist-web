@@ -2,11 +2,15 @@ import { isAuth } from './../lib/auth-utils';
 
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import { Provider } from 'react-redux';
+import configureStore from './../../common/configureStore';
+const store = configureStore();
 
-// NOTE: Landing page does not utilize Redux
 import Landing from './../../common/landing/Landing';
 const landingRoot = ReactDOM.renderToString(
-  <Landing />
+  <Provider store={store}>
+    <Landing />
+  </Provider>
 );
 
 import UserApp from './../../common/user-app/UserApp';

@@ -1,10 +1,11 @@
 import React from 'react';
+import MainLayoutContainer from './../main-layout/MainLayoutContainer';
 
 const Landing = () => (
-  <div>
+  <MainLayoutContainer>
     <h1>Landing Page</h1>
     <div><a href="/login">Get Started</a></div>
-  </div>
+  </MainLayoutContainer>
 );
 
 export default Landing;
