@@ -14,7 +14,19 @@ const app = express();
 import initialize from './config/initialize';
 initialize(app, express);
 
+// Passport Facebook Strategy Authentication
+import passport from 'passport';
+
+import configAuth from './config/auth';
+configAuth(app, passport);
+
+import routeAuth from './routes/auth-routes';
+routeAuth(app, passport);
+
 // Server-side Rendering
+import routeJadeViews from './routes/jade-only-routes';
+routeJadeViews(app);
+
 import routeLanding from './routes/landing-routes';
 routeLanding(app);
 
