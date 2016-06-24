@@ -55,6 +55,33 @@ const serverConfig = {
   devtool: 'sourcemap'
 };
 
+// ----- Client Configurations -----
+
+const CLIENT_BUILD_DIR = path.join(__dirname, 'dist/js/');
+const CLIENT_SRC_DIR = path.join(__dirname, 'client/');
+
+const clientLandingConfig = {
+  name: 'clientLanding',
+  entry: `${CLIENT_SRC_DIR}landing-index.js`,
+  output: {
+    path: CLIENT_BUILD_DIR,
+    filename: 'landing-index.bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /.js$|.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-0']
+        }
+      }
+    ]
+  }
+};
+
 module.exports = [
-  serverConfig
+  serverConfig,
+  clientLandingConfig
 ];

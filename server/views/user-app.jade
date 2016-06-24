@@ -3,6 +3,11 @@ extends ./base
 block styles
   link(rel='stylesheet', href='style/user-app.css')
 
+block head-scripts
+  // Server-side injection of Redux Store Initial State
+  script.
+    window.__INITIAL_STATE__ = !{JSON.stringify(initialState)};
+
 block content
   div.root!= root
 

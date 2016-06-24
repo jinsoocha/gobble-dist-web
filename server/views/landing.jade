@@ -3,7 +3,14 @@ extends ./base
 block styles
   link(rel='stylesheet', href='style/landing.css')
 
+block head-scripts
+  // Server-side injection of Redux Store Initial State
+  script.
+    window.__INITIAL_STATE__ = !{JSON.stringify(initialState)};
+
 block content
   div.root!= root
 
 block body-scripts
+  // Launch React client-side
+  script(src='js/landing-index.bundle.js')

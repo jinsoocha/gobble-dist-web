@@ -19,14 +19,14 @@ const renderUserApp = (req, res) => {
         <Provider store={store}>
           <UserApp />
         </Provider>
-      )
+      ),
+      initialState
     });
   });
 };
 
 const renderLanding = (req, res) => {
   generateInitialState(req, res, initialState => {
-    console.log(initialState);
     const store = configureStore(initialState);
 
     res.status(200).render('landing', {
@@ -34,7 +34,8 @@ const renderLanding = (req, res) => {
         <Provider store={store}>
           <Landing />
         </Provider>
-      )
+      ),
+      initialState
     });
   });
 };
