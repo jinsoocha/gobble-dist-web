@@ -9,13 +9,13 @@ const store = configureStore(initialState);
 import { Router, browserHistory } from 'react-router';
 
 import MainLayoutContainer from './../common/main-layout/MainLayoutContainer';
-import UserAppRoutes from './../common/user-app/UserAppRoutes';
+import userAppRoutes from './../common/user-app/userAppRoutes';
 
 const UserApp = () => (
   <Provider store={store}>
     <MainLayoutContainer>
       <Router
-        routes={UserAppRoutes}
+        routes={userAppRoutes}
         history={browserHistory}
       />
     </MainLayoutContainer>

@@ -8,7 +8,7 @@ import Home from './home/Home';
 //   </Route>
 // );
 
-const UserAppRoutes = {
+const userAppRoutes = {
   path: '',
   component: UserAppLayout,
   childRoutes: [
@@ -23,4 +23,4 @@ const UserAppRoutes = {
   ]
 };
 
-export default UserAppRoutes;
+export default userAppRoutes;

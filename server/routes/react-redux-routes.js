@@ -10,12 +10,12 @@ import configureStore from './../../common/configureStore';
 import { match, RouterContext } from 'react-router';
 
 import MainLayoutContainer from './../../common/main-layout/MainLayoutContainer';
-import UserAppRoutes from './../../common/user-app/UserAppRoutes';
+import userAppRoutes from './../../common/user-app/userAppRoutes';
 
 import Landing from './../../common/landing/Landing';
 
 const renderUserApp = (req, res) => {
-  match({ routes: UserAppRoutes, location: req.url }, (err, redirectLocation, renderProps) => {
+  match({ routes: userAppRoutes, location: req.url }, (err, redirectLocation, renderProps) => {
     if (err) {
       res.status(500).send(err.message);
     } else if (redirectLocation) {
