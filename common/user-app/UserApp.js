@@ -1,10 +1,16 @@
 import React from 'react';
+import { Router } from 'react-router';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
+
 import MainLayoutContainer from './../main-layout/MainLayoutContainer';
+import userAppRoutes from './userAppRoutes';
 
 const UserApp = () => (
   <MainLayoutContainer>
-    <h1>UserApp Page</h1>
-    <div><a href="/logout">Sign Out</a></div>
+    <Router
+      routes={userAppRoutes}
+      history={createBrowserHistory()}
+    />
   </MainLayoutContainer>
 );
 
