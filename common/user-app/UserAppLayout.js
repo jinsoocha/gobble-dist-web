@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 const UserAppLayout = (props) => (
   <div className="user-app-layout">
@@ -6,8 +6,8 @@ const UserAppLayout = (props) => (
   </div>
 );
 
-UserAppLayout.propTypes = {
-  children: PropTypes.array.isRequired
-};
+// UserAppLayout.propTypes = {
+//   children: PropTypes.element.isRequired
+// };
 
 export default UserAppLayout;

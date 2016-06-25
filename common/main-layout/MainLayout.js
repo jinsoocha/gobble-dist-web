@@ -8,8 +8,7 @@ const MainLayout = (props) => (
 );
 
 MainLayout.propTypes = {
-  userIsAuth: PropTypes.bool.isRequired,
-  children: PropTypes.array.isRequired
+  userIsAuth: PropTypes.bool.isRequired
 };
 
 export default MainLayout;

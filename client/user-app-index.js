@@ -6,11 +6,23 @@ import configureStore from './../common/configureStore';
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 
-import UserApp from './../common/user-app/UserApp';
+import { Router, browserHistory } from 'react-router';
+
+import MainLayoutContainer from './../common/main-layout/MainLayoutContainer';
+import UserAppRoutes from './../common/user-app/UserAppRoutes';
+
+const UserApp = () => (
+  <Provider store={store}>
+    <MainLayoutContainer>
+      <Router
+        routes={UserAppRoutes}
+        history={browserHistory}
+      />
+    </MainLayoutContainer>
+  </Provider>
+);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <UserApp />
-  </Provider>,
+  <UserApp />,
   document.querySelector('.root')
 );
