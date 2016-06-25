@@ -81,7 +81,29 @@ const clientLandingConfig = {
   }
 };
 
+const clientUserAppConfig = {
+  name: 'clientLanding',
+  entry: `${CLIENT_SRC_DIR}user-app-index.js`,
+  output: {
+    path: CLIENT_BUILD_DIR,
+    filename: 'user-app-index.bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /.js$|.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-0']
+        }
+      }
+    ]
+  }
+};
+
 module.exports = [
   serverConfig,
-  clientLandingConfig
+  clientLandingConfig,
+  clientUserAppConfig
 ];
