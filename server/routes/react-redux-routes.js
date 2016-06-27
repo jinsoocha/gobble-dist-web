@@ -14,34 +14,6 @@ import userAppRoutes from './../../common/user-app/userAppRoutes';
 
 import Landing from './../../common/landing/Landing';
 
-const renderUserApp = (req, res) => {
-  match({ routes: userAppRoutes, location: req.url }, (err, redirectLocation, renderProps) => {
-    if (err) {
-      res.status(500).send(err.message);
-    } else if (redirectLocation) {
-      res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-    } else if (renderProps) {
-      // Valid React Router route found - render corresponding component
-      generateInitialState(req, res, initialState => {
-        const store = configureStore(initialState);
-
-        res.status(200).render('user-app', {
-          root: ReactDOM.renderToString(
-            <Provider store={store}>
-              <MainLayoutContainer>
-                <RouterContext {...renderProps} />
-              </MainLayoutContainer>
-            </Provider>
-          ),
-          initialState
-        });
-      });
-    } else {
-      res.status(404).render('404');
-    }
-  });
-};
-
 const renderLanding = (req, res) => {
   generateInitialState(req, res, initialState => {
     const store = configureStore(initialState);
@@ -57,6 +29,42 @@ const renderLanding = (req, res) => {
   });
 };
 
+const renderUserApp = (req, res, renderProps) => {
+  // Valid React Router route found - render corresponding component
+  generateInitialState(req, res, initialState => {
+    const store = configureStore(initialState);
+
+    res.status(200).render('user-app', {
+      root: ReactDOM.renderToString(
+        <Provider store={store}>
+          <MainLayoutContainer>
+            <RouterContext {...renderProps} />
+          </MainLayoutContainer>
+        </Provider>
+      ),
+      initialState
+    });
+  });
+};
+
+const routeReactRouter = (req, res) => {
+  match({ routes: userAppRoutes, location: req.url }, (err, redirectLocation, renderProps) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else if (redirectLocation) {
+      res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+    } else if (renderProps) {
+      if (isAuth(req)) {
+        renderUserApp(req, res, renderProps);
+      } else {
+        res.status(401).redirect('/login');
+      }
+    } else {
+      res.status(404).render('404');
+    }
+  });
+};
+
 const routeReactRedux = (app) => {
   app.get('/', (req, res, next) => {
     if (!isAuth(req)) {
@@ -67,7 +75,7 @@ const routeReactRedux = (app) => {
   });
 
   app.get('/*', (req, res) => {
-    renderUserApp(req, res);
+    routeReactRouter(req, res);
   });
 };
 
