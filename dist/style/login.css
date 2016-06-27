@@ -8,9 +8,18 @@ body {
 }
 
 .login-title {
-
+  font-size: 15px;
 }
 
 .login-button-container {
   margin: 20px 0;
+}
+
+.login-footer {
+  margin-top: 70px;
+}
+
+.login-footer-link {
+  font-size: 14px;
+  margin: 0 13px;
 }

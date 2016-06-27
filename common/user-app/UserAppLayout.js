@@ -6,8 +6,4 @@ const UserAppLayout = (props) => (
   </div>
 );
 
-// UserAppLayout.propTypes = {
-//   children: PropTypes.element.isRequired
-// };
-
 export default UserAppLayout;
