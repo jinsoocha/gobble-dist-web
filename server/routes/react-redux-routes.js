@@ -12,23 +12,9 @@ import { match, RouterContext } from 'react-router';
 import MainLayoutContainer from './../../common/main-layout/MainLayoutContainer';
 import userAppRoutes from './../../common/user-app/userAppRoutes';
 
-import Landing from './../../common/landing/Landing';
 import About from './../../common/about/About';
-
-const renderLanding = (req, res) => {
-  generateInitialState(req, res, initialState => {
-    const store = configureStore(initialState);
-
-    res.status(200).render('landing', {
-      root: ReactDOM.renderToString(
-        <Provider store={store}>
-          <Landing />
-        </Provider>
-      ),
-      initialState
-    });
-  });
-};
+import FoodLanding from './../../common/food-landing/FoodLanding';
+import Landing from './../../common/landing/Landing';
 
 const renderAbout = (req, res) => {
   generateInitialState(req, res, initialState => {
@@ -38,6 +24,36 @@ const renderAbout = (req, res) => {
       root: ReactDOM.renderToString(
         <Provider store={store}>
           <About />
+        </Provider>
+      ),
+      initialState
+    });
+  });
+};
+
+const renderFoodLanding = (req, res) => {
+  generateInitialState(req, res, initialState => {
+    const store = configureStore(initialState);
+
+    res.status(200).render('food-landing', {
+      root: ReactDOM.renderToString(
+        <Provider store={store}>
+          <FoodLanding />
+        </Provider>
+      ),
+      initialState
+    });
+  });
+};
+
+const renderLanding = (req, res) => {
+  generateInitialState(req, res, initialState => {
+    const store = configureStore(initialState);
+
+    res.status(200).render('landing', {
+      root: ReactDOM.renderToString(
+        <Provider store={store}>
+          <Landing />
         </Provider>
       ),
       initialState
@@ -63,7 +79,8 @@ const renderUserApp = (req, res, renderProps) => {
   });
 };
 
-const routeReactRouter = (req, res) => {
+// Route the User App w/ React Router routes, user profiles, and catch 404s
+const routeDynamicRoutes = (req, res) => {
   match({ routes: userAppRoutes, location: req.url }, (err, redirectLocation, renderProps) => {
     if (err) {
       res.status(500).send(err.message);
@@ -86,6 +103,14 @@ const routeReactRedux = (app) => {
     renderAbout(req, res);
   });
 
+  app.get('/food', (req, res) => {
+    renderFoodLanding(req, res);
+  });
+
+  app.get('/food/*', (req, res) => {
+    renderFoodLanding(req, res);
+  });
+
   app.get('/', (req, res, next) => {
     if (!isAuth(req)) {
       renderLanding(req, res);
@@ -95,7 +120,7 @@ const routeReactRedux = (app) => {
   });
 
   app.get('/*', (req, res) => {
-    routeReactRouter(req, res);
+    routeDynamicRoutes(req, res);
   });
 };
 

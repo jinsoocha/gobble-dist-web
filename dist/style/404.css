@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+}
+
+.title-404 {
+  padding-top: 20px;
+  margin: 5% 0 20px;
+}
+
+.text-404 {
+  margin: 20px 0 10px;
+}
+
+.footer-404 {
+  margin-top: 70px;
+}
+
+.footer-link-404 {
+  font-size: 14px;
+  margin: 0 13px;
+}
