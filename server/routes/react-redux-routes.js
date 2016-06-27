@@ -13,6 +13,7 @@ import MainLayoutContainer from './../../common/main-layout/MainLayoutContainer'
 import userAppRoutes from './../../common/user-app/userAppRoutes';
 
 import Landing from './../../common/landing/Landing';
+import About from './../../common/about/About';
 
 const renderLanding = (req, res) => {
   generateInitialState(req, res, initialState => {
@@ -22,6 +23,21 @@ const renderLanding = (req, res) => {
       root: ReactDOM.renderToString(
         <Provider store={store}>
           <Landing />
+        </Provider>
+      ),
+      initialState
+    });
+  });
+};
+
+const renderAbout = (req, res) => {
+  generateInitialState(req, res, initialState => {
+    const store = configureStore(initialState);
+
+    res.status(200).render('about', {
+      root: ReactDOM.renderToString(
+        <Provider store={store}>
+          <About />
         </Provider>
       ),
       initialState

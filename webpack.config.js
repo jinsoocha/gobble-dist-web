@@ -81,6 +81,27 @@ const clientLandingConfig = {
   }
 };
 
+const clientAboutConfig = {
+  name: 'clientAbout',
+  entry: `${CLIENT_SRC_DIR}about-index.js`,
+  output: {
+    path: CLIENT_BUILD_DIR,
+    filename: 'about-index.bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /.js$|.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-0']
+        }
+      }
+    ]
+  }
+};
+
 const clientUserAppConfig = {
   name: 'clientLanding',
   entry: `${CLIENT_SRC_DIR}user-app-index.js`,
@@ -105,5 +126,6 @@ const clientUserAppConfig = {
 module.exports = [
   serverConfig,
   clientLandingConfig,
+  clientAboutConfig,
   clientUserAppConfig
 ];
