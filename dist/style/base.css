@@ -4,11 +4,16 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   font-family: 'Lato', sans-serif;
   letter-spacing: .5px;
   font-weight: 300;
+  outline: none;
+  text-decoration: none;
 }
 
 /* NavBar */
 .navbar-wrapper {
   background-color: rgb(200, 200, 200);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .pure-menu {
@@ -19,18 +24,21 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
 
 .pure-menu-heading {
   text-align: left;
+  margin-left: 20px;
 }
 
 .pure-menu-list {
   float: right;
+  margin-right: 20px;
 }
 
 .pure-menu-link {
-  margin: 0 7px;
+  margin: 0 3px;
 }
 
 /* Content */
 .content {
+  margin-top: 100px;
   min-height: 90vh;
   text-align: center;
 }

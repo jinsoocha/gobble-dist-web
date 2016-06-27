@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+}
+
+.login-wrapper {
+  margin-top: 5%;
+  padding-top: 20px;
+}
+
+.login-title {
+
+}
+
+.login-button-container {
+  margin: 20px 0;
+}
