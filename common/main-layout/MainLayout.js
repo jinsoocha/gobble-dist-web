@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react';
 
 import Footer from './Footer';
+import NavBarAuth from './NavBarAuth';
+import NavBarDefault from './NavBarDefault';
 
 const MainLayout = (props) => (
   <div className="main-layout">
-    <h3>{String(props.userIsAuth)}</h3>
-    {props.children}
+    {props.userIsAuth ? <NavBarAuth /> : <NavBarDefault />}
+    <div className="content">
+      {props.children}
+    </div>
     <Footer />
   </div>
 );
