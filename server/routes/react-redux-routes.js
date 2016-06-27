@@ -82,6 +82,10 @@ const routeReactRouter = (req, res) => {
 };
 
 const routeReactRedux = (app) => {
+  app.get('/about', (req, res) => {
+    renderAbout(req, res);
+  });
+
   app.get('/', (req, res, next) => {
     if (!isAuth(req)) {
       renderLanding(req, res);
