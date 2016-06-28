@@ -1,11 +1,11 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import SearchBarContainer from './SearchBarContainer';
 
 const NavbarDefault = () => (
   <div className="navbar-default navbar-wrapper">
     <div className="pure-menu pure-menu-horizontal">
       <a href="/" className="pure-menu-heading">LOGO</a>
-      <SearchBar />
+      <SearchBarContainer />
       <ul className="pure-menu-list">
         <li className="pure-menu-item"><a href="/food" className="pure-menu-link">Food</a></li>
         <li className="pure-menu-item"><a href="/about" className="pure-menu-link">About</a></li>
