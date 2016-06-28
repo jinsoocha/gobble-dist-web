@@ -22,12 +22,4 @@ Search.propTypes = {
   query: PropTypes.string.isRequired
 };
 
-// SearchContainer
-
-import { connect } from 'react-redux';
-
-const mapStateToProps = state => ({
-  query: state.search.resultsQuery
-});
-
-export default connect(mapStateToProps)(Search);
+export default Search;

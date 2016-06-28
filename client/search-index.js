@@ -6,11 +6,11 @@ import configureStore from './../common/configureStore';
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 
-import Search from './../common/search/Search';
+import SearchContainer from './../common/search/SearchContainer';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Search />
+    <SearchContainer />
   </Provider>,
   document.querySelector('.root')
 );

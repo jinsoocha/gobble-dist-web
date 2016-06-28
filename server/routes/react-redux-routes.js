@@ -15,7 +15,7 @@ import userAppRoutes from './../../common/user-app/userAppRoutes';
 import About from './../../common/about/About';
 import FoodLanding from './../../common/food-landing/FoodLanding';
 import FoodProduct from './../../common/food-product/FoodProduct';
-import Search from './../../common/search/Search';
+import SearchContainer from './../../common/search/SearchContainer';
 import Profile from './../../common/profile/Profile';
 import Landing from './../../common/landing/Landing';
 
@@ -71,7 +71,7 @@ const renderSearch = (req, res) => {
     res.status(200).render('search', {
       root: ReactDOM.renderToString(
         <Provider store={store}>
-          <Search />
+          <SearchContainer />
         </Provider>
       ),
       initialState
