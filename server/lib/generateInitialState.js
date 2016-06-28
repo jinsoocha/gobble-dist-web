@@ -14,7 +14,7 @@ const generateInitialState = (req, res, callback) => {
   };
   initialState.user.isAuth = isAuth(req);
 
-  console.log(initialState);
+  console.log('INITIAL STATE', initialState);
   callback(initialState);
 };
 

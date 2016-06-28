@@ -20,7 +20,8 @@ html
     // Custom Styles
     block styles
 
-    block head-scripts
+    // Font Awesome
+    script(src='https://use.fontawesome.com/e681c23cf4.js')
 
     // Facebook OAuth Redirect Fix
     script.
@@ -29,6 +30,8 @@ html
           ? history.replaceState(null, null, window.location.href.split('#')[0])
           : window.location.hash = '';
       }
+
+    block head-scripts
 
   body
     block content
