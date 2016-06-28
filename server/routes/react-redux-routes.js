@@ -14,6 +14,7 @@ import userAppRoutes from './../../common/user-app/userAppRoutes';
 
 import About from './../../common/about/About';
 import FoodLanding from './../../common/food-landing/FoodLanding';
+import FoodProduct from './../../common/food-product/FoodProduct';
 import Landing from './../../common/landing/Landing';
 
 const renderAbout = (req, res) => {
@@ -39,6 +40,21 @@ const renderFoodLanding = (req, res) => {
       root: ReactDOM.renderToString(
         <Provider store={store}>
           <FoodLanding />
+        </Provider>
+      ),
+      initialState
+    });
+  });
+};
+
+const renderFoodProduct = (req, res) => {
+  generateInitialState(req, res, initialState => {
+    const store = configureStore(initialState);
+
+    res.status(200).render('food-product', {
+      root: ReactDOM.renderToString(
+        <Provider store={store}>
+          <FoodProduct />
         </Provider>
       ),
       initialState
@@ -109,7 +125,7 @@ const routeReactRedux = (app) => {
 
   app.get('/food/*', (req, res) => {
     console.log(req.url);
-    renderFoodLanding(req, res);
+    renderFoodProduct(req, res);
   });
 
   app.get('/', (req, res, next) => {

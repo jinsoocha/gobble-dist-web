@@ -102,6 +102,27 @@ const clientFoodLandingConfig = {
   }
 };
 
+const clientFoodProductConfig = {
+  name: 'clientFoodLanding',
+  entry: `${CLIENT_SRC_DIR}food-product-index.js`,
+  output: {
+    path: CLIENT_BUILD_DIR,
+    filename: 'food-product-index.bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /.js$|.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-0']
+        }
+      }
+    ]
+  }
+};
+
 const clientAboutConfig = {
   name: 'clientAbout',
   entry: `${CLIENT_SRC_DIR}about-index.js`,
@@ -149,5 +170,6 @@ module.exports = [
   clientLandingConfig,
   clientAboutConfig,
   clientFoodLandingConfig,
+  clientFoodProductConfig,
   clientUserAppConfig
 ];
