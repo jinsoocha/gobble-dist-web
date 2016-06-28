@@ -9,10 +9,12 @@ import { isAuth } from './auth-utils';
 const generateInitialState = (req, res, callback) => {
   const initialState = {
     user: {
-      isAuth: false
+      isAuth: isAuth(req)
+    },
+    search: {
+      query: ''
     }
   };
-  initialState.user.isAuth = isAuth(req);
 
   console.log('INITIAL STATE', initialState);
   callback(initialState);

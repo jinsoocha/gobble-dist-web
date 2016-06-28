@@ -1,19 +1,30 @@
 import { combineReducers } from 'redux';
 
-const userReducer = (state, action) => {
-  if (typeof state === 'undefined') {
-    return {
-      userIsAuth: true
-    };
-  }
+const userInitialState = {
+  isAuth: false
+};
 
-  // For now, don’t handle any actions
-  // and just return the state given to us.
-  return state;
+const userReducer = (state = userInitialState, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
+const searchInitialState = {
+  query: ''
+};
+
+const searchReducer = (state = searchInitialState, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
 };
 
 const rootReducer = combineReducers({
-  user: userReducer
+  user: userReducer,
+  search: searchReducer
 });
 
 export default rootReducer;
