@@ -15,6 +15,7 @@ import userAppRoutes from './../../common/user-app/userAppRoutes';
 import About from './../../common/about/About';
 import FoodLanding from './../../common/food-landing/FoodLanding';
 import FoodProduct from './../../common/food-product/FoodProduct';
+import Profile from './../../common/profile/Profile';
 import Landing from './../../common/landing/Landing';
 
 const renderAbout = (req, res) => {
@@ -55,6 +56,21 @@ const renderFoodProduct = (req, res) => {
       root: ReactDOM.renderToString(
         <Provider store={store}>
           <FoodProduct />
+        </Provider>
+      ),
+      initialState
+    });
+  });
+};
+
+const renderProfile = (req, res) => {
+  generateInitialState(req, res, initialState => {
+    const store = configureStore(initialState);
+
+    res.status(200).render('profile', {
+      root: ReactDOM.renderToString(
+        <Provider store={store}>
+          <Profile />
         </Provider>
       ),
       initialState
@@ -109,7 +125,12 @@ const routeDynamicRoutes = (req, res) => {
         res.status(401).redirect('/login');
       }
     } else {
-      res.status(404).render('404');
+      const username = req.url.slice(1);
+      if (!!username) {
+        renderProfile(req, res);
+      } else {
+        res.status(404).render('404');
+      }
     }
   });
 };
