@@ -142,7 +142,8 @@ const routeDynamicRoutes = (req, res) => {
       }
     } else {
       const username = req.url.slice(1);
-      if (!!username) {
+      if (!!username) { // logic here for verifying existence of user
+        console.log('USERNAME', username);
         renderProfile(req, res);
       } else {
         res.status(404).render('404');
@@ -160,12 +161,13 @@ const routeReactRedux = (app) => {
     renderFoodLanding(req, res);
   });
 
-  app.get('/food/*', (req, res) => {
-    console.log(req.url);
+  app.get('/food/:upc', (req, res) => {
+    console.log('UPC', req.params.upc);
     renderFoodProduct(req, res);
   });
 
   app.get('/search', (req, res) => {
+    console.log('SEARCH QUERY', req.query.q);
     renderSearch(req, res);
   });
 

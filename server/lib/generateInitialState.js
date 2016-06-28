@@ -12,7 +12,7 @@ const generateInitialState = (req, res, callback) => {
       isAuth: isAuth(req)
     },
     search: {
-      query: ''
+      query: !!req.query.q ? req.query.q : ''
     }
   };
 
