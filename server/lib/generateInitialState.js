@@ -8,11 +8,12 @@ import { isAuth } from './auth-utils';
 
 const generateInitialState = (req, res, callback) => {
   const initialState = {
-    user: {
+    layout: {
+      searchBarQuery: '',
       isAuth: isAuth(req)
     },
     search: {
-      query: !!req.query.q ? req.query.q : ''
+      resultsQuery: !!req.query.q ? req.query.q : ''
     }
   };
 

@@ -1,29 +1,9 @@
 import { combineReducers } from 'redux';
-
-const userInitialState = {
-  isAuth: false
-};
-
-const userReducer = (state = userInitialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
-
-const searchInitialState = {
-  query: ''
-};
-
-const searchReducer = (state = searchInitialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+import mainLayoutReducer from './main-layout/mainLayoutReducer';
+import searchReducer from './search/searchReducer';
 
 const rootReducer = combineReducers({
-  user: userReducer,
+  layout: mainLayoutReducer,
   search: searchReducer
 });
 
