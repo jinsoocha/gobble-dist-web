@@ -8,10 +8,17 @@ class SearchBar extends Component {
     // http://stackoverflow.com/questions/36677733/why-jsx-props-should-not-use-arrow-functions
     // It's best to use bind within the constructor.
     this.handleSearchBarChange = this.handleSearchBarChange.bind(this);
+    this.submitSearch = this.submitSearch.bind(this);
   }
 
   handleSearchBarChange(event) {
     this.props.updateSearchBarQuery(event.target.value);
+  }
+
+  submitSearch(event) {
+    if (event.keyCode === 13 && this.props.searchBarQuery !== '') { // enter
+      window.location.href = `/search?q=${this.props.searchBarQuery}`;
+    }
   }
 
   render() {
@@ -24,6 +31,7 @@ class SearchBar extends Component {
           placeholder="Search Gobble"
           value={searchBarQuery}
           onChange={this.handleSearchBarChange}
+          onKeyDown={this.submitSearch}
         />
       </span>
     );
