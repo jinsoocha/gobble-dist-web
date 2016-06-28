@@ -123,6 +123,27 @@ const clientFoodProductConfig = {
   }
 };
 
+const clientSearchConfig = {
+  name: 'clientSearch',
+  entry: `${CLIENT_SRC_DIR}search-index.js`,
+  output: {
+    path: CLIENT_BUILD_DIR,
+    filename: 'search-index.bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /.js$|.jsx$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-0']
+        }
+      }
+    ]
+  }
+};
+
 const clientProfileConfig = {
   name: 'clientProfile',
   entry: `${CLIENT_SRC_DIR}profile-index.js`,
@@ -192,6 +213,7 @@ module.exports = [
   clientAboutConfig,
   clientFoodLandingConfig,
   clientFoodProductConfig,
+  clientSearchConfig,
   clientProfileConfig,
   clientUserAppConfig
 ];
