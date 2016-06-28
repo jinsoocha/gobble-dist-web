@@ -6,6 +6,7 @@ import NavBarDefault from './NavBarDefault';
 
 const MainLayout = (props) => (
   <div className="main-layout">
+    <div className="top-border"></div>
     {props.userIsAuth ? <NavBarAuth /> : <NavBarDefault />}
     <div className="content">
       {props.children}

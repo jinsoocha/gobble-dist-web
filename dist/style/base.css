@@ -9,12 +9,23 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   transition: all .2s ease;
 }
 
+/* Site Top Gradient Border */
+.top-border {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: block;
+  height: 7px;
+  background: -webkit-linear-gradient(left, #d44727 0, #6e335e 25%, #76bd1d 50%, #cca584 100%);
+  background: linear-gradient(to right, #d44727 0, #6e335e 25%, #76bd1d 50%, #cca584 100%);
+}
+
 /* NavBar */
 .navbar-wrapper {
   background-color: rgb(255, 255, 255);
   border-bottom: 2px solid rgb(240, 240, 240);
   position: fixed;
-  top: 0;
+  top: 7px;
   width: 100%;
 }
 
