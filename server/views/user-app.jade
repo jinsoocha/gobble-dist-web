@@ -1,7 +1,7 @@
 extends ./base
 
 block styles
-  link(rel='stylesheet', href='style/user-app.css')
+  link(rel='stylesheet', href='/style/user-app.css')
 
 block head-scripts
   // Server-side injection of Redux Store Initial State
@@ -13,4 +13,4 @@ block content
 
 block body-scripts
   // Launch React client-side
-  script(src='js/user-app-index.bundle.js')
+  script(src='/js/user-app-index.bundle.js')

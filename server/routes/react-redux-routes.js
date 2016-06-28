@@ -108,6 +108,7 @@ const routeReactRedux = (app) => {
   });
 
   app.get('/food/*', (req, res) => {
+    console.log(req.url);
     renderFoodLanding(req, res);
   });
 
