@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
 
 /* NavBar */
 .navbar-wrapper {
+  z-index: 2;
   background-color: rgb(255, 255, 255);
   border-bottom: 2px solid rgb(240, 240, 240);
   position: fixed;
@@ -48,10 +49,6 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
 
 .navbar-menu-link {
   margin: 0 3px;
-}
-
-.navbar-dropdown {
-  z-index: 20;
 }
 
 .sign-in-link {
