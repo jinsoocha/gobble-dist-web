@@ -12,7 +12,7 @@ const NavBarAuth = () => (
         <li className="pure-menu-item">
           <a href="#" className="gobble-modal-link navbar-menu-link pure-menu-link">
             <i className="gobble-modal-link-icon fa fa-cutlery" aria-hidden="true" />
-            Gobble!
+            Gobble
           </a>
         </li>
         <li className="navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover">

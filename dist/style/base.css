@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   margin: 0 10px 0 5px;
   font-weight: 400;
   background-color: rgb(110, 51, 95);
-  color: rgb(235, 235, 235);
+  color: rgb(245, 245, 245);
   border-radius: 5px;
 }
 
@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
 }
 
 .gobble-modal-link-icon {
-  margin-right: 10px;
+  margin-right: 10px; 
 }
 
 /* Search Bar */
@@ -111,10 +111,9 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
 
 /* Content */
 .content {
-  margin-top: 100px;
+  margin-top: 81px;
   min-height: 90vh;
   text-align: center;
-  z-index: -2;
 }
 
 /* Footer */
