@@ -1,0 +1,13 @@
+.user-app-navbar {
+  top: 79px;
+  z-index: -1;
+  position: fixed;
+  background-color: rgb(250, 250, 250);
+  opacity: .85;
+  padding: 6px 0;
+  border-bottom: 2px solid rgb(235, 235, 235);
+}
+
+.user-app-content {
+  margin-top: 155px;
+}

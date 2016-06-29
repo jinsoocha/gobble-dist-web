@@ -1,12 +1,7 @@
 import UserAppLayout from './UserAppLayout';
 import Feed from './feed/Feed';
-
-// const userAppRoutes = () => (
-//   <Route path="/" component={UserAppLayout} >
-//     <IndexRoute component={Home} />
-//     <Route path="home" component={Home} />
-//   </Route>
-// );
+import Popular from './popular/Popular';
+import Ripple from './ripple/Ripple';
 
 const userAppRoutes = {
   path: '',
@@ -19,6 +14,14 @@ const userAppRoutes = {
     {
       path: '/feed',
       component: Feed
+    },
+    {
+      path: '/popular',
+      component: Popular
+    },
+    {
+      path: '/ripple',
+      component: Ripple
     }
   ]
 };

@@ -50,6 +50,31 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   margin: 0 3px;
 }
 
+.navbar-dropdown {
+  z-index: 20;
+}
+
+.sign-in-link {
+  font-weight: 400;
+  color: rgb(110, 51, 95);
+}
+
+.gobble-modal-link {
+  margin: 0 10px 0 5px;
+  font-weight: 400;
+  background-color: rgb(110, 51, 95);
+  color: rgb(235, 235, 235);
+  border-radius: 5px;
+}
+
+.gobble-modal-link:hover, .gobble-modal-link:focus {
+  background-color: rgb(125, 64, 105);
+}
+
+.gobble-modal-link-icon {
+  margin-right: 10px;
+}
+
 /* Search Bar */
 .search-bar {
   display: inline-block;
@@ -89,6 +114,7 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   margin-top: 100px;
   min-height: 90vh;
   text-align: center;
+  z-index: -2;
 }
 
 /* Footer */
@@ -96,5 +122,5 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   text-align: center;
   background-color: rgb(247, 247, 247);
   border-top: 1px solid rgb(240, 240, 240);
-  padding: 45px 0 35px;
+  padding: 65px 0 55px;
 }
