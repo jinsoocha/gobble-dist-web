@@ -7,7 +7,7 @@ const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 
 import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux'
+import { syncHistoryWithStore } from 'react-router-redux';
 const history = syncHistoryWithStore(browserHistory, store);
 
 import MainLayoutContainer from './../common/main-layout/MainLayoutContainer';
