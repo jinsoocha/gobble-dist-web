@@ -84,6 +84,7 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
 .fa-search {
   margin: 0 10px;
   color: rgb(110, 51, 95);
+  cursor: pointer;
 }
 
 .search-bar input[type="text"] {

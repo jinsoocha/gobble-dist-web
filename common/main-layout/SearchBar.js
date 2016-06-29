@@ -9,6 +9,7 @@ class SearchBar extends Component {
     // It's best to use bind within the constructor.
     this.handleSearchBarChange = this.handleSearchBarChange.bind(this);
     this.submitSearch = this.submitSearch.bind(this);
+    this.submitSearchByIcon = this.submitSearchByIcon.bind(this);
   }
 
   handleSearchBarChange(event) {
@@ -21,11 +22,21 @@ class SearchBar extends Component {
     }
   }
 
+  submitSearchByIcon() {
+    if (this.props.searchBarQuery !== '') { // enter
+      window.location.href = `/search?q=${this.props.searchBarQuery}`;
+    }
+  }
+
   render() {
     const { searchBarQuery } = this.props;
     return (
       <span className="search-bar">
-        <i className="fa fa-search" aria-hidden="true"></i>
+        <i
+          className="fa fa-search"
+          aria-hidden="true"
+          onClick={this.submitSearchByIcon}
+        />
         <input
           type="text"
           placeholder="Search Gobble"
