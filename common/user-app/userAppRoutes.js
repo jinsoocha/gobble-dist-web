@@ -1,5 +1,5 @@
 import UserAppLayout from './UserAppLayout';
-import Home from './home/Home';
+import Feed from './feed/Feed';
 
 // const userAppRoutes = () => (
 //   <Route path="/" component={UserAppLayout} >
@@ -14,11 +14,11 @@ const userAppRoutes = {
   childRoutes: [
     {
       path: '/',
-      component: Home
+      component: Feed
     },
     {
-      path: '/home',
-      component: Home
+      path: '/feed',
+      component: Feed
     }
   ]
 };

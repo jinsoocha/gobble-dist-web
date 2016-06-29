@@ -29,24 +29,24 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   width: 100%;
 }
 
-.pure-menu {
+.navbar-menu {
   max-width: 1100px;
   padding: 17px 0;
   margin: 0 auto;
   font-size: 17px;
 }
 
-.pure-menu-heading {
+.navbar-menu-heading {
   text-align: left;
   margin-left: 20px;
 }
 
-.pure-menu-list {
+.navbar-menu-list {
   float: right;
   margin-right: 20px;
 }
 
-.pure-menu-link {
+.navbar-menu-link {
   margin: 0 3px;
 }
 

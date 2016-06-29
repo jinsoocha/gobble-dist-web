@@ -2,14 +2,14 @@ import React from 'react';
 import SearchBarContainer from './SearchBarContainer';
 
 const NavbarDefault = () => (
-  <div className="navbar-default navbar-wrapper">
-    <div className="pure-menu pure-menu-horizontal">
-      <a href="/" className="pure-menu-heading">LOGO</a>
+  <div className="navbar-auth navbar-wrapper">
+    <div className="navbar-menu pure-menu pure-menu-horizontal">
+      <a href="/" className="navbar-menu-heading pure-menu-heading">LOGO</a>
       <SearchBarContainer />
-      <ul className="pure-menu-list">
-        <li className="pure-menu-item"><a href="/food" className="pure-menu-link">Food</a></li>
-        <li className="pure-menu-item"><a href="/about" className="pure-menu-link">About</a></li>
-        <li className="pure-menu-item"><a href="/login" className="pure-menu-link">Sign in</a></li>
+      <ul className="navbar-menu-list pure-menu-list">
+        <li className="pure-menu-item"><a href="/food" className="navbar-menu-link pure-menu-link">Food</a></li>
+        <li className="pure-menu-item"><a href="/about" className="navbar-menu-link pure-menu-link">About</a></li>
+        <li className="pure-menu-item"><a href="/login" className="navbar-menu-link pure-menu-link">Sign in</a></li>
       </ul>
     </div>
   </div>
