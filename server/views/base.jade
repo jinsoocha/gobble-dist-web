@@ -11,15 +11,15 @@ html
     title Gobble
 
     // Favicon
-    link(rel='shortcut icon', type='image/x-icon', href='images/favicon.ico')
-
+    link(rel='shortcut icon', type='image/x-icon', href='/images/favicon.ico')
+    
     // Base Styles
-    link(rel='stylesheet', href='style/base.css')
+    link(rel='stylesheet', href='/style/pure-min.css')
+    link(rel='stylesheet', href='/style/font-awesome.min.css')
+    link(rel='stylesheet', href='/style/base.css')
+
     // Custom Styles
     block styles
-
-    // External Dependencies
-    block head-scripts
 
     // Facebook OAuth Redirect Fix
     script.
@@ -28,6 +28,8 @@ html
           ? history.replaceState(null, null, window.location.href.split('#')[0])
           : window.location.hash = '';
       }
+
+    block head-scripts
 
   body
     block content

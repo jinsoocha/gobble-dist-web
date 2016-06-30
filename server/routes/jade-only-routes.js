@@ -1,6 +1,12 @@
+import { isAuth } from './../lib/auth-utils';
+
 const routeJadeViews = (app) => {
   app.get('/login', (req, res) => {
-    res.status(200).render('login');
+    if (isAuth(req)) {
+      res.status(302).redirect('/');
+    } else {
+      res.status(200).render('login');
+    }
   });
 };
 

@@ -1,12 +1,17 @@
 extends ./base
 
 block styles
-  link(rel='stylesheet', href='style/login.css')
+  link(rel='stylesheet', href='/style/login.css')
 
 block content
-  div.login-title 
-    h1 Gobble
-  div.login-text Log In
-  div.login-button-container
+  div.login-wrapper
+    div.login-title 
+      h1 Sign in to Gobble
+    div.login-logo GOBBLE LOGO HERE
+    div.login-button-container
       a.login-button(href="/auth/facebook") Use Facebook Account
-    a.change-account-link(target="_blank", href="#") Change Facebook Account
+    div.login-footer
+      a.login-footer-link(href="/about") About
+      a.login-footer-link(href="https://github.com/gobble43" target="_blank") Github
+      a.login-footer-link(href="https://github.com/gobble43/docs/blob/master/LICENSE" target="_blank") License
+      a.login-footer-link(href="https://github.com/gobble43/docs/blob/master/CONTRIBUTING.md" target="_blank") Contribute

@@ -1,0 +1,14 @@
+extends ./base
+
+block styles
+  link(rel='stylesheet', href='/style/food-product.css')
+
+block head-scripts
+  script.
+    window.__INITIAL_STATE__ = !{JSON.stringify(initialState)};
+
+block content
+  div.root!= root
+
+block body-scripts
+  script(src='/js/food-product-index.bundle.js')

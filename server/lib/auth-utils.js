@@ -2,10 +2,10 @@ const requireAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    res.redirect('/welcome');
+    res.redirect('/');
   }
 };
 
-const checkAuth = (req) => req.isAuthenticated();
+const isAuth = (req) => req.isAuthenticated();
 
-export { requireAuth, checkAuth };
+export { requireAuth, isAuth };

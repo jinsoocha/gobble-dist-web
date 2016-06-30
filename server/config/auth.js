@@ -4,7 +4,7 @@ import { Strategy as FacebookStrategy } from 'passport-facebook';
 const configAuth = (app, passport) => {
   // Express session middleware
   app.use(session({
-    name: 'twofastpaws.sid',
+    name: 'gobble.sid',
     secret: process.env.SESSION_SECRET,
     saveUnitialized: true,
     resave: false,

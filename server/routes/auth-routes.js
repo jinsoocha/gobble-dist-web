@@ -1,9 +1,4 @@
 const routeAuth = (app, passport) => {
-  app.get('/logout', (req, res) => {
-    req.logout();
-    res.status(302).redirect('/');
-  });
-
   app.get('/auth/facebook',
   passport.authenticate('facebook', {
     scope: ['user_friends']
@@ -16,6 +11,11 @@ const routeAuth = (app, passport) => {
     failureRedirect: '/login',
     successRedirect: '/'
   }));
+
+  app.get('/logout', (req, res) => {
+    req.logout();
+    res.status(302).redirect('/');
+  });
 };
 
 export default routeAuth;
