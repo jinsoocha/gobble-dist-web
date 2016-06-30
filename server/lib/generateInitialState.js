@@ -14,6 +14,9 @@ const generateInitialState = (req, res, callback) => {
     },
     search: {
       resultsQuery: !!req.query.q ? req.query.q : ''
+    },
+    foodProduct: {
+      upc: !!req.params.upc ? req.params.upc : ''
     }
   };
 

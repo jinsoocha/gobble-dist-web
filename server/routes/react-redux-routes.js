@@ -14,7 +14,7 @@ import userAppRoutes from './../../common/user-app/userAppRoutes';
 
 import About from './../../common/about/About';
 import FoodLanding from './../../common/food-landing/FoodLanding';
-import FoodProduct from './../../common/food-product/FoodProduct';
+import FoodProductContainer from './../../common/food-product/FoodProductContainer';
 import SearchContainer from './../../common/search/SearchContainer';
 import Profile from './../../common/profile/Profile';
 import Landing from './../../common/landing/Landing';
@@ -56,7 +56,7 @@ const renderFoodProduct = (req, res) => {
     res.status(200).render('food-product', {
       root: ReactDOM.renderToString(
         <Provider store={store}>
-          <FoodProduct />
+          <FoodProductContainer />
         </Provider>
       ),
       initialState
