@@ -22,7 +22,7 @@ const configAuth = (app, passport) => {
       clientSecret: process.env.FACEBOOK_SECRET,
       callbackURL: `${process.env.PROTOCOL}${process.env.HOST}:${process.env.PORT}/auth/facebook/callback`,
       enableProof: true,
-      profileFields: ['id', 'displayName', 'gender', 'picture.type(large)', 'emails']
+      profileFields: ['id', 'name', 'profileUrl', 'displayName', 'gender', 'picture.type(large)', 'emails']
     },
     (accessToken, refreshToken, profile, done) => {
       process.nextTick(() => {

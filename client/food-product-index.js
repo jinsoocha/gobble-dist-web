@@ -6,11 +6,11 @@ import configureStore from './../common/configureStore';
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 
-import FoodProduct from './../common/food-product/FoodProduct';
+import FoodProductContainer from './../common/food-product/FoodProductContainer';
 
 ReactDOM.render(
   <Provider store={store}>
-    <FoodProduct />
+    <FoodProductContainer />
   </Provider>,
   document.querySelector('.root')
 );
