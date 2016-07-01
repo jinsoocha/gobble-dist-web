@@ -30,6 +30,7 @@ class BarcodeReader extends Component {
       Quagga.onDetected((data) => {
         console.log('GOT ONE', data.codeResult.code);
         this.props.handleBarcodeChange(data.codeResult.code);
+        Quagga.stop();
       });
     }));
   }
