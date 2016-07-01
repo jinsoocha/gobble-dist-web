@@ -2,7 +2,12 @@ import { UPDATE_SEARCH_BAR_QUERY } from './MainLayoutActions';
 
 const mainLayoutInitialState = {
   searchBarQuery: '',
-  isAuth: ''
+  isAuth: false,
+  navBarUser: {
+    facebookId: '',
+    firstName: '',
+    photoUrl: ''
+  }
 };
 
 const mainLayoutReducer = (state = mainLayoutInitialState, action) => {

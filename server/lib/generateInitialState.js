@@ -4,7 +4,12 @@ const generateInitialState = (req, res, callback) => {
   const initialState = {
     layout: {
       searchBarQuery: '',
-      isAuth: isAuth(req)
+      isAuth: isAuth(req),
+      navBarUser: {
+        facebookId: '',
+        firstName: '',
+        photoUrl: ''
+      }
     },
     search: {
       resultsQuery: !!req.query.q ? req.query.q : ''
