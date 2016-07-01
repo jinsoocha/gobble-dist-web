@@ -2,6 +2,7 @@ const profileInitialState = {
   facebookId: '',
   firstName: '',
   lastName: '',
+  displayName: '',
   photoUrl: ''
 };
 

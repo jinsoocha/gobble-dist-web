@@ -22,6 +22,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       facebookId: '',
       firstName: '',
       lastName: '',
+      displayName: '',
       photoUrl: ''
     }
   };
