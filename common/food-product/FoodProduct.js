@@ -13,16 +13,26 @@ class FoodProduct extends Component {
       mode: 'cors',
       body: JSON.stringify({ upc: this.props.upc }),
       headers,
-    }).then((res) => res.json())
-    .then((data) => this.props.getProductAnalysis(data));
+    })
+    .then((res) => res.json())
+    .catch(() => console.log('Analysis and recommendation is not ready.'))
+    .then((data) => {
+      this.props.getProductAnalysis(data);
+      this.props.getCategoryComparison(Object.keys(data)[Object.keys(data).length - 1]);
+    })
+    .catch((err) => console.log(err));
   }
 
   render() {
     return (
       <MainLayoutContainer>
-        <h1>Specific Food Product Page for {this.props.upc}</h1>
-        <p>The product information populated into this page will be dynamic and dependent upon the url.</p>
-        <FoodProductAnalysis upc={this.props.upc} productAnalysis={this.props.productAnalysis} />
+        <h1>Product {this.props.upc}</h1>
+        <FoodProductAnalysis
+          upc={this.props.upc}
+          productAnalysis={this.props.productAnalysis}
+          getCategoryComparison={this.props.getCategoryComparison}
+          categoryComparison={this.props.categoryComparison}
+        />
       </MainLayoutContainer>
     );
   }
@@ -31,7 +41,9 @@ class FoodProduct extends Component {
 FoodProduct.propTypes = {
   upc: PropTypes.string.isRequired,
   getProductAnalysis: PropTypes.func.isRequired,
-  productAnalysis: PropTypes.object.isRequired
+  productAnalysis: PropTypes.object.isRequired,
+  getCategoryComparison: PropTypes.func.isRequired,
+  categoryComparison: PropTypes.string.isRequired
 };
 
 export default FoodProduct;
