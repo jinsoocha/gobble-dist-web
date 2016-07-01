@@ -1,6 +1,6 @@
-const React = require('react');
+import React, { Component } from 'react';
 
-class FileUpload extends React.Component {
+class FileUpload extends Component {
   constructor() {
     super();
     this.state = {
