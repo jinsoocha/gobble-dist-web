@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import MainLayoutContainer from './../main-layout/MainLayoutContainer';
 
-const Profile = () => (
+const Profile = (props) => (
   <MainLayoutContainer>
-    <h1>Specific User Profile Page</h1>
-    <p>The user information populated into this page will be dynamic and dependent upon the url.</p>
+    <div className="profile-layout">
+      <h1 className="profile-user-name">{props.displayName}</h1>
+      <img className="profile-photo" src={props.photoUrl} alt="Profile" />
+    </div>
   </MainLayoutContainer>
 );
+
+Profile.propTypes = {
+  facebookId: PropTypes.string.isRequired,
+  displayName: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  photoUrl: PropTypes.string.isRequired
+};
 
 export default Profile;

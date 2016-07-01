@@ -1,6 +1,32 @@
 import session from 'express-session';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 
+import fetch from 'isomorphic-fetch';
+
+const createNewUser = (profile) => {
+  const newUser = {
+    facebook_id: profile.id,
+    first_name: profile.name.givenName,
+    last_name: profile.name.familyName,
+    display_name: profile.displayName,
+    gender: profile.gender,
+    photo_url: profile.photos[0].value
+  };
+
+  return fetch(`${process.env.GOBBLE_API_URL}/user`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newUser)
+  }).then(res => res.json())
+    .then(user => {
+      console.log('POSTED: ', user);
+      return user;
+    });
+};
+
 const configAuth = (app, passport) => {
   // Express session middleware
   app.use(session({
@@ -22,50 +48,45 @@ const configAuth = (app, passport) => {
       clientSecret: process.env.FACEBOOK_SECRET,
       callbackURL: `${process.env.PROTOCOL}${process.env.HOST}:${process.env.PORT}/auth/facebook/callback`,
       enableProof: true,
-      profileFields: ['id', 'name', 'profileUrl', 'displayName', 'gender', 'picture.type(large)', 'emails']
+      profileFields: ['id', 'name', 'email', 'displayName', 'gender', 'picture.type(large)']
     },
     (accessToken, refreshToken, profile, done) => {
+      // console.log(profile);
       process.nextTick(() => {
-        // Implement through gobble-db interface
-        // User.where({ facebookId: profile.id }).fetch()
-        //   .then((user) => {
-        //     // Persist user if not found
-        //     if (!user) {
-        //       return new User({
-        //         name: profile.displayName,
-        //         facebookId: profile.id,
-        //         picture: profile.photos[0].value
-        //       }).save();
-        //     }
-        //     return user;
-        //   })
-        //   .then((user) => {
-        //     done(null, user);
-        //   })
-        //   .catch((err) => {
-        //     done(err, null);
-        //   });
-        done(null, profile);
+        fetch(`${process.env.GOBBLE_API_URL}/user?facebook_id=${profile.id}`)
+          .then(res => {
+            if (res.status === 404) {
+              // User is new - persist the new user
+              createNewUser(profile)
+                .then(user => {
+                  console.log('New user successfully persisted:', user);
+                  done(null, user);
+                });
+            } else if (res.status === 200) {
+              return res.json()
+                .then(user => {
+                  console.log('Existing user authenticated:', user);
+                  done(null, user);
+                });
+            } else {
+              res.sendStatus(res.status);
+            }
+          });
       });
     }
   ));
 
   // Passport session serialization setup
   passport.serializeUser((user, done) => {
-    done(null, user);
+    done(null, user.facebook_id);
   });
 
-  passport.deserializeUser((user, done) => {
-    // Implement through gobble-db interface
-    // User.where({ facebookId: facebookId }).fetch()
-    //   .then((user) => {
-    //     done(null, user);
-    //   })
-    //   .catch((err) => {
-    //     done(err, null);
-    //   });
-
-    done(null, user);
+  passport.deserializeUser((facebookId, done) => {
+    fetch(`${process.env.GOBBLE_API_URL}/user?facebook_id=${facebookId}`)
+      .then(res => res.json())
+      .then(user => {
+        done(null, user);
+      });
   });
 };
 

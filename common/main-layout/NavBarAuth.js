@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import SearchBarContainer from './SearchBarContainer';
 
-const NavBarAuth = () => (
+const NavBarAuth = (props) => (
   <div className="navbar-auth navbar-wrapper">
     <div className="navbar-menu pure-menu pure-menu-horizontal">
       <a href="/" className="navbar-menu-heading pure-menu-heading">LOGO</a>
       <SearchBarContainer />
       <ul className="navbar-menu-list pure-menu-list">
+        <li className="pure-menu-item">
+          <a href={`/${props.facebookId}`} className="navbar-menu-link pure-menu-link">
+            <img className="navbar-profile-photo" src={props.photoUrl} alt="Facebook Profile" />
+            {props.firstName}
+          </a>
+        </li>
         <li className="pure-menu-item"><a href="/" className="navbar-menu-link pure-menu-link">Home</a></li>
-        <li className="pure-menu-item"><a href="#" className="navbar-menu-link pure-menu-link">Profile</a></li>
         <li className="pure-menu-item">
           <a href="#" className="gobble-modal-link navbar-menu-link pure-menu-link">
             <i className="gobble-modal-link-icon fa fa-cutlery" aria-hidden="true" />
@@ -26,5 +31,11 @@ const NavBarAuth = () => (
     </div>
   </div>
 );
+
+NavBarAuth.propTypes = {
+  facebookId: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  photoUrl: PropTypes.string.isRequired
+};
 
 export default NavBarAuth;
