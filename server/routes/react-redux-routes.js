@@ -1,4 +1,5 @@
 import { isAuth } from './../lib/auth-utils';
+import fetch from 'isomorphic-fetch';
 
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -20,7 +21,7 @@ import Profile from './../../common/profile/Profile';
 import Landing from './../../common/landing/Landing';
 
 const renderAbout = (req, res) => {
-  generateInitialState(req, res, initialState => {
+  generateInitialState(req, res, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('about', {
@@ -35,7 +36,7 @@ const renderAbout = (req, res) => {
 };
 
 const renderFoodLanding = (req, res) => {
-  generateInitialState(req, res, initialState => {
+  generateInitialState(req, res, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('food-landing', {
@@ -50,7 +51,7 @@ const renderFoodLanding = (req, res) => {
 };
 
 const renderFoodProduct = (req, res) => {
-  generateInitialState(req, res, initialState => {
+  generateInitialState(req, res, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('food-product', {
@@ -65,7 +66,7 @@ const renderFoodProduct = (req, res) => {
 };
 
 const renderSearch = (req, res) => {
-  generateInitialState(req, res, initialState => {
+  generateInitialState(req, res, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('search', {
@@ -80,7 +81,7 @@ const renderSearch = (req, res) => {
 };
 
 const renderProfile = (req, res) => {
-  generateInitialState(req, res, initialState => {
+  generateInitialState(req, res, true, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('profile', {
@@ -95,7 +96,7 @@ const renderProfile = (req, res) => {
 };
 
 const renderLanding = (req, res) => {
-  generateInitialState(req, res, initialState => {
+  generateInitialState(req, res, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('landing', {
@@ -111,7 +112,7 @@ const renderLanding = (req, res) => {
 
 const renderUserApp = (req, res, renderProps) => {
   // Valid React Router route found - render corresponding component
-  generateInitialState(req, res, initialState => {
+  generateInitialState(req, res, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('user-app', {
@@ -141,13 +142,15 @@ const routeDynamicRoutes = (req, res) => {
         res.status(401).redirect('/login');
       }
     } else {
-      const username = req.url.slice(1);
-      if (!!username) { // logic here for verifying existence of user
-        console.log('USERNAME', username);
-        renderProfile(req, res);
-      } else {
-        res.status(404).render('404');
-      }
+      const facebookId = req.url.slice(1);
+      fetch(`${process.env.GOBBLE_API_URL}/user?facebook_id=${facebookId}`)
+        .then(fetchedRes => {
+          if (fetchedRes.status === 200) {
+            renderProfile(req, res);
+          } else {
+            res.status(404).render('404');
+          }
+        });
     }
   });
 };
