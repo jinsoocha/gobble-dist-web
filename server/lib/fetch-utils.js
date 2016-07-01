@@ -1,5 +1,8 @@
+import 'isomorphic-fetch';
+
 const checkStatus = res => {
   if (res.status >= 200 && res.status < 300) {
+    console.log(res);
     return res;
   } else {
     const error = new Error(res.statusText);
