@@ -126,3 +126,11 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   margin-top: 10px;
   font-size: 14px;
 }
+
+.barcode-livestream {
+  width: 200px;
+}
+
+.drawingBuffer {
+  display: none;
+}
