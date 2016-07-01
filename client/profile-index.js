@@ -6,11 +6,11 @@ import configureStore from './../common/configureStore';
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 
-import Profile from './../common/profile/Profile';
+import ProfileContainer from './../common/profile/ProfileContainer';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Profile />
+    <ProfileContainer />
   </Provider>,
   document.querySelector('.root')
 );

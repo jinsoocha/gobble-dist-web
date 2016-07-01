@@ -17,7 +17,7 @@ import About from './../../common/about/About';
 import FoodLanding from './../../common/food-landing/FoodLanding';
 import FoodProductContainer from './../../common/food-product/FoodProductContainer';
 import SearchContainer from './../../common/search/SearchContainer';
-import Profile from './../../common/profile/Profile';
+import ProfileContainer from './../../common/profile/ProfileContainer';
 import Landing from './../../common/landing/Landing';
 
 const renderAbout = (req, res) => {
@@ -87,7 +87,7 @@ const renderProfile = (req, res) => {
     res.status(200).render('profile', {
       root: ReactDOM.renderToString(
         <Provider store={store}>
-          <Profile />
+          <ProfileContainer />
         </Provider>
       ),
       initialState
