@@ -1,13 +1,16 @@
 import React, { PropTypes, Component } from 'react';
 import FileUpload from './FileUpload.js';
 import Rating from './Rating.js';
+import BarcodeReader from './BarcodeReader.js';
+
+// const Quagga = require('quagga').default;
 
 class AddPost extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      upc: '',
+      upc: 'Scanning..',
       rating: 5,
       review: '',
       media: []
@@ -17,6 +20,11 @@ class AddPost extends Component {
     this.handleReviewChange = this.handleReviewChange.bind(this);
     this.handleMediaChange = this.handleMediaChange.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
+    this.handleBarcodeChange = this.handleBarcodeChange.bind(this);
+  }
+
+  handleBarcodeChange(upc) {
+    this.setState({ upc });
   }
 
   handleReviewChange(event) {
@@ -52,6 +60,8 @@ class AddPost extends Component {
   render() {
     return (
       <div>
+        <BarcodeReader handleBarcodeChange={this.handleBarcodeChange} />
+        <p> UPC: {this.state.upc} </p>
         <Rating handleRatingChange={this.handleRatingChange} />
         <textarea
           type="text"
