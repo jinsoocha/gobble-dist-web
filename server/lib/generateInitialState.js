@@ -1,10 +1,4 @@
-// import fetch from 'isomorphic-fetch';
 import { isAuth } from './auth-utils';
-
-// const fetchUser = () => {
-//   return fetch('http://localhost:4568/is-auth')
-//     .then(response => response.json());
-// };
 
 const generateInitialState = (req, res, callback) => {
   const initialState = {
@@ -19,6 +13,14 @@ const generateInitialState = (req, res, callback) => {
       upc: !!req.params.upc ? req.params.upc : ''
     }
   };
+
+  if (isAuth(req)) {
+    initialState.layout.navBarUser = {
+      facebookId: req.user.facebook_id,
+      firstName: req.user.first_name,
+      photoUrl: req.user.photo_url
+    };
+  }
 
   console.log('INITIAL STATE', initialState);
   callback(initialState);
