@@ -66,7 +66,33 @@
 }
 
 .gobble-modal-link-icon {
-  margin-right: 10px; 
+  margin-right: 10px;
+}
+
+/* Add Post Modal */
+.add-post-modal {
+  position: fixed;
+  z-index: 1001;
+  transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);  
+  -o-transform: translateX(-50%) translateY(-50%);
+  top: 35%;
+  left: 50%;
+  display: inline-block;
+  background-color: rgb(200, 200, 200);
+}
+
+.add-post-modal-overlay {
+  transition: all .3s ease;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(40, 40, 40, .7);
 }
 
 /* Search Bar */
