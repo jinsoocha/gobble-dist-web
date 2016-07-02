@@ -4,15 +4,19 @@ import PostTypeBar from './PostTypeBar';
 const AddPost = (props) => {
   let PostView;
   if (props.postType === 'wish') {
-    PostView = (
+    PostView = () => (
       <h1>Wish</h1>
     );
   } else if (props.postType === 'review') {
-    PostView = (
+    PostView = () => (
       <h1>Review</h1>
     );
+  } else if (props.postType === 'stream') {
+    PostView = () => (
+      <h1>Live Stream</h1>
+    );
   } else {
-    PostView = (
+    PostView = () => (
       <h1>Something's wrong</h1>
     );
   }
@@ -26,7 +30,7 @@ const AddPost = (props) => {
 };
 
 AddPost.propTypes = {
-  addPostView: PropTypes.string.isRequired
+  postType: PropTypes.string.isRequired
 };
 
 export default AddPost;

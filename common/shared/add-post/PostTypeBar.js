@@ -3,7 +3,7 @@ import React from 'react';
 const PostTypeBar = () => {
   return (
     <div className="post-type-bar">
-      <PostTypeBar />
+      post type bar
     </div>
   );
 };

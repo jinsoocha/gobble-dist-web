@@ -29,6 +29,9 @@ const generateInitialState = (req, res, isProfile, callback) => {
       lastName: '',
       displayName: '',
       photoUrl: ''
+    },
+    addPost: {
+      postType: 'review'
     }
   };
 
