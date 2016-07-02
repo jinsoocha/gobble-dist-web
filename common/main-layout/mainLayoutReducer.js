@@ -6,7 +6,8 @@ const mainLayoutInitialState = {
   navBarUser: {
     facebookId: '',
     firstName: '',
-    photoUrl: ''
+    photoUrl: '',
+    modalIsOpen: false
   }
 };
 
