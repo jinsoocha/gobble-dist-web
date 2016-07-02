@@ -10,8 +10,8 @@ const generateInitialState = (req, res, isProfile, callback) => {
         facebookId: '',
         firstName: '',
         photoUrl: '',
-        modalIsOpen: false
-      }
+      },
+      modalIsOpen: false
     },
     search: {
       resultsQuery: !!req.query.q ? req.query.q : ''
@@ -37,7 +37,6 @@ const generateInitialState = (req, res, isProfile, callback) => {
       facebookId: req.user.facebook_id,
       firstName: req.user.first_name,
       photoUrl: req.user.photo_url,
-      modalIsOpen: false
     };
   }
 
