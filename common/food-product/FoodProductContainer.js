@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import FoodProduct from './FoodProduct';
-import { getProductAnalysis, getCategoryComparison, showProductDetails } from './FoodProductActions';
+import { getProductAnalysis, getCategoryComparison, showProductDetails, getRandomRecommendations } from './FoodProductActions';
 
 const mapStateToProps = state => ({
   upc: state.foodProduct.upc,
   productAnalysis: state.foodProduct.productAnalysis,
   categoryComparison: state.foodProduct.categoryComparison,
-  selectedProduct: state.foodProduct.selectedProduct
+  selectedProduct: state.foodProduct.selectedProduct,
+  recommendationsStorage: state.foodProduct.recommendationsStorage
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -18,6 +19,9 @@ const mapDispatchToProps = dispatch => ({
   },
   showProductDetails: (selectedProduct) => {
     dispatch(showProductDetails(selectedProduct));
+  },
+  getRandomRecommendations: (chosenRecommendation) => {
+    dispatch(getRandomRecommendations(chosenRecommendation));
   }
 });
 

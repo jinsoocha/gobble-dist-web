@@ -1,10 +1,11 @@
-import { GET_PRODUCT_ANALYSIS, GET_CATEGORY_COMPARISON, SHOW_PRODUCT_DETAILS } from './FoodProductActions';
+import { GET_PRODUCT_ANALYSIS, GET_CATEGORY_COMPARISON, SHOW_PRODUCT_DETAILS, GET_RANDOM_RECOMMENDATIONS } from './FoodProductActions';
 
 const foodProductInitialState = {
   upc: '',
   productAnalysis: {},
   categoryComparison: '',
-  selectedProduct: 0
+  selectedProduct: 0,
+  recommendationsStorage: {}
 };
 
 const foodProductReducer = (state = foodProductInitialState, action) => {
@@ -24,6 +25,18 @@ const foodProductReducer = (state = foodProductInitialState, action) => {
         state.selectedProduct === action.selectedProduct ? 0
         : action.selectedProduct
       });
+    case GET_RANDOM_RECOMMENDATIONS: {
+      const newStorage = Object.assign({}, state.recommendationsStorage);
+      if (!state.recommendationsStorage[action.chosenRecommendation.UPC]) {
+        newStorage[action.chosenRecommendation.UPC] = action.chosenRecommendation;
+      } else {
+        newStorage[action.chosenRecommendation.UPC].quality = 'both';
+        newStorage[action.chosenRecommendation.UPC].nutrient.push(action.chosenRecommendation.nutrient[0]);
+      }
+      return Object.assign({}, state, {
+        recommendationsStorage: newStorage
+      });
+    }
     default:
       return state;
   }

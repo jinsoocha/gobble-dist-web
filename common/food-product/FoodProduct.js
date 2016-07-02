@@ -34,6 +34,8 @@ class FoodProduct extends Component {
           categoryComparison={this.props.categoryComparison}
           showProductDetails={this.props.showProductDetails}
           selectedProduct={this.props.selectedProduct}
+          getRandomRecommendations={this.props.getRandomRecommendations}
+          recommendationsStorage={this.props.recommendationsStorage}
         />
       </MainLayoutContainer>
     );
@@ -47,7 +49,9 @@ FoodProduct.propTypes = {
   getCategoryComparison: PropTypes.func.isRequired,
   categoryComparison: PropTypes.string.isRequired,
   showProductDetails: PropTypes.func.isRequired,
-  selectedProduct: PropTypes.number.isRequired
+  selectedProduct: PropTypes.number.isRequired,
+  getRandomRecommendations: PropTypes.func.isRequired,
+  recommendationsStorage: PropTypes.object.isRequired
 };
 
 export default FoodProduct;

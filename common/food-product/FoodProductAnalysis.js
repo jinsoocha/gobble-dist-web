@@ -13,7 +13,7 @@ class FoodProductAnalysis extends Component {
   }
 
   render() {
-    const { productAnalysis, categoryComparison, showProductDetails } = this.props;
+    const { productAnalysis, categoryComparison, showProductDetails, selectedProduct, getRandomRecommendations, recommendationsStorage } = this.props;
     return (
       <div>
         {Object.keys(productAnalysis).length > 0 ?
@@ -35,7 +35,9 @@ class FoodProductAnalysis extends Component {
             category={categoryComparison}
             data={productAnalysis[categoryComparison]}
             showProductDetails={showProductDetails}
-            selectedProduct={this.props.selectedProduct}
+            selectedProduct={selectedProduct}
+            getRandomRecommendations={getRandomRecommendations}
+            recommendationsStorage={recommendationsStorage}
           />)}
         </div>)
         : (<h3>Please return later for the analysis and recommendation!</h3>)}
@@ -50,7 +52,9 @@ FoodProductAnalysis.propTypes = {
   getCategoryComparison: PropTypes.func.isRequired,
   categoryComparison: PropTypes.string.isRequired,
   showProductDetails: PropTypes.func.isRequired,
-  selectedProduct: PropTypes.number.isRequired
+  selectedProduct: PropTypes.number.isRequired,
+  getRandomRecommendations: PropTypes.func.isRequired,
+  recommendationsStorage: PropTypes.object.isRequired
 };
 
 export default FoodProductAnalysis;
