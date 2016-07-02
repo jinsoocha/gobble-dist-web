@@ -13,17 +13,11 @@ const foodProductReducer = (state = foodProductInitialState, action) => {
       return Object.assign({}, state, {
         productAnalysis: action.productAnalysis
       });
-    case GET_CATEGORY_COMPARISON: {
-      let category;
-      if (state.categoryComparison === action.categoryComparison) {
-        category = '';
-      } else {
-        category = action.categoryComparison;
-      }
+    case GET_CATEGORY_COMPARISON:
       return Object.assign({}, state, {
-        categoryComparison: category
+        categoryComparison: action.categoryComparison,
+        productDetails: {}
       });
-    }
     case SHOW_PRODUCT_DETAILS: {
       let productDetails;
       if (state.productDetails.UPC === action.productDetails.UPC) {
