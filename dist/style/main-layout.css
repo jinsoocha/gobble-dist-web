@@ -58,6 +58,7 @@
   background-color: rgb(110, 51, 95);
   color: rgb(245, 245, 245);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .gobble-modal-link:hover, .gobble-modal-link:focus {

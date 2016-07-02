@@ -9,7 +9,7 @@ class NavBarAuth extends Component {
   }
 
   render() {
-    const { facebookId, firstName, photoUrl, modalIsOpen } = this.props;
+    const { facebookId, firstName, photoUrl, modalIsOpen, openModal, closeModal } = this.props;
     return (
       <div className="navbar-auth navbar-wrapper">
         <div className="navbar-menu pure-menu pure-menu-horizontal">
@@ -24,18 +24,18 @@ class NavBarAuth extends Component {
             </li>
             <li className="pure-menu-item"><a href="/" className="navbar-menu-link pure-menu-link">Home</a></li>
             <li className="pure-menu-item">
-              <a href="#" className="gobble-modal-link navbar-menu-link pure-menu-link" >
+              <span className="gobble-modal-link navbar-menu-link pure-menu-link" onClick={openModal}>
                 <i className="gobble-modal-link-icon fa fa-cutlery" aria-hidden="true" />
                 Gobble
                 <Modal
                   className="add-post-modal"
                   overlayClassName="add-post-modal-overlay"
                   isOpen={modalIsOpen}
-                  // onRequestClose={}
+                  onRequestClose={closeModal}
                 >
                   <AddPost />
                 </Modal>
-              </a>
+              </span>
             </li>
             <li className="navbar-dropdown pure-menu-item pure-menu-has-children pure-menu-allow-hover">
               <div className="pure-menu-link"><i className="fa fa-cog" aria-hidden="true" /></div>
@@ -55,7 +55,9 @@ NavBarAuth.propTypes = {
   facebookId: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
   photoUrl: PropTypes.string.isRequired,
-  modalIsOpen: PropTypes.bool.isRequired
+  modalIsOpen: PropTypes.bool.isRequired,
+  openModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired
 };
 
 export default NavBarAuth;

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import NavBarAuth from './NavBarAuth';
+import { openModal, closeModal } from './MainLayoutActions';
 
 const mapStateToProps = state => ({
   facebookId: state.layout.navBarUser.facebookId.toString(),
@@ -9,4 +10,13 @@ const mapStateToProps = state => ({
   modalIsOpen: state.layout.navBarUser.modalIsOpen
 });
 
-export default connect(mapStateToProps)(NavBarAuth);
+const mapDispatchToProps = dispatch => ({
+  openModal: () => {
+    dispatch(openModal());
+  },
+  closeModal: () => {
+    dispatch(closeModal());
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarAuth);
