@@ -18,13 +18,12 @@ const foodProductReducer = (state = foodProductInitialState, action) => {
         categoryComparison: action.categoryComparison,
         selectedProduct: 0
       });
-    case SHOW_PRODUCT_DETAILS: {
+    case SHOW_PRODUCT_DETAILS:
       return Object.assign({}, state, {
         selectedProduct:
         state.selectedProduct === action.selectedProduct ? 0
         : action.selectedProduct
       });
-    }
     default:
       return state;
   }

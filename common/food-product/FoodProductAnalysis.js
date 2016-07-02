@@ -29,15 +29,14 @@ class FoodProductAnalysis extends Component {
             />
           )}
           </select>
-          {categoryComparison ?
+          {!categoryComparison ? null :
           (<AnalysisEntry
             key={categoryComparison}
             category={categoryComparison}
             data={productAnalysis[categoryComparison]}
             showProductDetails={showProductDetails}
             selectedProduct={this.props.selectedProduct}
-          />)
-          : null}
+          />)}
         </div>)
         : (<h3>Please return later for the analysis and recommendation!</h3>)}
       </div>

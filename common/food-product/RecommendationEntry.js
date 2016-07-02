@@ -17,25 +17,23 @@ class RecommendationEntry extends Component {
     return (
       <div>
         <h3 onClick={this.showProductDetails}>{product.name}</h3>
-        {selectedProduct === product.UPC ?
-          (<div>
-            <div>
-              <p>Name: {product.name}</p>
-              <p>Brand: {product.brand}</p>
-              <p>Barcode: {product.UPC}</p>
-              <p>Recommendation for: {quality} {nutrient}</p>
-            </div>
-            {Object.keys(product).map((key) => {
-              return (key !== 'name' && key !== 'brand' && key !== 'UPC') ?
-                (<ProductNutrientDetails
-                  key={key}
-                  nutrient={key}
-                  nutrientLevel={product[key]}
-                />)
-              : null;
-            })}
-          </div>)
-          : null}
+        {selectedProduct !== product.UPC ? null :
+        (<div>
+          <div>
+            <p>Name: {product.name}</p>
+            <p>Brand: {product.brand}</p>
+            <p>Barcode: {product.UPC}</p>
+            <p>Recommendation for: {quality} {nutrient}</p>
+          </div>
+          {Object.keys(product).map((key) => {
+            return (key === 'name' || key === 'brand' || key === 'UPC') ? null :
+            (<ProductNutrientDetails
+              key={key}
+              nutrient={key}
+              nutrientLevel={product[key]}
+            />);
+          })}
+        </div>)}
       </div>
     );
   }
