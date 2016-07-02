@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import SearchBarContainer from './SearchBarContainer';
 import Modal from 'react-modal';
-import AddPost from './../shared/add-post/AddPost';
+import AddPostContainer from './../shared/add-post/AddPostContainer';
 
 const NavBarAuth = (props) => {
   const { facebookId, firstName, photoUrl, modalIsOpen, openModal, closeModal } = props;
@@ -26,9 +26,12 @@ const NavBarAuth = (props) => {
                 className="add-post-modal"
                 overlayClassName="add-post-modal-overlay"
                 isOpen={modalIsOpen}
-                onRequestClose={closeModal}
+                shouldCloseOnOverlayClick={false}
               >
-                <AddPost />
+                <AddPostContainer />
+                <div className="cancel-post">
+                  <button className="cancel-post-button" onClick={closeModal}>Cancel</button>
+                </div>
               </Modal>
             </span>
           </li>
