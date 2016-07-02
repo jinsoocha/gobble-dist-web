@@ -1,5 +1,6 @@
 export const GET_PRODUCT_ANALYSIS = 'GET_PRODUCT_ANALYSIS';
 export const GET_CATEGORY_COMPARISON = 'GET_CATEGORY_COMPARISON';
+export const SHOW_PRODUCT_DETAILS = 'SHOW_PRODUCT_DETAILS';
 
 export function getProductAnalysis(productAnalysis) {
   return {
@@ -12,5 +13,12 @@ export function getCategoryComparison(categoryComparison) {
   return {
     type: GET_CATEGORY_COMPARISON,
     categoryComparison
+  };
+}
+
+export function showProductDetails(productDetails) {
+  return {
+    type: SHOW_PRODUCT_DETAILS,
+    productDetails
   };
 }

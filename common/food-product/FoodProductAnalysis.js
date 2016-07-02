@@ -13,7 +13,7 @@ class FoodProductAnalysis extends Component {
   }
 
   render() {
-    const { productAnalysis, categoryComparison } = this.props;
+    const { productAnalysis, categoryComparison, showProductDetails } = this.props;
     if (Object.keys(productAnalysis).length > 0) {
       let analysis;
       if (categoryComparison) {
@@ -22,6 +22,8 @@ class FoodProductAnalysis extends Component {
             key={categoryComparison}
             category={categoryComparison}
             data={productAnalysis[categoryComparison]}
+            showProductDetails={showProductDetails}
+            productDetails={this.props.productDetails}
           />);
       }
       return (
@@ -37,7 +39,7 @@ class FoodProductAnalysis extends Component {
           />
         )}
           </select>
-        {analysis}
+          {analysis}
         </div>
       );
     } else {
@@ -52,7 +54,9 @@ FoodProductAnalysis.propTypes = {
   upc: PropTypes.string.isRequired,
   productAnalysis: PropTypes.object.isRequired,
   getCategoryComparison: PropTypes.func.isRequired,
-  categoryComparison: PropTypes.string.isRequired
+  categoryComparison: PropTypes.string.isRequired,
+  showProductDetails: PropTypes.func.isRequired,
+  productDetails: PropTypes.object.isRequired
 };
 
 export default FoodProductAnalysis;

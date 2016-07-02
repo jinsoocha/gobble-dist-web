@@ -1,9 +1,10 @@
-import { GET_PRODUCT_ANALYSIS, GET_CATEGORY_COMPARISON } from './FoodProductActions';
+import { GET_PRODUCT_ANALYSIS, GET_CATEGORY_COMPARISON, SHOW_PRODUCT_DETAILS } from './FoodProductActions';
 
 const foodProductInitialState = {
   upc: '',
   productAnalysis: {},
-  categoryComparison: ''
+  categoryComparison: '',
+  productDetails: {}
 };
 
 const foodProductReducer = (state = foodProductInitialState, action) => {
@@ -21,6 +22,17 @@ const foodProductReducer = (state = foodProductInitialState, action) => {
       }
       return Object.assign({}, state, {
         categoryComparison: category
+      });
+    }
+    case SHOW_PRODUCT_DETAILS: {
+      let productDetails;
+      if (state.productDetails.UPC === action.productDetails.UPC) {
+        productDetails = {};
+      } else {
+        productDetails = action.productDetails;
+      }
+      return Object.assign({}, state, {
+        productDetails
       });
     }
     default:

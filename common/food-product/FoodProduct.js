@@ -32,6 +32,8 @@ class FoodProduct extends Component {
           productAnalysis={this.props.productAnalysis}
           getCategoryComparison={this.props.getCategoryComparison}
           categoryComparison={this.props.categoryComparison}
+          showProductDetails={this.props.showProductDetails}
+          productDetails={this.props.productDetails}
         />
       </MainLayoutContainer>
     );
@@ -43,7 +45,9 @@ FoodProduct.propTypes = {
   getProductAnalysis: PropTypes.func.isRequired,
   productAnalysis: PropTypes.object.isRequired,
   getCategoryComparison: PropTypes.func.isRequired,
-  categoryComparison: PropTypes.string.isRequired
+  categoryComparison: PropTypes.string.isRequired,
+  showProductDetails: PropTypes.func.isRequired,
+  productDetails: PropTypes.object.isRequired
 };
 
 export default FoodProduct;
