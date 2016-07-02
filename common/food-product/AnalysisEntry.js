@@ -3,7 +3,7 @@ import NutrientEntry from './NutrientEntry';
 import RecommendationEntry from './RecommendationEntry';
 
 const AnalysisEntry = (props) => {
-  const { category, data, showProductDetails, productDetails } = props;
+  const { category, data, showProductDetails, selectedProduct } = props;
   return (
     <div>
       {Object.keys(data.BadNutrients).map((nutrient) =>
@@ -30,7 +30,7 @@ const AnalysisEntry = (props) => {
             <RecommendationEntry
               product={product}
               showProductDetails={showProductDetails}
-              productDetails={productDetails}
+              selectedProduct={selectedProduct}
             />
           );
         });
@@ -43,7 +43,7 @@ AnalysisEntry.propTypes = {
   category: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
   showProductDetails: PropTypes.func.isRequired,
-  productDetails: PropTypes.object.isRequired
+  selectedProduct: PropTypes.number.isRequired
 };
 
 export default AnalysisEntry;

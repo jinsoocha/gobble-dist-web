@@ -23,7 +23,7 @@ class FoodProductAnalysis extends Component {
             category={categoryComparison}
             data={productAnalysis[categoryComparison]}
             showProductDetails={showProductDetails}
-            productDetails={this.props.productDetails}
+            selectedProduct={this.props.selectedProduct}
           />);
       }
       return (
@@ -56,7 +56,7 @@ FoodProductAnalysis.propTypes = {
   getCategoryComparison: PropTypes.func.isRequired,
   categoryComparison: PropTypes.string.isRequired,
   showProductDetails: PropTypes.func.isRequired,
-  productDetails: PropTypes.object.isRequired
+  selectedProduct: PropTypes.number.isRequired
 };
 
 export default FoodProductAnalysis;

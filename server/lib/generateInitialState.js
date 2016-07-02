@@ -19,7 +19,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       upc: !!req.params.upc ? req.params.upc : '',
       productAnalysis: {},
       categoryComparison: '',
-      productDetails: {}
+      selectedProduct: 0
     },
     profile: {
       facebookId: '',

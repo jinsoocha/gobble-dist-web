@@ -4,7 +4,7 @@ const foodProductInitialState = {
   upc: '',
   productAnalysis: {},
   categoryComparison: '',
-  productDetails: {}
+  selectedProduct: 0
 };
 
 const foodProductReducer = (state = foodProductInitialState, action) => {
@@ -16,17 +16,17 @@ const foodProductReducer = (state = foodProductInitialState, action) => {
     case GET_CATEGORY_COMPARISON:
       return Object.assign({}, state, {
         categoryComparison: action.categoryComparison,
-        productDetails: {}
+        selectedProduct: 0
       });
     case SHOW_PRODUCT_DETAILS: {
-      let productDetails;
-      if (state.productDetails.UPC === action.productDetails.UPC) {
-        productDetails = {};
+      let selectedProduct;
+      if (state.selectedProduct === action.selectedProduct) {
+        selectedProduct = '';
       } else {
-        productDetails = action.productDetails;
+        selectedProduct = action.selectedProduct;
       }
       return Object.assign({}, state, {
-        productDetails
+        selectedProduct
       });
     }
     default:

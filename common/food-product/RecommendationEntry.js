@@ -9,32 +9,32 @@ class RecommendationEntry extends Component {
 
   showProductDetails(e) {
     e.preventDefault();
-    this.props.showProductDetails(this.props.product);
+    this.props.showProductDetails(this.props.product.UPC);
   }
 
   render() {
-    const { product, productDetails } = this.props;
+    const { product, selectedProduct } = this.props;
     let basicDetails;
-    if (Object.keys(productDetails).length > 0 && productDetails.UPC === product.UPC) {
+    if (selectedProduct === product.UPC) {
       basicDetails =
       (<div>
-        <p>Name: {productDetails.name}</p>
-        <p>Brand: {productDetails.brand}</p>
-        <p>Barcode: {productDetails.UPC}</p>
+        <p>Name: {product.name}</p>
+        <p>Brand: {product.brand}</p>
+        <p>Barcode: {product.UPC}</p>
       </div>);
     }
     return (
       <div>
         <h3 onClick={this.showProductDetails}>{product.name}</h3>
         {basicDetails}
-        {productDetails.UPC !== product.UPC ? null :
-          Object.keys(productDetails).map((key) => {
+        {selectedProduct !== product.UPC ? null :
+          Object.keys(product).map((key) => {
             if (key !== 'name' && key !== 'brand' && key !== 'UPC') {
               return (
                 <ProductNutrientDetails
                   key={key}
                   nutrient={key}
-                  nutrientLevel={productDetails[key]}
+                  nutrientLevel={product[key]}
                 />
               );
             }
@@ -47,7 +47,7 @@ class RecommendationEntry extends Component {
 RecommendationEntry.propTypes = {
   product: PropTypes.object.isRequired,
   showProductDetails: PropTypes.func.isRequired,
-  productDetails: PropTypes.object.isRequired
+  selectedProduct: PropTypes.number.isRequired
 };
 
 export default RecommendationEntry;

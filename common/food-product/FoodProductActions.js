@@ -16,9 +16,9 @@ export function getCategoryComparison(categoryComparison) {
   };
 }
 
-export function showProductDetails(productDetails) {
+export function showProductDetails(selectedProduct) {
   return {
     type: SHOW_PRODUCT_DETAILS,
-    productDetails
+    selectedProduct
   };
 }

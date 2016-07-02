@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
   upc: state.foodProduct.upc,
   productAnalysis: state.foodProduct.productAnalysis,
   categoryComparison: state.foodProduct.categoryComparison,
-  productDetails: state.foodProduct.productDetails
+  selectedProduct: state.foodProduct.selectedProduct
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,8 +16,8 @@ const mapDispatchToProps = dispatch => ({
   getCategoryComparison: (categoryComparison) => {
     dispatch(getCategoryComparison(categoryComparison));
   },
-  showProductDetails: (productDetails) => {
-    dispatch(showProductDetails(productDetails));
+  showProductDetails: (selectedProduct) => {
+    dispatch(showProductDetails(selectedProduct));
   }
 });
 
