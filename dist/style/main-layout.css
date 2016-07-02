@@ -82,6 +82,7 @@
   -o-transform: translateX(-50%) translateY(-50%);
   top: 35%;
   left: 50%;
+  border-radius: 15px;
   display: inline-block;
   background-color: white;
 }
@@ -99,9 +100,10 @@
 
 .cancel-post {
   background-color: rgb(200, 200, 200);
-  border-top: 2px solid rgb(100, 100, 100);
   text-align: center;
   padding: 14px 0;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .cancel-post-button {

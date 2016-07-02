@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
-import PostTypeBar from './PostTypeBar';
+import PostTypeBarContainer from './PostTypeBarContainer';
 
 const AddPost = (props) => {
   let PostView;
-  if (props.postType === 'wish') {
-    PostView = () => (
-      <h1>Wish</h1>
-    );
-  } else if (props.postType === 'review') {
+  if (props.postType === 'review') {
     PostView = () => (
       <h1>Review</h1>
+    );
+  } else if (props.postType === 'wish') {
+    PostView = () => (
+      <h1>Wish</h1>
     );
   } else if (props.postType === 'stream') {
     PostView = () => (
@@ -23,7 +23,7 @@ const AddPost = (props) => {
 
   return (
     <div className="add-post">
-      <PostTypeBar />
+      <PostTypeBarContainer />
       <PostView />
     </div>
   );

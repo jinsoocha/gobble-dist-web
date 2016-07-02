@@ -1,3 +1,38 @@
 .add-post {
-  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  width: 500px;
+  background-color: white;
+  border: 1px solid rgb(225, 225, 225);
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.post-type-bar {
+  display: inline-block;
+  padding: 7px 0;
+  width: 100%;
+  border-bottom: 1px solid rgb(225, 225, 225);
+}
+
+.post-type-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-type-option {
+  float: left;
+  padding: 2px 10px;
+  cursor: pointer;
+  border-right: 1px solid rgb(225, 225, 225);
+}
+
+.post-type-option:hover {
+  text-decoration: underline;
+}
+
+.post-type-option span {
+  display: block;
+  text-align: center;
 }

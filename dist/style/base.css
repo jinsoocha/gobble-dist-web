@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic);
 
+body {
+  background-color: rgb(250,244,248);
+}
+
 h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   font-family: 'Lato', sans-serif;
   letter-spacing: .5px;
