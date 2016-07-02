@@ -6,33 +6,48 @@ const AnalysisEntry = (props) => {
   const { category, data, showProductDetails, selectedProduct } = props;
   return (
     <div>
-      {Object.keys(data.BadNutrients).map((nutrient) =>
+      {data.BadNutrients ?
+      Object.keys(data.BadNutrients).map((nutrient) =>
         <NutrientEntry
           key={nutrient}
           category={category}
           nutrient={nutrient}
           data={data.BadNutrients[nutrient]}
           quality="bad"
-        />
-      )}
-      {Object.keys(data.GoodNutrients).map((nutrient) =>
+        />)
+      : null}
+      {data.GoodNutrients ?
+      Object.keys(data.GoodNutrients).map((nutrient) =>
         <NutrientEntry
           key={nutrient}
           category={category}
           nutrient={nutrient}
           data={data.GoodNutrients[nutrient]}
           quality="good"
-        />
-      )}
+        />)
+      : null}
+      {data.nutrientsWithoutRecommendation ?
+      Object.keys(data.nutrientsWithoutRecommendation).map((nutrient) =>
+        <NutrientEntry
+          key={nutrient}
+          category={category}
+          nutrient={nutrient}
+          data={data.nutrientsWithoutRecommendation[nutrient]}
+          quality="neutral"
+        />)
+      : null}
       {Object.keys(data).map((nutrients) => {
         return Object.keys(data[nutrients]).map((nutrient) => {
-          return data[nutrients][nutrient].recommendedProducts.map((product) =>
+          return data[nutrients][nutrient].recommendedProducts ?
+          data[nutrients][nutrient].recommendedProducts.map((product) =>
             <RecommendationEntry
+              quality={nutrients}
+              nutrient={nutrient}
               product={product}
               showProductDetails={showProductDetails}
               selectedProduct={selectedProduct}
-            />
-          );
+            />)
+          : null;
         });
       })}
     </div>

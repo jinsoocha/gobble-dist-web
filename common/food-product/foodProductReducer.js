@@ -19,14 +19,10 @@ const foodProductReducer = (state = foodProductInitialState, action) => {
         selectedProduct: 0
       });
     case SHOW_PRODUCT_DETAILS: {
-      let selectedProduct;
-      if (state.selectedProduct === action.selectedProduct) {
-        selectedProduct = '';
-      } else {
-        selectedProduct = action.selectedProduct;
-      }
       return Object.assign({}, state, {
-        selectedProduct
+        selectedProduct:
+        state.selectedProduct === action.selectedProduct ? 0
+        : action.selectedProduct
       });
     }
     default:

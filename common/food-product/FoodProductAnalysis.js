@@ -14,39 +14,34 @@ class FoodProductAnalysis extends Component {
 
   render() {
     const { productAnalysis, categoryComparison, showProductDetails } = this.props;
-    if (Object.keys(productAnalysis).length > 0) {
-      let analysis;
-      if (categoryComparison) {
-        analysis =
+    return (
+      <div>
+        {Object.keys(productAnalysis).length > 0 ?
+        (<div>Compare with the category:{' '}
+          <select
+            defaultValue={Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 1]}
+            onChange={this.getCategoryComparison}
+          >
+          {Object.keys(productAnalysis).map((category, i) =>
+            <CategorySelection
+              key={i}
+              category={category}
+            />
+          )}
+          </select>
+          {categoryComparison ?
           (<AnalysisEntry
             key={categoryComparison}
             category={categoryComparison}
             data={productAnalysis[categoryComparison]}
             showProductDetails={showProductDetails}
             selectedProduct={this.props.selectedProduct}
-          />);
-      }
-      return (
-        <div>Compare with the category:{' '}
-          <select
-            defaultValue={Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 1]}
-            onChange={this.getCategoryComparison}
-          >
-        {Object.keys(productAnalysis).map((category, i) =>
-          <CategorySelection
-            key={i}
-            category={category}
-          />
-        )}
-          </select>
-          {analysis}
-        </div>
-      );
-    } else {
-      return (
-        <h3>Please return later for the analysis and recommendation!</h3>
-      );
-    }
+          />)
+          : null}
+        </div>)
+        : (<h3>Please return later for the analysis and recommendation!</h3>)}
+      </div>
+    );
   }
 }
 
