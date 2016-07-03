@@ -1,7 +1,7 @@
 import { CHANGE_POST_TYPE } from './AddPostActions';
 
 const addPostInitialState = {
-  postType: 'review'
+  postType: ''
 };
 
 const addPostReducer = (state = addPostInitialState, action) => {

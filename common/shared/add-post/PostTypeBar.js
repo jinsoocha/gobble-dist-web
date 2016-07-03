@@ -36,7 +36,7 @@ class PostTypeBar extends Component {
         </ul>
       </div>
     );
-  };
+  }
 }
 
 PostTypeBar.propTypes = {

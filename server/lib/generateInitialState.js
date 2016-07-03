@@ -31,7 +31,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       photoUrl: ''
     },
     addPost: {
-      postType: 'review'
+      postType: ''
     }
   };
 
