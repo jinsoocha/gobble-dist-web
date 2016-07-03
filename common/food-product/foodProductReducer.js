@@ -27,11 +27,8 @@ const foodProductReducer = (state = foodProductInitialState, action) => {
       });
     case GET_RANDOM_RECOMMENDATIONS: {
       const newStorage = Object.assign({}, state.recommendationsStorage);
-      if (!state.recommendationsStorage[action.chosenRecommendation.UPC]) {
-        newStorage[action.chosenRecommendation.UPC] = action.chosenRecommendation;
-      } else {
-        newStorage[action.chosenRecommendation.UPC].quality = 'both';
-        newStorage[action.chosenRecommendation.UPC].nutrient.push(action.chosenRecommendation.nutrient[0]);
+      if (!state.recommendationsStorage[action.category]) {
+        newStorage[action.category] = action.recs;
       }
       return Object.assign({}, state, {
         recommendationsStorage: newStorage

@@ -5,18 +5,26 @@ import RecommendationEntry from './RecommendationEntry';
 class AnalysisEntry extends Component {
   componentWillMount() {
     const { data, getRandomRecommendations, category } = this.props;
+    const recs = {};
     Object.keys(data).forEach((nutrients) => {
-      return Object.keys(data[nutrients]).forEach((nutrient) => {
-        const recommendations = data[nutrients][nutrient].recommendedProducts;
-        if (recommendations) {
-          const chosenRecommendation = recommendations[Math.floor(Math.random() * recommendations.length)];
-          chosenRecommendation.quality = nutrients;
-          chosenRecommendation.nutrient = [nutrient];
-          chosenRecommendation.category = category;
-          getRandomRecommendations(chosenRecommendation);
-        }
-      });
+      if (nutrients !== 'nutrientsWithoutRecommendation') {
+        return Object.keys(data[nutrients]).forEach((nutrient) => {
+          const recommendations = data[nutrients][nutrient].recommendedProducts;
+          if (recommendations) {
+            const chosenRecommendation = recommendations[Math.floor(Math.random() * recommendations.length)];
+            if (!recs[chosenRecommendation.UPC]) {
+              chosenRecommendation.quality = [nutrients];
+              chosenRecommendation.nutrient = [nutrient];
+              recs[chosenRecommendation.UPC] = chosenRecommendation;
+            } else {
+              recs[chosenRecommendation.UPC].quality.push(nutrients);
+              recs[chosenRecommendation.UPC].nutrient.push(nutrient);
+            }
+          }
+        });
+      }
     });
+    getRandomRecommendations(recs, category);
   }
 
   render() {
@@ -50,11 +58,11 @@ class AnalysisEntry extends Component {
             data={data.nutrientsWithoutRecommendation[nutrient]}
             quality="neutral"
           />)}
-        {Object.keys(recommendationsStorage).length === 0 ? null :
-        Object.keys(recommendationsStorage).map((product) =>
+        {Object.keys(recommendationsStorage).length === 0 || !recommendationsStorage[category] ? null :
+        Object.keys(recommendationsStorage[category]).map((product) =>
           <RecommendationEntry
             key={product}
-            product={recommendationsStorage[product]}
+            product={recommendationsStorage[category][product]}
             showProductDetails={showProductDetails}
             selectedProduct={selectedProduct}
           />

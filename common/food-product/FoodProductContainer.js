@@ -20,8 +20,8 @@ const mapDispatchToProps = dispatch => ({
   showProductDetails: (selectedProduct) => {
     dispatch(showProductDetails(selectedProduct));
   },
-  getRandomRecommendations: (chosenRecommendation) => {
-    dispatch(getRandomRecommendations(chosenRecommendation));
+  getRandomRecommendations: (recs, category) => {
+    dispatch(getRandomRecommendations(recs, category));
   }
 });
 

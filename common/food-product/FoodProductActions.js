@@ -25,9 +25,10 @@ export function showProductDetails(selectedProduct) {
   };
 }
 
-export function getRandomRecommendations(chosenRecommendation) {
+export function getRandomRecommendations(recs, category) {
   return {
     type: GET_RANDOM_RECOMMENDATIONS,
-    chosenRecommendation
+    recs,
+    category
   };
 }
