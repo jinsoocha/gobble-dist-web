@@ -28,7 +28,7 @@ class AnalysisEntry extends Component {
   }
 
   render() {
-    const { category, data, showProductDetails, selectedProduct, recommendationsStorage } = this.props;
+    const { category, data, showProductDetails, selectedProduct, recommendationsStorage, basicInfo } = this.props;
     return (
       <div>
         {!data.BadNutrients ? null :
@@ -62,6 +62,7 @@ class AnalysisEntry extends Component {
         Object.keys(recommendationsStorage[category]).map((product) =>
           <RecommendationEntry
             key={product}
+            basicInfo={basicInfo}
             product={recommendationsStorage[category][product]}
             showProductDetails={showProductDetails}
             selectedProduct={selectedProduct}
@@ -78,7 +79,8 @@ AnalysisEntry.propTypes = {
   showProductDetails: PropTypes.func.isRequired,
   selectedProduct: PropTypes.number.isRequired,
   getRandomRecommendations: PropTypes.func.isRequired,
-  recommendationsStorage: PropTypes.object.isRequired
+  recommendationsStorage: PropTypes.object.isRequired,
+  basicInfo: PropTypes.object.isRequired
 };
 
 export default AnalysisEntry;

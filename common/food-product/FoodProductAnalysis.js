@@ -19,19 +19,25 @@ class FoodProductAnalysis extends Component {
         {Object.keys(productAnalysis).length > 0 ?
         (<div>Compare with the category:{' '}
           <select
-            defaultValue={Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 1]}
+            defaultValue={
+              Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 1] !== 'basicInfo' ?
+              Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 1] :
+              Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 2]
+            }
             onChange={this.getCategoryComparison}
           >
-          {Object.keys(productAnalysis).map((category, i) =>
-            <CategorySelection
-              key={i}
-              category={category}
-            />
-          )}
+          {Object.keys(productAnalysis).map((category, i) => {
+            return category === 'basicInfo' ? null :
+              <CategorySelection
+                key={i}
+                category={category}
+              />;
+          })}
           </select>
           {!categoryComparison ? null :
           (<AnalysisEntry
             key={categoryComparison}
+            basicInfo={productAnalysis.basicInfo}
             category={categoryComparison}
             data={productAnalysis[categoryComparison]}
             showProductDetails={showProductDetails}

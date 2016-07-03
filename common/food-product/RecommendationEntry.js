@@ -13,7 +13,7 @@ class RecommendationEntry extends Component {
   }
 
   render() {
-    const { product, selectedProduct } = this.props;
+    const { product, selectedProduct, basicInfo } = this.props;
     return (
       <div>
         <h3 onClick={this.showProductDetails}>{product.UPC}{product.name} Recommendation for: {product.quality} {product.nutrient}</h3>
@@ -28,6 +28,7 @@ class RecommendationEntry extends Component {
             return (key === 'name' || key === 'brand' || key === 'UPC' || key === 'nutrient' || key === 'quality') ? null :
             (<ProductNutrientDetails
               key={key}
+              comparedLevel={basicInfo[key]}
               nutrient={key}
               nutrientLevel={product[key]}
             />);
@@ -41,7 +42,8 @@ class RecommendationEntry extends Component {
 RecommendationEntry.propTypes = {
   product: PropTypes.object.isRequired,
   showProductDetails: PropTypes.func.isRequired,
-  selectedProduct: PropTypes.number.isRequired
+  selectedProduct: PropTypes.number.isRequired,
+  basicInfo: PropTypes.object.isRequired
 };
 
 export default RecommendationEntry;
