@@ -8,3 +8,4 @@ npm-debug.log
 
 env/development.env
 env/production.env
+env/client.js

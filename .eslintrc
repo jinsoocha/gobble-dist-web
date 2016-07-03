@@ -13,6 +13,7 @@
     "comma-dangle": 0,
     "arrow-body-style": 0,
     "max-len": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/jsx-no-bind"
   }
 }

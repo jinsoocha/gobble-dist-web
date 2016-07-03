@@ -1,9 +1,14 @@
 import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
+
 import FileUpload from './FileUpload.js';
 import Rating from './Rating.js';
 import BarcodeReader from './BarcodeReader.js';
 
-// const Quagga = require('quagga').default;
+import fetch from 'isomorphic-fetch';
+
+import config from '../../../env/client.js';
+
 
 class AddPost extends Component {
   constructor(props) {
@@ -42,19 +47,36 @@ class AddPost extends Component {
   }
 
   handleSubmitPost() {
+    if (isNaN(this.state.upc)) {
+      return;
+    }
+
+    console.log('facebookId', this.props.facebookId);
     console.log('upc: ', this.state.upc);
     console.log('rating: ', this.state.rating);
     console.log('review: ', this.state.review);
     console.log('media: ', this.state.media);
-    // request
-    //   .post('/api/post')
-    //   .type('form')
-    //   .send({ upc: this.state.upc })
-    //   .send({ rating: this.state.rating })
-    //   .send({ review: this.state.review })
-    //   .send({ media: JSON.stringify(this.state.media) })
-    //   .end((err, res) => {
-    //   });
+    
+    fetch(`${config.GOBBLE_API_URL}/review`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+        body: JSON.stringify({
+          facebookId: Number(this.props.facebookId),
+          upc: Number(this.state.upc),
+          rating: this.state.rating,
+          review: this.state.review,
+          media: this.state.media
+        })
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.err(err);
+      });
   }
 
   render() {
@@ -80,6 +102,11 @@ class AddPost extends Component {
 }
 
 AddPost.propTypes = {
+  facebookId: PropTypes.string.isRequired
 };
 
-export default AddPost;
+const mapStateToProps = state => ({
+  facebookId: state.layout.navBarUser.facebookId.toString()
+}); 
+
+export default connect(mapStateToProps)(AddPost);
