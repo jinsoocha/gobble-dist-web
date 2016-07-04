@@ -1,16 +1,9 @@
-import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import BarCodeScanner from './BarCodeScanner';
+import Rating from './Rating';
+import FileUpload from './FileUpload';
 
-import FileUpload from './FileUpload.js';
-import Rating from './Rating.js';
-import BarcodeReader from './BarcodeReader.js';
-
-import fetch from 'isomorphic-fetch';
-
-import config from '../../../env/client.js';
-
-
-class AddPost extends Component {
+class AddReview extends Component {
   constructor(props) {
     super(props);
 
@@ -47,66 +40,39 @@ class AddPost extends Component {
   }
 
   handleSubmitPost() {
-    if (isNaN(this.state.upc)) {
-      return;
-    }
-
-    console.log('facebookId', this.props.facebookId);
     console.log('upc: ', this.state.upc);
     console.log('rating: ', this.state.rating);
     console.log('review: ', this.state.review);
     console.log('media: ', this.state.media);
-
-    fetch(`${config.GOBBLE_API_URL}/review`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        facebookId: Number(this.props.facebookId),
-        upc: Number(this.state.upc),
-        rating: this.state.rating,
-        review: this.state.review,
-        media: this.state.media
-      })
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.err(err);
-    });
   }
 
   render() {
     return (
-      <div>
-        <BarcodeReader handleBarcodeChange={this.handleBarcodeChange} />
-        <p> UPC: {this.state.upc} </p>
+      <div className="add-review">
+        <h2>Review A Product</h2>
+        <p>1. Scan a product barcode.</p>
+        <BarCodeScanner handleBarcodeChange={this.handleBarcodeChange} />
+        <span className="upc-state">{this.state.upc}</span>
+        <p>2. Give a rating, from 1 to 5.</p>
         <Rating handleRatingChange={this.handleRatingChange} />
+        <p>3. Write your review!</p>
         <textarea
           type="text"
-          placeholder="Your review"
+          placeholder="How'd it go?"
           value={this.review}
           onChange={this.handleReviewChange}
         />
-        <FileUpload handleFile={this.handleMediaChange} />
+        <p>4. Upload images (Optional)</p>
+        <FileUpload />
         <button
           onClick={this.handleSubmitPost}
           className="pure-button pure-button-primary button-xlarge button-success"
-        >Post</button>
+        >
+          Post your review!
+        </button>
       </div>
     );
   }
 }
 
-AddPost.propTypes = {
-  facebookId: PropTypes.string.isRequired
-};
-
-const mapStateToProps = state => ({
-  facebookId: state.layout.navBarUser.facebookId.toString()
-});
-
-export default connect(mapStateToProps)(AddPost);
+export default AddReview;

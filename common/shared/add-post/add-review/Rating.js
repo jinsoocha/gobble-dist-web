@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 const Star = (props) => {
-  if (props.selected) {
-    return <i {...props} className={'fa fa-star'} />;
-  }
-  return <i {...props} className={'fa fa-star-o'} />;
+  return props.selected ? (
+    <i {...props} className={'fa fa-star'} />
+  ) : (
+    <i {...props} className={'fa fa-star-o'} />
+  );
 };
 
 class Rating extends Component {

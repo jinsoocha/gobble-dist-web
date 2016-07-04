@@ -1,4 +1,8 @@
-import { UPDATE_SEARCH_BAR_QUERY } from './MainLayoutActions';
+import {
+  UPDATE_SEARCH_BAR_QUERY,
+  OPEN_MODAL,
+  CLOSE_MODAL
+} from './MainLayoutActions';
 
 const mainLayoutInitialState = {
   searchBarQuery: '',
@@ -7,7 +11,8 @@ const mainLayoutInitialState = {
     facebookId: '',
     firstName: '',
     photoUrl: ''
-  }
+  },
+  modalIsOpen: false
 };
 
 const mainLayoutReducer = (state = mainLayoutInitialState, action) => {
@@ -15,6 +20,14 @@ const mainLayoutReducer = (state = mainLayoutInitialState, action) => {
     case UPDATE_SEARCH_BAR_QUERY:
       return Object.assign({}, state, {
         searchBarQuery: action.searchBarQuery
+      });
+    case OPEN_MODAL:
+      return Object.assign({}, state, {
+        modalIsOpen: action.modalIsOpen
+      });
+    case CLOSE_MODAL:
+      return Object.assign({}, state, {
+        modalIsOpen: action.modalIsOpen
       });
     default:
       return state;

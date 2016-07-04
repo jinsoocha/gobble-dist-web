@@ -9,8 +9,9 @@ const generateInitialState = (req, res, isProfile, callback) => {
       navBarUser: {
         facebookId: '',
         firstName: '',
-        photoUrl: ''
-      }
+        photoUrl: '',
+      },
+      modalIsOpen: false
     },
     search: {
       resultsQuery: !!req.query.q ? req.query.q : ''
@@ -28,6 +29,9 @@ const generateInitialState = (req, res, isProfile, callback) => {
       lastName: '',
       displayName: '',
       photoUrl: ''
+    },
+    addPost: {
+      postType: ''
     }
   };
 
@@ -35,7 +39,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
     initialState.layout.navBarUser = {
       facebookId: req.user.facebook_id,
       firstName: req.user.first_name,
-      photoUrl: req.user.photo_url
+      photoUrl: req.user.photo_url,
     };
   }
 

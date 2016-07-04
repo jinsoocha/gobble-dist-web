@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,300italic,400italic);
 
+body {
+  background-color: rgb(250,244,248);
+}
+
 h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   font-family: 'Lato', sans-serif;
   letter-spacing: .5px;
@@ -7,137 +11,4 @@ h1, h2, h3, h4, h5, h6, div, span, a, ul, li {
   outline: none;
   text-decoration: none;
   transition: all .2s ease;
-}
-
-/* Site Top Gradient Border */
-.top-border {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: block;
-  height: 7px;
-  background: -webkit-linear-gradient(left, #d44727 0, #6e335e 25%, #76bd1d 50%, #cca584 100%);
-  background: linear-gradient(to right, #d44727 0, #6e335e 25%, #76bd1d 50%, #cca584 100%);
-}
-
-/* NavBar */
-.navbar-wrapper {
-  z-index: 2;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 2px solid rgb(240, 240, 240);
-  position: fixed;
-  top: 7px;
-  width: 100%;
-}
-
-.navbar-menu {
-  max-width: 1000px;
-  padding: 12px 0;
-  margin: 0 auto;
-  font-size: 17px;
-}
-
-.navbar-menu-heading {
-  text-align: left;
-  margin-left: 20px;
-}
-
-.navbar-menu-list {
-  float: right;
-  margin-right: 20px;
-}
-
-.navbar-menu-link {
-  padding: 8.5px 10px;
-  margin: 0 3px;
-}
-
-.navbar-profile-photo {
-  height: 17px;
-  border-radius: 5px;
-  margin-right: 7px;
-}
-
-.sign-in-link {
-  font-weight: 400;
-  color: rgb(110, 51, 95);
-}
-
-.gobble-modal-link {
-  margin: 0 10px 0 5px;
-  font-weight: 400;
-  background-color: rgb(110, 51, 95);
-  color: rgb(245, 245, 245);
-  border-radius: 5px;
-}
-
-.gobble-modal-link:hover, .gobble-modal-link:focus {
-  background-color: rgb(125, 64, 105);
-}
-
-.gobble-modal-link-icon {
-  margin-right: 10px; 
-}
-
-/* Search Bar */
-.search-bar {
-  display: inline-block;
-  zoom: 1;
-  vertical-align: middle;
-  text-align: center;
-  margin-left: 20px;
-}
-
-.fa-search {
-  margin: 0 10px;
-  color: rgb(110, 51, 95);
-  cursor: pointer;
-}
-
-.search-bar input[type="text"] {
-  width: 200px;
-  outline: none;
-  border: none;
-  border-left: 1px solid rgb(200, 200, 200);
-  border-right: 1px solid rgb(200, 200, 200);
-  padding: 4px 10px;
-  transition: all .5s ease;
-}
-
-.search-bar input[type="text"]:focus {
-  width: 350px;
-  font-size: 20px;
-  border-left: 1px solid rgb(110, 51, 95);
-  border-right: 1px solid rgb(110, 51, 95);
-  padding: 6px 15px 6px 10px;
-  color: rgb(110, 51, 95);
-  border-radius: 3px;
-}
-
-/* Content */
-.content {
-  margin-top: 71px;
-  min-height: 90vh;
-  text-align: center;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  background-color: rgb(247, 247, 247);
-  border-top: 1px solid rgb(240, 240, 240);
-  padding: 35px 0 25px;
-}
-
-.footer .copyright {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-.barcode-livestream {
-  width: 200px;
-}
-
-.drawingBuffer {
-  display: none;
 }

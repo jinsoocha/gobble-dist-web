@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-const d3 = require('d3');
-console.log(d3);
 
 const NutrientEntry = (props) => {
   const { category, nutrient, data, quality } = props;

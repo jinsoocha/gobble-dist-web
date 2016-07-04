@@ -1,0 +1,102 @@
+.add-post {
+  text-align: center;
+  margin: 0 auto;
+  width: 500px;
+  background-color: white;
+  border: 1px solid rgb(225, 225, 225);
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.add-post-view {
+  margin: 20px 0;
+}
+
+/* Post Type Bar */
+.post-type-bar {
+  display: inline-block;
+  padding: 7px 0;
+  width: 100%;
+  border-bottom: 1px solid rgb(225, 225, 225);
+}
+
+.post-type-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-type-option {
+  float: left;
+  padding: 2px 10px;
+  cursor: pointer;
+  border-right: 1px solid rgb(225, 225, 225);
+}
+
+.post-type-option:hover {
+  text-decoration: underline;
+}
+
+.post-type-option span {
+  display: block;
+  text-align: center;
+}
+
+/* Add Review */
+.add-review p {
+  color: rgb(150, 100, 150);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 25px 0 10px;
+}
+
+.barcode-livestream {
+  width: 250px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.add-review .upc-state {
+  background-color: rgb(119, 190, 67);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 7px;
+  padding: 6px 20px;
+}
+
+.add-review i.fa {
+  font-size: 30px;
+  padding: 0 4px;
+  color: rgb(119, 190, 67);
+}
+
+.add-review textarea {
+  outline: none;
+  padding: 10px;
+  width: 400px;
+  height: 100px;
+}
+
+.add-review #dropzone.dropzone.dz-clickable {
+  width: 350px;
+  min-height: 75px;
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px solid rgb(200, 200, 200);;
+  border-radius: 10px; 
+  background-color: #fff;
+}
+
+.add-review #dropzone .dz-default.dz-message {
+  font-size: 13px;
+}
+
+.add-review button {
+  margin: 20px 0;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: rgb(119, 190, 67);
+  color: rgb(245, 245, 245);
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,8 +1,9 @@
 import React from 'react';
+import AddPostContainer from './../../shared/add-post/AddPostContainer';
 
 const Feed = () => (
   <div className="feed-view">
-    <h1>Feed Here</h1>
+    <AddPostContainer />
   </div>
 );
 
