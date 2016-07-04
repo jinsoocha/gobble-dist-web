@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 class BarCodeScanner extends Component {
   componentDidMount() {
     this.startBarCodeScanner();
+    this.state = {
+      upc: ''
+    };
   }
 
   componentWillUnmount() {
@@ -28,7 +31,7 @@ class BarCodeScanner extends Component {
 
       Quagga.onDetected((data) => {
         const upc = data.codeResult.code;
-        console.log(upc);
+        console.log('UPC detected', upc);
         Quagga.stop();
       });
     }));

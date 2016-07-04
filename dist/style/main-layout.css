@@ -80,7 +80,7 @@
   -webkit-transform: translateX(-50%) translateY(-50%);
   -moz-transform: translateX(-50%) translateY(-50%);  
   -o-transform: translateX(-50%) translateY(-50%);
-  top: 35%;
+  top: 50%;
   left: 50%;
   border-radius: 15px;
   display: inline-block;
@@ -147,7 +147,7 @@
 
 /* Content */
 .content {
-  margin-top: 71px;
+  margin: 71px auto 50px;
   min-height: 90vh;
   text-align: center;
 }
