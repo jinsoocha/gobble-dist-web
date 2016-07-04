@@ -12,6 +12,7 @@
   margin: 20px 0;
 }
 
+/* Post Type Bar */
 .post-type-bar {
   display: inline-block;
   padding: 7px 0;
@@ -40,3 +41,5 @@
   display: block;
   text-align: center;
 }
+
+/* Add Review */

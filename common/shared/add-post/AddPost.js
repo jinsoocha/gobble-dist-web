@@ -7,10 +7,6 @@ const AddPost = (props) => {
   let PostView;
   if (props.postType === 'review') {
     PostView = AddReview;
-  } else if (props.postType === 'wish') {
-    PostView = () => (
-      <h1>Wish</h1>
-    );
   } else if (props.postType === 'stream') {
     PostView = () => (
       <h1>Live Stream</h1>
