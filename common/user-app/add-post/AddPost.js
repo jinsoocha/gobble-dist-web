@@ -56,27 +56,27 @@ class AddPost extends Component {
     console.log('rating: ', this.state.rating);
     console.log('review: ', this.state.review);
     console.log('media: ', this.state.media);
-    
+
     fetch(`${config.GOBBLE_API_URL}/review`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-        body: JSON.stringify({
-          facebookId: Number(this.props.facebookId),
-          upc: Number(this.state.upc),
-          rating: this.state.rating,
-          review: this.state.review,
-          media: this.state.media
-        })
+      body: JSON.stringify({
+        facebookId: Number(this.props.facebookId),
+        upc: Number(this.state.upc),
+        rating: this.state.rating,
+        review: this.state.review,
+        media: this.state.media
       })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.err(err);
-      });
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.err(err);
+    });
   }
 
   render() {
@@ -107,6 +107,6 @@ AddPost.propTypes = {
 
 const mapStateToProps = state => ({
   facebookId: state.layout.navBarUser.facebookId.toString()
-}); 
+});
 
 export default connect(mapStateToProps)(AddPost);
