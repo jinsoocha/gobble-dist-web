@@ -8,6 +8,9 @@ const postbitReducer = function(state = postbitInitialState, action) {
     case 'GET_POSTS_BY_DATE':
       nextState.posts = action.posts;
       return nextState;
+    case 'GET_POSTS_BY_FRIENDS':
+      nextState.posts = action.posts;
+      return nextState;
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Posts from './Posts';
 
-import { getPostsByDate, getPostsByFriend } from './postAction';
+import { getPostsByDate, getPostsByFriends } from './postAction';
 
 const mapStateToProps = state => ({
 
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getPostsByDate: date => dispatch(getPostsByDate(date)),
-  getPostsByFriend: (facebookId, date) => dispatch(getPostsByFriend(facebookId, date))
+  getPostsByFriends: (facebookId, date) => dispatch(getPostsByFriends(facebookId, date))
 });
 
 
