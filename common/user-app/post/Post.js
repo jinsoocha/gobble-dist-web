@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Postbit = props => (
+const Post = props => (
 
   <div className="post"></div>
 
@@ -17,3 +17,5 @@ Posbit.propTypes = {
   gender: PropTypes.string,
   photo_url: PropTypes.string
 };
+
+export default Post;

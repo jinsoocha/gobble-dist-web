@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Posts from '../post/PostContainer';
+
 const Popular = () => (
   <div className="popular-view">
-    <h1>Popular Here</h1>
+    <Posts type={'friends'} />
   </div>
 );
 

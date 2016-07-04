@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import ReviewProfile from './ReviewProfile';
-import Comment from './Comment';
+import Content from './Content';
 
 const Review = props => (
   <div className="review">
@@ -11,20 +11,20 @@ const Review = props => (
       last_name={props.last_name}
       photo_url={props.photo_url}
     />
-    <Comment comment={props.comment} />
+    <Content comment={props.comment} />
   </div>
 );
 
 Review.propTypes = {
   rating: PropTypes.number.isRequired,
   facebook_id: PropTypes.number.isRequired,
-  first_name: PropTypes.string.isRequired,
-  last_name: PropTypes.string.isRequired,
-  photo_url: PropTypes.string.isRequired,
-  comment: PropTypes.string.isRequired,
+  first_name: PropTypes.string,
+  last_name: PropTypes.string,
+  photo_url: PropTypes.string,
+  comment: PropTypes.string,
   Post_created_at: PropTypes.string.isRequired,
   upc: PropTypes.number.isRequired,
-  likesCache: PropTypes.number.isRequired
+  likesCache: PropTypes.number
 };
 
 export default Review;
