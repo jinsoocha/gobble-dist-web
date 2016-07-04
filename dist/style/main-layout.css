@@ -73,7 +73,7 @@
 
 /* Add Post Modal */
 .add-post-modal {
-  position: fixed;
+  position: absolute;
   z-index: 1001;
   transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
@@ -163,10 +163,6 @@
 .footer .copyright {
   margin-top: 10px;
   font-size: 14px;
-}
-
-.barcode-livestream {
-  width: 200px;
 }
 
 .drawingBuffer {

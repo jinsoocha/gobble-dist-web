@@ -52,13 +52,13 @@ class AddReview extends Component {
         <h2>Review A Product</h2>
         <p>1. Scan a product barcode.</p>
         <BarCodeScanner handleBarcodeChange={this.handleBarcodeChange} />
-        <span>{this.state.upc}</span>
+        <span className="upc-state">{this.state.upc}</span>
         <p>2. Give a rating, from 1 to 5.</p>
         <Rating handleRatingChange={this.handleRatingChange} />
         <p>3. Write your review!</p>
         <textarea
           type="text"
-          placeholder="Your review"
+          placeholder="How'd it go?"
           value={this.review}
           onChange={this.handleReviewChange}
         />
@@ -67,7 +67,9 @@ class AddReview extends Component {
         <button
           onClick={this.handleSubmitPost}
           className="pure-button pure-button-primary button-xlarge button-success"
-        >Post</button>
+        >
+          Post your review!
+        </button>
       </div>
     );
   }

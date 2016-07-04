@@ -43,3 +43,60 @@
 }
 
 /* Add Review */
+.add-review p {
+  color: rgb(150, 100, 150);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 25px 0 10px;
+}
+
+.barcode-livestream {
+  width: 230px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.add-review .upc-state {
+  background-color: rgb(119, 190, 67);
+  color: #fff;
+  font-size: 14px;
+  border-radius: 7px;
+  padding: 6px 20px;
+}
+
+.add-review i.fa {
+  font-size: 30px;
+  padding: 0 4px;
+  color: rgb(119, 190, 67);
+}
+
+.add-review textarea {
+  outline: none;
+  padding: 10px;
+  width: 400px;
+  height: 100px;
+}
+
+.add-review #dropzone.dropzone.dz-clickable {
+  width: 350px;
+  min-height: 75px;
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px solid rgb(200, 200, 200);;
+  border-radius: 10px; 
+  background-color: #fff;
+}
+
+.add-review #dropzone .dz-default.dz-message {
+  font-size: 13px;
+}
+
+.add-review button {
+  margin: 20px 0;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: rgb(119, 190, 67);
+  color: rgb(245, 245, 245);
+  border-radius: 5px;
+  cursor: pointer;
+}

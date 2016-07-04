@@ -31,7 +31,7 @@ class BarCodeScanner extends Component {
 
       Quagga.onDetected((data) => {
         const upc = data.codeResult.code;
-        console.log('UPC detected', upc);
+        this.props.handleBarcodeChange(`UPC: ${upc}`);
         Quagga.stop();
       });
     }));
