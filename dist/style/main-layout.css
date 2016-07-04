@@ -80,11 +80,16 @@
   -webkit-transform: translateX(-50%) translateY(-50%);
   -moz-transform: translateX(-50%) translateY(-50%);  
   -o-transform: translateX(-50%) translateY(-50%);
-  top: 50%;
+  top: 45%;
   left: 50%;
   border-radius: 15px;
   display: inline-block;
   background-color: white;
+}
+
+.add-post-modal .add-post {
+  overflow: auto !important;
+  max-height: 600px;
 }
 
 .add-post-modal-overlay {
