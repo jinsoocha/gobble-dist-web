@@ -3,7 +3,10 @@ const profileInitialState = {
   firstName: '',
   lastName: '',
   displayName: '',
-  photoUrl: ''
+  photoUrl: '',
+  userIsFollowing: false,
+  following: [],
+  followers: []
 };
 
 const profileReducer = (state = profileInitialState, action) => {
