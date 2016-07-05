@@ -27,15 +27,23 @@
 }
 
 .is-not-auth-button,
-.follow-button {
+.is-following-button,
+.follow-button,
+.unfollow-button {
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 400;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  width: 75px;
+}
+
+.is-not-auth-button,
+.follow-button {
   background-color: rgb(245, 245, 245);
   color: rgb(110, 51, 95);
   border: 1px solid rgb(225, 225, 225);
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .follow-button .fa-plus {
@@ -48,17 +56,6 @@
 .is-not-auth-button:hover,
 .follow-button:hover {
   background-color: rgb(240, 240, 240);
-}
-
-.is-following-button,
-.unfollow-button {
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 400;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-block;
-  width: 90px;
 }
 
 .is-following-button {
