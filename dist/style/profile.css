@@ -27,7 +27,7 @@
 }
 
 .is-not-auth-button,
-.is-not-following-button {
+.follow-button {
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 400;
@@ -38,8 +38,15 @@
   cursor: pointer;
 }
 
+.follow-button .fa-plus {
+  font-size: 7px;
+  vertical-align: middle;
+  padding-bottom: 4px;
+  margin: 0 6px 0 1px;
+}
+
 .is-not-auth-button:hover,
-.is-not-following-button:hover {
+.follow-button:hover {
   background-color: rgb(240, 240, 240);
 }
 

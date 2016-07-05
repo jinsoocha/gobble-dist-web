@@ -33,9 +33,13 @@ const UnfollowButton = (props) => (
   </div>
 );
 
-const IsNotFollowingButton = () => (
+const FollowButton = () => (
   <div>
-    <span className="is-not-following-button">Follow</span>
+    <span className="follow-button">
+      <i className="fa fa-user" aria-hidden="true" />
+      <i className="fa fa-plus fa-sm" aria-hidden="true" />
+      Follow
+    </span>
   </div>
 );
 
@@ -60,7 +64,7 @@ const ProfileSummary = (props) => {
       }
     } else {
       Button = () => (
-        <IsNotFollowingButton />
+        <FollowButton />
       );
     }
   }
