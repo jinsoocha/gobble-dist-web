@@ -30,7 +30,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       displayName: '',
       photoUrl: '',
       isFollowing: false,
-      isHoveringFollowing: false,
+      isShowingUnfollowButton: false,
       following: [],
       followers: []
     },

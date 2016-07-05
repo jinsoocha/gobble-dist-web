@@ -11,15 +11,25 @@ const IsNotAuthButton = () => (
   </div>
 );
 
-const IsFollowingButton = () => (
+const IsFollowingButton = (props) => (
   <div>
-    <span className="is-following-button">Following</span>
+    <span
+      className="is-following-button"
+      onMouseOver={props.showUnfollowButton}
+    >
+      Following
+    </span>
   </div>
 );
 
-const HoverIsFollowingButton = () => (
+const UnfollowButton = (props) => (
   <div>
-    <span className="hover-is-following-button">Unfollow</span>
+    <span
+      className="unfollow-button"
+      onMouseOut={props.hideUnfollowButton}
+    >
+      Unfollow
+    </span>
   </div>
 );
 
@@ -30,25 +40,34 @@ const IsNotFollowingButton = () => (
 );
 
 const ProfileSummary = (props) => {
-  const { displayName, isAuth, isFollowing, isHoveringFollowing } = props;
   let Button;
-  if (!isAuth) {
+  if (!props.isAuth) {
     Button = IsNotAuthButton;
   } else {
-    if (isFollowing) {
-      if (isHoveringFollowing) {
-        Button = HoverIsFollowingButton;
+    if (props.isFollowing) {
+      if (props.isShowingUnfollowButton) {
+        Button = () => (
+          <UnfollowButton
+            hideUnfollowButton={props.hideUnfollowButton}
+          />
+        );
       } else {
-        Button = IsFollowingButton;
+        Button = () => (
+          <IsFollowingButton
+            showUnfollowButton={props.showUnfollowButton}
+          />
+        );
       }
     } else {
-      Button = IsNotFollowingButton;
+      Button = () => (
+        <IsNotFollowingButton />
+      );
     }
   }
 
   return (
     <div className="profile-summary">
-      <h1 className="profile-user-name">{displayName}</h1>
+      <h1 className="profile-user-name">{props.displayName}</h1>
       <Button />
     </div>
   );
@@ -57,8 +76,10 @@ const ProfileSummary = (props) => {
 ProfileSummary.propTypes = {
   displayName: PropTypes.string.isRequired,
   isFollowing: PropTypes.bool.isRequired,
-  isHoveringFollowing: PropTypes.bool.isRequired,
-  isAuth: PropTypes.bool.isRequired
+  isShowingUnfollowButton: PropTypes.bool.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  showUnfollowButton: PropTypes.func.isRequired,
+  hideUnfollowButton: PropTypes.func.isRequired
 };
 
 export default ProfileSummary;

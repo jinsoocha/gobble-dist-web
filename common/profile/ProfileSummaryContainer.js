@@ -1,11 +1,25 @@
 import { connect } from 'react-redux';
 import ProfileSummary from './ProfileSummary';
 
+import { showUnfollowButton, hideUnfollowButton } from './ProfileActions';
+
 const mapStateToProps = state => ({
   displayName: state.profile.displayName,
   isFollowing: state.profile.isFollowing,
-  isHoveringFollowing: state.profile.isHoveringFollowing,
+  isShowingUnfollowButton: state.profile.isShowingUnfollowButton,
   isAuth: state.layout.isAuth
 });
 
-export default connect(mapStateToProps)(ProfileSummary);
+const mapDispatchToProps = dispatch => ({
+  showUnfollowButton: () => {
+    dispatch(showUnfollowButton());
+  },
+  hideUnfollowButton: () => {
+    dispatch(hideUnfollowButton());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProfileSummary);
