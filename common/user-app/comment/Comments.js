@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
 import Comment from './Comment';
+import AddComment from './AddCommentContainer';
 
 class Comments extends Component {
   componentDidMount() {
@@ -10,7 +11,8 @@ class Comments extends Component {
   render() {
     return (
       <div className="comments">
-        {this.props.comments ? this.props.comments.map(comment => <Comment {...comment} />) : ''}
+        {Array.isArray(this.props.comments) ? this.props.comments.map(comment => <Comment {...comment} />) : ''}
+        <AddComment postId={this.props.postId} />
       </div>
     );
   }

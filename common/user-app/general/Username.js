@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const Username = props => (
-  <p>
+  <p className="username">
     <a href={`/${props.facebook_id}`}>{`${props.first_name} ${props.last_name}`}</a>
   </p>
 );

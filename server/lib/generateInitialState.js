@@ -44,7 +44,12 @@ const generateInitialState = (req, res, isProfile, callback) => {
       firstName: req.user.first_name,
       photoUrl: req.user.photo_url,
     };
-    initialState.post.facebookId = req.user.facebook_id;
+    initialState.post = {
+      facebookId: req.user.facebook_id,
+      firstName: req.user.first_name,
+      lastName: req.user.last_name,
+      photoUrl: req.user.photo_url,
+    };
   }
 
   // Is a profile page directly off the base URL

@@ -12,11 +12,28 @@
   border-bottom: 1px solid rgb(225, 225, 225); 
 }
 
+.username {
+  margin-top: 0;
+  
+}
+
+.review {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  position: relative;
+  vertical-align: top;
+}
 .review .review-profile {
-  align: left;
+  margin-top: 0;
+  padding: 0;
+  display: block;
 }
 .review .review-profile .small-photo {
-  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
 
 .review .review-profile .username {
