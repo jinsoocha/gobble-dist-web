@@ -15,7 +15,6 @@ const rootReducer = combineReducers({
   foodProduct: foodProductReducer,
   profile: profileReducer,
   addPost: addPostReducer,
-  routing: routerReducer
   routing: routerReducer,
   comment: commentReducer,
   post: postsReducer

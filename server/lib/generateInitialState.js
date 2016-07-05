@@ -32,6 +32,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
     },
     addPost: {
       postType: ''
+    },
     post: {
       facebookId: '',
     }
