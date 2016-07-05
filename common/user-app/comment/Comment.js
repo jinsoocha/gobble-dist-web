@@ -12,11 +12,11 @@ const Comment = props => (
 
 Comment.propTypes = {
   facebook_id: PropTypes.number,
-  first_name: PropTypes.string.isRequired,
-  last_name: PropTypes.string.isRequired,
+  first_name: PropTypes.string,
+  last_name: PropTypes.string,
   display_name: PropTypes.string,
   photo_url: PropTypes.string,
-  comment: PropTypes.string.isRequired
+  comment: PropTypes.string
 };
 
 export default Comment;

@@ -1,0 +1,42 @@
+.posts {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 500px;
+  background-color: white;
+  border: 1px solid rgb(225, 225, 225);
+}
+
+.review, .wish {
+  display: block;
+  border-bottom: 1px solid rgb(225, 225, 225); 
+}
+
+.username {
+  margin-top: 0;
+  
+}
+
+.review {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  position: relative;
+  vertical-align: top;
+}
+.review .review-profile {
+  margin-top: 0;
+  padding: 0;
+  display: block;
+}
+.review .review-profile .small-photo {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.review .review-profile .username {
+  display: inline-block;
+
+}
