@@ -29,7 +29,8 @@ const generateInitialState = (req, res, isProfile, callback) => {
       lastName: '',
       displayName: '',
       photoUrl: '',
-      userIsFollowing: false,
+      isFollowing: false,
+      isHoveringFollowing: false,
       following: [],
       followers: []
     },
@@ -78,7 +79,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       })
       .then(fetchedIsFollowing => fetchedIsFollowing.json())
       .then(isFollowing => {
-        initialState.profile.userIsFollowing = isFollowing;
+        initialState.profile.isFollowing = isFollowing;
         console.log('INITIAL STATE', initialState);
         callback(initialState);
       });

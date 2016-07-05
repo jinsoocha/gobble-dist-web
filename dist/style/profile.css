@@ -1,3 +1,55 @@
 .profile-layout {
-  padding-top: 12px;
+  padding-top: 40px;
 }
+
+.profile-photo {
+  border: 5px solid #fff;
+  border-radius: 15px;
+  width: 250px;
+}
+
+.profile-summary {
+  margin: 10px auto;
+  padding-bottom: 25px;
+  background-color: #fff;
+  width: 260px;
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 5px;
+  transition: all .2 ease;
+}
+
+.profile-user-name {
+  margin: 10px auto 20px;
+  font-size: 25px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.is-not-auth-button,
+.is-not-following-button {
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 400;
+  background-color: rgb(245, 245, 245);
+  color: rgb(110, 51, 95);
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.is-not-auth-button:hover,
+.is-not-following-button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.is-following-button {
+  padding: 8px 16px; 
+  font-size: 15px;
+  font-weight: 400;
+  background-color: rgb(110, 51, 95);
+  color: rgb(245, 245, 245);
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 5px;
+  cursor: pointer;
+}
+

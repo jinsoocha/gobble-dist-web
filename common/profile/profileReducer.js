@@ -4,7 +4,8 @@ const profileInitialState = {
   lastName: '',
   displayName: '',
   photoUrl: '',
-  userIsFollowing: false,
+  isFollowing: false,
+  isHoveringFollowing: false,
   following: [],
   followers: []
 };
