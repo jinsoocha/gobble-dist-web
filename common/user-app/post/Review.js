@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 
 import ReviewProfile from './ReviewProfile';
 import Content from './Content';
+import Comments from '../comment/CommentsContainer';
 
 const Review = props => (
   <div className="review">
@@ -12,10 +13,12 @@ const Review = props => (
       photo_url={props.photo_url}
     />
     <Content comment={props.comment} />
+    <Comments postId={props.postId} />
   </div>
 );
 
 Review.propTypes = {
+  postId: PropTypes.number,
   rating: PropTypes.number.isRequired,
   facebook_id: PropTypes.number.isRequired,
   first_name: PropTypes.string,

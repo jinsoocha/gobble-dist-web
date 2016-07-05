@@ -6,10 +6,10 @@ const Username = props => (
   </p>
 );
 
-export default Username;
-
 Username.propTypes = {
   facebook_id: PropTypes.number.isRequired,
   first_name: PropTypes.string.isRequired,
   last_name: PropTypes.string.isRequired
 };
+
+export default Username;

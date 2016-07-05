@@ -1,4 +1,4 @@
-const fetch = require('isomoprhic-fetch');
+const fetch = require('isomorphic-fetch');
 const GOBBLE_API_URL = require('../../../env/client');
 
 const UPDATE_COMMENT = 'UPDATE_COMMENT';

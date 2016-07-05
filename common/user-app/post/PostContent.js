@@ -4,15 +4,15 @@ import Rating from './Rating';
 
 const PostContent = props => (
   <div className="post-content">
-    <Rating rating={props.rating} />
-
+    <Rating rating={5} />
+    <div className="post-comment">{props.comment}</div>
   </div>
 
 );
 
 PostContent.propTypes = {
-  rating: PropTypes.number.isRequired,
-  comment: PropTypes.string.isRequired,
+  rating: PropTypes.number,
+  comment: PropTypes.string,
 };
 
 export default PostContent;

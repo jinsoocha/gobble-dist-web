@@ -10,7 +10,7 @@ class Comments extends Component {
   render() {
     return (
       <div className="comments">
-        {this.props.comments.map(comment => <Comment {...comment} />)}
+        {this.props.comments ? this.props.comments.map(comment => <Comment {...comment} />) : ''}
       </div>
     );
   }

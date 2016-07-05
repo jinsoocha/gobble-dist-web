@@ -21,9 +21,8 @@ class Posts extends Component {
     }
   }
   render() {
-    console.log('rendered once');
     return (
-      <div className="postbits">
+      <div className="posts">
         {this.props.posts ? this.props.posts.map(post => this.renderPost(post)) : ''}
       </div>
     );

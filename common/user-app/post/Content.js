@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const Comment = props => (
-  <div className="comment">{props.comment}</div>
+  <div className="review-comment pure-u-3-5">{props.comment}</div>
 );
 
 Comment.propTypes = {
