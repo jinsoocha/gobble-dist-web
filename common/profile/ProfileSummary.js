@@ -15,23 +15,27 @@ const IsFollowingButton = (props) => (
   <div>
     <span
       className="is-following-button"
-      onMouseOver={props.showUnfollowButton}
+      onMouseEnter={props.showUnfollowButton}
     >
       Following
     </span>
   </div>
 );
 
-const UnfollowButton = (props) => (
-  <div>
-    <span
-      className="unfollow-button"
-      onMouseOut={props.hideUnfollowButton}
-    >
-      Unfollow
-    </span>
-  </div>
-);
+const UnfollowButton = (props) => {
+  const { hideUnfollowButton, deleteFollow, followerId, followedId } = props;
+  return (
+    <div>
+      <span
+        className="unfollow-button"
+        onMouseLeave={hideUnfollowButton}
+        onClick={deleteFollow.bind(null, followerId, followedId)}
+      >
+        Unfollow
+      </span>
+    </div>
+  );
+};
 
 const FollowButton = (props) => {
   const { postFollow, followerId, followedId } = props;
@@ -59,6 +63,9 @@ const ProfileSummary = (props) => {
         Button = () => (
           <UnfollowButton
             hideUnfollowButton={props.hideUnfollowButton}
+            deleteFollow={props.deleteFollow}
+            followerId={props.followerId}
+            followedId={props.followedId}
           />
         );
       } else {
@@ -96,7 +103,8 @@ ProfileSummary.propTypes = {
   isAuth: PropTypes.bool.isRequired,
   showUnfollowButton: PropTypes.func.isRequired,
   hideUnfollowButton: PropTypes.func.isRequired,
-  postFollow: PropTypes.func.isRequired
+  postFollow: PropTypes.func.isRequired,
+  deleteFollow: PropTypes.func.isRequired
 };
 
 export default ProfileSummary;

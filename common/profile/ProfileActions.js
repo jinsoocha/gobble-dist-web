@@ -22,3 +22,15 @@ export const postFollow = (followerId, followedId) => {
     return dispatch(showPostFollow());
   };
 };
+
+export const SHOW_DELETE_FOLLOW = 'SHOW_DELETE_FOLLOW';
+const showDeleteFollow = () => ({
+  type: SHOW_DELETE_FOLLOW
+});
+
+export const deleteFollow = (followerId, followedId) => {
+  return dispatch => {
+    console.log(followerId, followedId);
+    return dispatch(showDeleteFollow());
+  };
+};

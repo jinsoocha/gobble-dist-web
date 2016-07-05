@@ -4,7 +4,8 @@ import ProfileSummary from './ProfileSummary';
 import {
   showUnfollowButton,
   hideUnfollowButton,
-  postFollow
+  postFollow,
+  deleteFollow
 } from './ProfileActions';
 
 const mapStateToProps = state => ({
@@ -25,7 +26,10 @@ const mapDispatchToProps = dispatch => ({
   },
   postFollow: (followerId, followedId) => {
     dispatch(postFollow(followerId, followedId));
-  }
+  },
+  deleteFollow: (followerId, followedId) => {
+    dispatch(deleteFollow(followerId, followedId));
+  },
 });
 
 export default connect(
