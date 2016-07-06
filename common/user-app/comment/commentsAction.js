@@ -14,13 +14,11 @@ export function getComments(parentId) {
   };
 }
 
-export function pushComment(userId, parentId, comment, first_name, last_name) {
+export function pushComment(userId, parentId, comment, firstName, lastName) {
   const commentObj = {
     User_facebook_id: userId,
     parentId,
     comment,
-    first_name,
-    last_name,
     likesCache: 0
   };
   return dispatch => {
@@ -35,6 +33,8 @@ export function pushComment(userId, parentId, comment, first_name, last_name) {
     })
     .catch(err => console.log(`Error in commentsAction ${err}`));
     commentObj.facebook_id = userId;
+    commentObj.first_name = firstName;
+    commentObj.last_name = lastName;
 
     dispatch({ type: 'PUSH_COMMENT', comment: commentObj });
   };
