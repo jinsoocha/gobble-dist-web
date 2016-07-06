@@ -11,7 +11,14 @@ const ProfileFollowers = (props) => {
     );
   } else {
     return (
-      <div>followers</div>
+      <div className="profile-followers-view">
+        {props.followers.map(user =>
+          <UserBlock
+            key={user.facebook_id}
+            user={user}
+          />
+        )}
+      </div>
     );
   }
 };

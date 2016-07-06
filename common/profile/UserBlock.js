@@ -6,4 +6,8 @@ const UserBlock = (props) => {
   );
 };
 
+UserBlock.propTypes = {
+  user: PropTypes.object.isRequired
+};
+
 export default UserBlock;
