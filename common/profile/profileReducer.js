@@ -2,7 +2,8 @@ import {
   SHOW_UNFOLLOW_BUTTON,
   HIDE_UNFOLLOW_BUTTON,
   SHOW_POST_FOLLOW,
-  SHOW_DELETE_FOLLOW
+  SHOW_DELETE_FOLLOW,
+  CHANGE_PROFILE_VIEW
 } from './ProfileActions';
 
 const profileInitialState = {
@@ -36,6 +37,10 @@ const profileReducer = (state = profileInitialState, action) => {
     case SHOW_DELETE_FOLLOW:
       return Object.assign({}, state, {
         isFollowing: false
+      });
+    case CHANGE_PROFILE_VIEW:
+      return Object.assign({}, state, {
+        view: action.view
       });
     default:
       return state;

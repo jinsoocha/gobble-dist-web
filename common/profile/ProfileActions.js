@@ -14,7 +14,6 @@ export const hideUnfollowButton = () => ({
 });
 
 export const SHOW_POST_FOLLOW = 'SHOW_POST_FOLLOW';
-
 const showPostFollow = () => ({
   type: SHOW_POST_FOLLOW
 });
@@ -43,7 +42,6 @@ export const postFollow = (followerId, followedId) => {
 };
 
 export const SHOW_DELETE_FOLLOW = 'SHOW_DELETE_FOLLOW';
-
 const showDeleteFollow = () => ({
   type: SHOW_DELETE_FOLLOW
 });
@@ -68,3 +66,10 @@ export const deleteFollow = (followerId, followedId) => {
     });
   };
 };
+
+export const CHANGE_PROFILE_VIEW = 'CHANGE_PROFILE_VIEW';
+export const changeProfileView = view => ({
+  type: CHANGE_PROFILE_VIEW,
+  view
+});
+
