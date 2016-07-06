@@ -13,6 +13,7 @@ const profileInitialState = {
   photoUrl: '',
   isFollowing: false,
   isShowingUnfollowButton: false,
+  view: 'feed',
   following: [],
   followers: []
 };
