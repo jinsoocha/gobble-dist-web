@@ -15,6 +15,7 @@ const profileInitialState = {
   isFollowing: false,
   isShowingUnfollowButton: false,
   view: 'posts',
+  posts: [],
   following: [],
   followers: []
 };

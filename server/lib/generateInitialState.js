@@ -32,6 +32,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       isFollowing: false,
       isShowingUnfollowButton: false,
       view: 'posts',
+      post: [],
       following: [],
       followers: []
     },
@@ -70,6 +71,18 @@ const generateInitialState = (req, res, isProfile, callback) => {
           displayName: user.display_name,
           photoUrl: user.photo_url
         });
+
+        return fetch(`${process.env.GOBBLE_API_URL}/following?facebook_id=${facebookId}`);
+      })
+      .then(fetchedFollowing => fetchedFollowing.json())
+      .then(following => {
+        initialState.profile.following = following;
+
+        return fetch(`${process.env.GOBBLE_API_URL}/followers?facebook_id=${facebookId}`);
+      })
+      .then(fetchedFollowers => fetchedFollowers.json())
+      .then(followers => {
+        initialState.profile.followers = followers;
 
         if (!isAuth(req)) {
           console.log('INITIAL STATE', initialState);
