@@ -6,7 +6,7 @@ export const receiveSearchResults = searchResults => ({
   type: RECEIVE_SEARCH_RESULTS,
   users: searchResults.users,
   products: searchResults.products,
-  posts: searchResults.posts
+  reviews: searchResults.reviews
 });
 
 export const fetchSearchResults = query => {

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import MainLayoutContainer from './../main-layout/MainLayoutContainer';
 
-import PostResultsContainer from './PostResultsContainer';
+import ReviewResultsContainer from './ReviewResultsContainer';
 import UserResultsContainer from './UserResultsContainer';
 import ProductResultsContainer from './ProductResultsContainer';
 
@@ -36,10 +36,10 @@ class Search extends Component {
             <ProductResultsContainer />
           </div>
         );
-      } else if (view === 'posts') {
+      } else if (view === 'reviews') {
         SearchView = () => (
           <div className="search-view">
-            <PostResultsContainer />
+            <ReviewResultsContainer />
           </div>
         );
       } else { // view === 'all'
@@ -47,7 +47,7 @@ class Search extends Component {
           <div className="search-view">
             <UserResultsContainer />
             <ProductResultsContainer />
-            <PostResultsContainer />
+            <ReviewResultsContainer />
           </div>
         );
       }
