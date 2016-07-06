@@ -16,6 +16,7 @@
     "react/prop-types": 0,
     "react/jsx-no-bind": 0,
     "func-name": 0,
-    "camel-case": 0
+    "camel-case": 0,
+    "no-param-reassign": 0
   }
 }

@@ -10,7 +10,8 @@ const ProductNutrientDetails = (props) => {
 
 ProductNutrientDetails.propTypes = {
   nutrient: PropTypes.string.isRequired,
-  nutrientLevel: PropTypes.string.isRequired
+  nutrientLevel: PropTypes.number.isRequired,
+  comparedLevel: PropTypes.number.isRequired,
 };
 
 export default ProductNutrientDetails;
