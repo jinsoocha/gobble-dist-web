@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import ProfileViewOptionsContainer from './ProfileViewOptionsContainer';
 
 const IsNotAuthButton = () => (
   <div>
@@ -90,6 +91,7 @@ const ProfileSummary = (props) => {
     <div className="profile-summary">
       <h1 className="profile-user-name">{props.displayName}</h1>
       <Button />
+      <ProfileViewOptionsContainer />
     </div>
   );
 };
