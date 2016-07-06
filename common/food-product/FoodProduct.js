@@ -43,6 +43,7 @@ class FoodProduct extends Component {
         {name}
         {image}
         <FoodProductAnalysis
+          facebookId={this.props.facebookId}
           upc={this.props.upc}
           productAnalysis={this.props.productAnalysis}
           getCategoryComparison={this.props.getCategoryComparison}

@@ -13,7 +13,7 @@ class FoodProductAnalysis extends Component {
   }
 
   render() {
-    const { productAnalysis, categoryComparison, showProductDetails,
+    const { facebookId, productAnalysis, categoryComparison, showProductDetails,
       selectedProduct, getRandomRecommendations, recommendationsStorage } = this.props;
     return (
       <div>
@@ -38,6 +38,7 @@ class FoodProductAnalysis extends Component {
           </select>
           {!categoryComparison ? null :
           (<AnalysisEntry
+            facebookId={facebookId}
             key={categoryComparison}
             basicInfo={productAnalysis.basicInfo}
             category={categoryComparison}

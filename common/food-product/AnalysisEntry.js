@@ -58,7 +58,7 @@ class AnalysisEntry extends Component {
 
   render() {
     const {
-      category, data, showProductDetails, selectedProduct, recommendationsStorage, basicInfo,
+      facebookId, category, data, showProductDetails, selectedProduct, recommendationsStorage, basicInfo,
     } = this.props;
     return (
       <div>
@@ -92,6 +92,7 @@ class AnalysisEntry extends Component {
         || !recommendationsStorage[category] ? null :
         Object.keys(recommendationsStorage[category]).map((product) =>
           <RecommendationEntry
+            facebookId={facebookId}
             key={product}
             basicInfo={basicInfo}
             product={recommendationsStorage[category][product]}

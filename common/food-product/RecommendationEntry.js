@@ -5,6 +5,7 @@ class RecommendationEntry extends Component {
   constructor(props) {
     super(props);
     this.showProductDetails = this.showProductDetails.bind(this);
+    this.addToWish = this.addToWish.bind(this);
   }
 
   componentDidUpdate() {
@@ -33,28 +34,33 @@ class RecommendationEntry extends Component {
 
   addToWish(e) {
     e.preventDefault();
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    fetch('http://localhost:4569/review', {
-      method: 'POST',
-      mode: 'cors',
-      body: JSON.stringify({ upc: this.props.product.upc }),
-      headers,
-    })
-    .then((res) => res.json())
-    .catch((err) => console.log('Analysis and recommendation is not ready: ', err))
-    .then((data) => {
-      this.props.getProductAnalysis(data);
-      this.props.getCategoryComparison(
-        Object.keys(data)[0] !== 'basicInfo' ?
-        Object.keys(data)[0] :
-        Object.keys(data)[1]
-      );
-    })
-    .catch((err) => console.log(err));
+    if (this.props.facebookId === '') {
+      console.log('Not signed in ', this.props.facebookId);
+    } else {
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      fetch('http://localhost:4569/wish', {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({ upc: this.props.product.upc, facebookId: this.props.facebookId }),
+        headers,
+      })
+      .then((res) => res.json())
+      .catch((err) => console.log(err))
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+    }
   }
 
   render() {
+    let button;
+    if (this.props.facebookId === '') {
+      button = <div>Please sign in to add this item on your wish list</div>;
+    } else {
+      button = <button onClick={this.addToWish}>Add to wish list</button>;
+    }
     const { product, selectedProduct } = this.props;
     let productIntro;
     if (product.quality.length === 1) {
@@ -86,7 +92,7 @@ class RecommendationEntry extends Component {
           height="100"
           style={{ marginTop: 30, marginBottom: 30 }}
         />
-        <button onClick={this.addToWish}>Add to wish list</button>
+        {button}
         {selectedProduct !== product.upc ? null :
         (<div>
           <div>

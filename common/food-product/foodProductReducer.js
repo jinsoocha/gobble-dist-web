@@ -7,6 +7,7 @@ const foodProductInitialState = {
   categoryComparison: '',
   selectedProduct: 0,
   recommendationsStorage: {},
+  facebookId: '',
 };
 
 const foodProductReducer = (state = foodProductInitialState, action) => {
