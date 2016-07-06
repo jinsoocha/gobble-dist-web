@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => ({
   },
   deleteFollow: (followerId, followedId) => {
     dispatch(deleteFollow(followerId, followedId));
-  },
+  }
 });
 
 export default connect(
