@@ -14,7 +14,14 @@ const generateInitialState = (req, res, isProfile, callback) => {
       modalIsOpen: false
     },
     search: {
-      resultsQuery: !!req.query.q ? req.query.q : ''
+      query: !!req.query.q ? req.query.q : '',
+      isLoading: true,
+      results: {
+        users: [],
+        products: [],
+        posts: []
+      },
+      view: 'all'
     },
     foodProduct: {
       upc: !!req.params.upc ? req.params.upc : '',
