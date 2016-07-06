@@ -13,26 +13,28 @@ class FoodProductAnalysis extends Component {
   }
 
   render() {
-    const { productAnalysis, categoryComparison, showProductDetails, selectedProduct, getRandomRecommendations, recommendationsStorage } = this.props;
+    const { productAnalysis, categoryComparison, showProductDetails,
+      selectedProduct, getRandomRecommendations, recommendationsStorage } = this.props;
     return (
       <div>
         {Object.keys(productAnalysis).length > 0 ?
         (<div>Compare with the category:{' '}
           <select
+            style={{ marginBottom: 20 }}
             defaultValue={
-              Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 1] !== 'basicInfo' ?
-              Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 1] :
-              Object.keys(productAnalysis)[Object.keys(productAnalysis).length - 2]
+              Object.keys(productAnalysis)[0] !== 'basicInfo' ?
+              Object.keys(productAnalysis)[0] :
+              Object.keys(productAnalysis)[1]
             }
             onChange={this.getCategoryComparison}
           >
-          {Object.keys(productAnalysis).map((category, i) => {
-            return category === 'basicInfo' ? null :
+          {Object.keys(productAnalysis).map((category, i) =>
+            (category === 'basicInfo' ? null :
               <CategorySelection
                 key={i}
                 category={category}
-              />;
-          })}
+              />)
+          )}
           </select>
           {!categoryComparison ? null :
           (<AnalysisEntry
@@ -60,7 +62,7 @@ FoodProductAnalysis.propTypes = {
   showProductDetails: PropTypes.func.isRequired,
   selectedProduct: PropTypes.number.isRequired,
   getRandomRecommendations: PropTypes.func.isRequired,
-  recommendationsStorage: PropTypes.object.isRequired
+  recommendationsStorage: PropTypes.object.isRequired,
 };
 
 export default FoodProductAnalysis;
