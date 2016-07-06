@@ -9,18 +9,22 @@ import { GoogleMapLoader, GoogleMap, Marker } from 'react-google-maps';
 import { triggerEvent } from 'react-google-maps/lib/utils';
 
 import config from './../../../env/client.js';
-console.log('CONFIG', config.GOBBLE_RIPPLE_URL);
+
 class RippleMap extends Component {
 
   constructor(props, context) {
     super(props, context);
     this.state = {
       markers: [],
+      facebookId: this.props.facebookId,
+      defaultLat: 37.7838159,
+      defaultLng: -122.4090234,
     };
     this.handleWindowResize = _.throttle(this.handleWindowResize.bind(this), 500);
   }
 
   componentDidMount() {
+    const facebookId = this.state.facebookId;
     if (!canUseDOM) {
       return;
     }
@@ -37,16 +41,16 @@ class RippleMap extends Component {
         navigator.geolocation.getCurrentPosition((position) => {
           const lat = position.coords.latitude;
           const lng = position.coords.longitude;
-          window.socket.emit('update location', this.props.facebookId, lat, lng);
+          window.socket.emit('update location', facebookId, lat, lng);
         });
       }
     };
     window.socket.updateShape = function updateShape() {
-      window.socket.emit('update shape', this.props.facebookId, 'large-square');
+      window.socket.emit('update shape', facebookId, 'large-square');
     };
     window.socket.updateShape('large square');
     window.socket.updateLocation();
-    setInterval(window.socket.updateLocation(), 30000);
+    setInterval(window.socket.updateLocation, 10000);
   }
 
   componentWillUnmount() {
@@ -64,20 +68,19 @@ class RippleMap extends Component {
   render() {
     return (
       <GoogleMapLoader
-        containerElement={
+        containerElement={(
           <div
-            {...this.props}
             style={{
               height: '500px',
               width: '500px',
             }}
           />
-        }
-        googleMapElement={
+        )}
+        googleMapElement={(
           <GoogleMap
             ref={(map) => (this._googleMapComponent = map)}
             defaultZoom={12}
-            defaultCenter={{ lat: 37.7838159, lng: -122.4090234 }}
+            defaultCenter={{ lat: this.state.defaultLat, lng: this.state.defaultLng }}
           >
             {this.state.markers.map((marker) => {
               return (
@@ -87,7 +90,7 @@ class RippleMap extends Component {
               );
             })}
           </GoogleMap>
-        }
+        )}
       />
     );
   }
