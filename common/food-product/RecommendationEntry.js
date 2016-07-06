@@ -31,6 +31,29 @@ class RecommendationEntry extends Component {
     this.props.showProductDetails(this.props.product.upc);
   }
 
+  addToWish(e) {
+    e.preventDefault();
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    fetch('http://localhost:4569/review', {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify({ upc: this.props.product.upc }),
+      headers,
+    })
+    .then((res) => res.json())
+    .catch((err) => console.log('Analysis and recommendation is not ready: ', err))
+    .then((data) => {
+      this.props.getProductAnalysis(data);
+      this.props.getCategoryComparison(
+        Object.keys(data)[0] !== 'basicInfo' ?
+        Object.keys(data)[0] :
+        Object.keys(data)[1]
+      );
+    })
+    .catch((err) => console.log(err));
+  }
+
   render() {
     const { product, selectedProduct } = this.props;
     let productIntro;
@@ -53,7 +76,7 @@ class RecommendationEntry extends Component {
       </div>);
     }
     return (
-      <div style={{ marginRight: 20 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: 20 }}>
         {productIntro}
         <img
           onClick={this.showProductDetails}
@@ -61,8 +84,9 @@ class RecommendationEntry extends Component {
           src={product.image}
           width="100"
           height="100"
-          style={{ marginTop: 30 }}
+          style={{ marginTop: 30, marginBottom: 30 }}
         />
+        <button onClick={this.addToWish}>Add to wish list</button>
         {selectedProduct !== product.upc ? null :
         (<div>
           <div>

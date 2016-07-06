@@ -48,9 +48,11 @@ categoryComparisonChart.create = (el, data) => {
     if (quality === 'BadNutrients') {
       order = colorForBadNutrients.domain().map((dpoints) => dpoints).sort((a, b) => +d[a] - +d[b]);
     } else if (quality === 'GoodNutrients') {
-      order = colorForGoodNutrients.domain().map((dpoints) => dpoints).sort((a, b) => +d[a] - +d[b]);
+      order = colorForGoodNutrients
+        .domain().map((dpoints) => dpoints).sort((a, b) => +d[a] - +d[b]);
     } else {
-      order = colorForNeutralNutrients.domain().map((dpoints) => dpoints).sort((a, b) => +d[a] - +d[b]);
+      order = colorForNeutralNutrients
+        .domain().map((dpoints) => dpoints).sort((a, b) => +d[a] - +d[b]);
     }
 
     d.levels = order.map((name) => {
