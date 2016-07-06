@@ -14,7 +14,7 @@ export const fetchSearchResults = query => {
     return fetch(`${GOBBLE_API_URL}/search/?q=${query}`)
       .then(res => res.json())
       .then(searchResults => {
-        console.log(searchResults);
+        // console.log(searchResults);
         dispatch(receiveSearchResults(searchResults));
       });
   };

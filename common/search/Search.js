@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import MainLayoutContainer from './../main-layout/MainLayoutContainer';
 
+import ResultsOptionsContainer from './ResultsOptionsContainer';
 import ReviewResultsContainer from './ReviewResultsContainer';
 import UserResultsContainer from './UserResultsContainer';
 import ProductResultsContainer from './ProductResultsContainer';
@@ -57,6 +58,7 @@ class Search extends Component {
       <MainLayoutContainer>
         <div className="search">
           <h1 className="search-title">Search results for "{query}"</h1>
+          <ResultsOptionsContainer />
           <SearchView />
         </div>
       </MainLayoutContainer>

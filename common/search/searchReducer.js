@@ -17,6 +17,7 @@ const searchReducer = (state = searchInitialState, action) => {
   switch (action.type) {
     case RECEIVE_SEARCH_RESULTS:
       return Object.assign({}, state, {
+        isLoading: false,
         results: {
           users: action.users,
           products: action.products,
