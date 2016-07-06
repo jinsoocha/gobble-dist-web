@@ -19,7 +19,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       results: {
         users: [],
         products: [],
-        posts: []
+        reviews: []
       },
       view: 'all'
     },

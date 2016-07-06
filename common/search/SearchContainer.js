@@ -5,7 +5,7 @@ import { fetchSearchResults } from './SearchActions';
 const mapStateToProps = state => ({
   query: state.search.query,
   isLoading: state.search.isLoading,
-  view: 'all'
+  view: state.search.view
 });
 
 const mapDispatchToProps = dispatch => ({

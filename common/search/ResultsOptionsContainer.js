@@ -1,6 +1,12 @@
 import { connect } from 'react-redux';
 import ResultsOptions from './ResultsOptions';
-import { changeResultsView } from './ResultsActions';
+import { changeResultsView } from './SearchActions';
+
+const mapStateToProps = state => ({
+  numUsers: state.search.results.users.length,
+  numProducts: state.search.results.products.length,
+  numReviews: state.search.results.reviews.length,
+});
 
 const mapDispatchToProps = dispatch => ({
   changeResultsView: view => {
@@ -9,6 +15,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  () => ({}),
+  mapStateToProps,
   mapDispatchToProps
 )(ResultsOptions);

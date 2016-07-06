@@ -19,3 +19,9 @@ export const fetchSearchResults = query => {
       });
   };
 };
+
+export const CHANGE_RESULTS_VIEW = 'CHANGE_RESULTS_VIEW';
+export const changeResultsView = view => ({
+  type: CHANGE_RESULTS_VIEW,
+  view
+});

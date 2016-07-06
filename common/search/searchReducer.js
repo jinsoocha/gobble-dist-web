@@ -1,5 +1,6 @@
 import {
-  RECEIVE_SEARCH_RESULTS
+  RECEIVE_SEARCH_RESULTS,
+  CHANGE_RESULTS_VIEW
 } from './SearchActions';
 
 const searchInitialState = {
@@ -23,6 +24,10 @@ const searchReducer = (state = searchInitialState, action) => {
           products: action.products,
           reviews: action.reviews
         }
+      });
+    case CHANGE_RESULTS_VIEW:
+      return Object.assign({}, state, {
+        view: action.view
       });
     default:
       return state;
