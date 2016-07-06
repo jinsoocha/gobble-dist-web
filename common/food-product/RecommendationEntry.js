@@ -45,8 +45,6 @@ class RecommendationEntry extends Component {
         body: JSON.stringify({ upc: this.props.product.upc, facebookId: this.props.facebookId }),
         headers,
       })
-      .then((res) => res.json())
-      .catch((err) => console.log(err))
       .then((data) => {
         console.log(data);
       })
