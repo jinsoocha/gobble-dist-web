@@ -1,58 +1,11 @@
 import React, { PropTypes } from 'react';
 import ProfileViewOptionsContainer from './ProfileViewOptionsContainer';
-
-const IsNotAuthButton = () => (
-  <div>
-    <span
-      className="is-not-auth-button"
-      onClick={() => { window.location = '/login'; }}
-    >
-      Sign in to follow
-    </span>
-  </div>
-);
-
-const IsFollowingButton = (props) => (
-  <div>
-    <span
-      className="is-following-button"
-      onMouseEnter={props.showUnfollowButton}
-    >
-      Following
-    </span>
-  </div>
-);
-
-const UnfollowButton = (props) => {
-  const { hideUnfollowButton, deleteFollow, followerId, followedId } = props;
-  return (
-    <div>
-      <span
-        className="unfollow-button"
-        onMouseLeave={hideUnfollowButton}
-        onClick={deleteFollow.bind(null, followerId, followedId)}
-      >
-        Unfollow
-      </span>
-    </div>
-  );
-};
-
-const FollowButton = (props) => {
-  const { postFollow, followerId, followedId } = props;
-  return (
-    <div>
-      <span
-        className="follow-button"
-        onClick={postFollow.bind(null, followerId, followedId)}
-      >
-        <i className="fa fa-user" aria-hidden="true" />
-        <i className="fa fa-plus fa-sm" aria-hidden="true" />
-        Follow
-      </span>
-    </div>
-  );
-};
+import {
+  IsNotAuthButton,
+  UnfollowButton,
+  IsFollowingButton,
+  FollowButton
+} from './ProfileFollowButtons';
 
 const ProfileSummary = (props) => {
   let Button;
