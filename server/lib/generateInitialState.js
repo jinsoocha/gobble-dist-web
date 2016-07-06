@@ -31,7 +31,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       photoUrl: '',
       isFollowing: false,
       isShowingUnfollowButton: false,
-      view: 'feed',
+      view: 'posts',
       following: [],
       followers: []
     },

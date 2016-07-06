@@ -3,13 +3,13 @@ import React, { Component, PropTypes } from 'react';
 class ProfileViewOptions extends Component {
   constructor(props) {
     super(props);
-    this.showFeedView = this.showFeedView.bind(this);
+    this.showPostsView = this.showPostsView.bind(this);
     this.showFollowingView = this.showFollowingView.bind(this);
     this.showFollowersView = this.showFollowersView.bind(this);
   }
 
-  showFeedView() {
-    this.props.changeProfileView('feed');
+  showPostsView() {
+    this.props.changeProfileView('posts');
   }
 
   showFollowingView() {
@@ -24,8 +24,8 @@ class ProfileViewOptions extends Component {
     return (
       <div className="profile-view-bar">
         <ul className="profile-view-list">
-          <li className="profile-view-option" onClick={this.showFeedView}>
-            <span>Feed</span>
+          <li className="profile-view-option" onClick={this.showPostsView}>
+            <span>Posts</span>
           </li>
           <li className="profile-view-option" onClick={this.showFollowingView}>
             <span>Following</span>

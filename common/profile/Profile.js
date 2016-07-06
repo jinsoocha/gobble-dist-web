@@ -14,7 +14,7 @@ const Profile = (props) => {
     ProfileView = ProfileFollowing;
   } else if (view === 'followers') {
     ProfileView = ProfileFollowers;
-  } else { // view === 'feed'
+  } else { // view === 'posts'
     ProfileView = ProfileFeed;
   }
 

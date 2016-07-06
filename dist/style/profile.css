@@ -10,12 +10,12 @@
 
 /* Profile Summary */
 .profile-summary {
-  margin: 10px auto;
-  padding-bottom: 25px;
+  margin: 10px auto 0;
+  padding-bottom: 20px;
   background-color: #fff;
-  width: 360px;
+  width: 400px;
   border: 1px solid rgb(235, 235, 235);
-  border-radius: 5px;
+  border-radius: 7px;
   transition: all .2 ease;
 }
 
@@ -73,4 +73,38 @@
   color: rgb(245, 245, 245);
 }
 
+/* Profile View Options */
+.profile-view-bar {
+  margin: 14px auto -10px;
+  display: inline-block;
+  padding: 7px 0;
+  width: 100%;
+}
+
+.profile-view-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-view-option {
+  display: inline-block;
+  padding: 7px 10px 10px;
+  cursor: pointer;
+  width: 90px;
+  margin: 0 5px;
+  border: 1px solid rgb(200, 200, 200);
+  color: rgb(40, 40, 40);
+  border-radius: 5px;
+}
+
+.profile-view-option:hover {
+  border: 1px solid rgb(110, 51, 95);
+}
+
+.profile-view-option span {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+}
 
