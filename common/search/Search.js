@@ -11,7 +11,7 @@ class Search extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.fetchSearchResults(this.props.query);
-    }, 500);
+    }, 400);
   }
 
   render() {

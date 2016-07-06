@@ -1,4 +1,8 @@
 import { connect } from 'react-redux';
 import UserResults from './UserResults';
 
-export default connect()(UserResults);
+const mapStateToProps = state => ({
+  userResults: state.search.results.users
+});
+
+export default connect(mapStateToProps)(UserResults);
