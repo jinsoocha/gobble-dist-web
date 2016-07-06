@@ -8,7 +8,7 @@ class FoodProduct extends Component {
   componentWillMount() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    fetch('http://localhost:3000/api/getRecommendation', {
+    fetch('http://localhost:4569/product/getRecommendation', {
       method: 'POST',
       mode: 'cors',
       body: JSON.stringify({ upc: this.props.upc }),
