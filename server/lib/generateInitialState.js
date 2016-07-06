@@ -32,7 +32,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       isFollowing: false,
       isShowingUnfollowButton: false,
       view: 'posts',
-      post: [],
+      posts: [],
       following: [],
       followers: []
     },

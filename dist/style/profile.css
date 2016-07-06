@@ -21,7 +21,7 @@
 
 .profile-user-name {
   margin: 10px auto 20px;
-  font-size: 25px;
+  font-size: 30px;
   border-radius: 5px;
   display: inline-block;
 }
@@ -91,7 +91,7 @@
   display: inline-block;
   padding: 7px 10px 10px;
   cursor: pointer;
-  width: 90px;
+  width: 110px;
   margin: 0 5px;
   border: 1px solid rgb(200, 200, 200);
   color: rgb(40, 40, 40);
@@ -102,9 +102,28 @@
   border: 1px solid rgb(110, 51, 95);
 }
 
-.profile-view-option span {
+.profile-view-option span.option-number {
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.profile-view-option span.option-type {
   font-size: 12px;
   text-transform: uppercase;
   text-align: center;
 }
 
+/* Profile Views */
+.profile-no-followers,
+.profile-no-following {
+  margin-top: 40px;
+  color: rgb(130, 130, 130);
+}
+
+.profile-no-followers .fa-frown-o,
+.profile-no-following .fa-frown-o {
+  font-size: 20px;
+  margin-left: 10px;
+}

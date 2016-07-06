@@ -2,20 +2,20 @@ import React, { PropTypes } from 'react';
 import MainLayoutContainer from './../main-layout/MainLayoutContainer';
 import ProfileSummaryContainer from './ProfileSummaryContainer';
 
-import ProfileFeed from './ProfileFeed';
-import ProfileFollowing from './ProfileFollowing';
-import ProfileFollowers from './ProfileFollowers';
+import ProfilePosts from './ProfilePosts';
+import ProfileFollowingContainer from './ProfileFollowingContainer';
+import ProfileFollowersContainer from './ProfileFollowersContainer';
 
 const Profile = (props) => {
   const { photoUrl, view } = props;
 
   let ProfileView;
   if (view === 'following') {
-    ProfileView = ProfileFollowing;
+    ProfileView = ProfileFollowingContainer;
   } else if (view === 'followers') {
-    ProfileView = ProfileFollowers;
+    ProfileView = ProfileFollowersContainer;
   } else { // view === 'posts'
-    ProfileView = ProfileFeed;
+    ProfileView = ProfilePosts;
   }
 
   return (

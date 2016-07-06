@@ -21,17 +21,21 @@ class ProfileViewOptions extends Component {
   }
 
   render() {
+    const { numPosts, numFollowing, numFollowers } = this.props;
     return (
       <div className="profile-view-bar">
         <ul className="profile-view-list">
           <li className="profile-view-option" onClick={this.showPostsView}>
-            <span>Posts</span>
+            <span className="option-number">{numPosts}</span>
+            <span className="option-type">Posts</span>
           </li>
           <li className="profile-view-option" onClick={this.showFollowingView}>
-            <span>Following</span>
+            <span className="option-number">{numFollowing}</span>
+            <span className="option-type">Following</span>
           </li>
           <li className="profile-view-option" onClick={this.showFollowersView}>
-            <span>Followers</span>
+            <span className="option-number">{numFollowers}</span>
+            <span className="option-type">Followers</span>
           </li>
         </ul>
       </div>
@@ -40,6 +44,9 @@ class ProfileViewOptions extends Component {
 }
 
 ProfileViewOptions.propTypes = {
+  numPosts: PropTypes.number.isRequired,
+  numFollowing: PropTypes.number.isRequired,
+  numFollowers: PropTypes.number.isRequired,
   changeProfileView: PropTypes.func.isRequired
 };
 
