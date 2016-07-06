@@ -1,3 +1,160 @@
 .profile-layout {
-  padding-top: 12px;
+  padding-top: 40px;
 }
+
+.profile-photo {
+  border: 5px solid #fff;
+  border-radius: 15px;
+  width: 250px;
+}
+
+/* Profile Summary */
+.profile-summary {
+  margin: 10px auto 0;
+  padding-bottom: 20px;
+  background-color: #fff;
+  width: 500px;
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 7px;
+  transition: all .2 ease;
+}
+
+.profile-user-name {
+  margin: 10px auto 20px;
+  font-size: 30px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Profile Summary Buttons */
+.is-not-auth-button,
+.is-following-button,
+.follow-button,
+.unfollow-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  width: 75px;
+}
+
+.is-not-auth-button {
+  width: 110px;
+}
+
+.is-not-auth-button,
+.follow-button {
+  background-color: rgb(245, 245, 245);
+  color: rgb(110, 51, 95);
+  border: 1px solid rgb(225, 225, 225);
+}
+
+.follow-button .fa-plus {
+  font-size: 7px;
+  vertical-align: middle;
+  padding-bottom: 4px;
+  margin: 0 6px 0 1px;
+}
+
+.is-not-auth-button:hover,
+.follow-button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.is-following-button {
+  background-color: rgb(110, 51, 95);
+  color: rgb(245, 245, 245);
+}
+
+.unfollow-button {
+  background-color: rgb(200, 51, 95);
+  color: rgb(245, 245, 245);
+}
+
+/* Profile View Options */
+.profile-view-bar {
+  margin: 14px auto -10px;
+  display: inline-block;
+  padding: 7px 0;
+  width: 100%;
+}
+
+.profile-view-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-view-option {
+  display: inline-block;
+  padding: 7px 10px 10px;
+  cursor: pointer;
+  width: 110px;
+  margin: 0 5px;
+  border: 1px solid rgb(200, 200, 200);
+  color: rgb(40, 40, 40);
+  border-radius: 5px;
+}
+
+.profile-view-option:hover {
+  border: 1px solid rgb(110, 51, 95);
+}
+
+.profile-view-option span.option-number {
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.profile-view-option span.option-type {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Profile Views */
+.profile-no-followers,
+.profile-no-following {
+  margin-top: 40px;
+  color: rgb(130, 130, 130);
+}
+
+.profile-no-followers .fa-frown-o,
+.profile-no-following .fa-frown-o {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.profile-following-view,
+.profile-followers-view {
+  margin: 20px auto 40px;
+  width: 800px;
+}
+
+.user-block {
+  width: 225px;
+  margin: 20px 10px 0;
+  height: 175px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.user-block-image {
+  margin: 20px auto 10px;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.user-block-name {
+  font-size: 16px;
+}
+
+.user-block-name:hover {
+  text-decoration: underline;
+}
+

@@ -1,21 +1,37 @@
 import React, { PropTypes } from 'react';
 import MainLayoutContainer from './../main-layout/MainLayoutContainer';
+import ProfileSummaryContainer from './ProfileSummaryContainer';
 
-const Profile = (props) => (
-  <MainLayoutContainer>
-    <div className="profile-layout">
-      <h1 className="profile-user-name">{props.displayName}</h1>
-      <img className="profile-photo" src={props.photoUrl} alt="Profile" />
-    </div>
-  </MainLayoutContainer>
-);
+import ProfilePosts from './ProfilePosts';
+import ProfileFollowingContainer from './ProfileFollowingContainer';
+import ProfileFollowersContainer from './ProfileFollowersContainer';
+
+const Profile = (props) => {
+  const { photoUrl, view } = props;
+
+  let ProfileView;
+  if (view === 'following') {
+    ProfileView = ProfileFollowingContainer;
+  } else if (view === 'followers') {
+    ProfileView = ProfileFollowersContainer;
+  } else { // view === 'posts'
+    ProfileView = ProfilePosts;
+  }
+
+  return (
+    <MainLayoutContainer>
+      <div className="profile-layout">
+        <img className="profile-photo" src={photoUrl} alt="Profile" />
+        <ProfileSummaryContainer />
+        <ProfileView />
+      </div>
+    </MainLayoutContainer>
+  );
+};
 
 Profile.propTypes = {
-  facebookId: PropTypes.string.isRequired,
-  displayName: PropTypes.string.isRequired,
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
-  photoUrl: PropTypes.string.isRequired
+  photoUrl: PropTypes.string.isRequired,
+  view: PropTypes.string.isRequired
 };
 
 export default Profile;

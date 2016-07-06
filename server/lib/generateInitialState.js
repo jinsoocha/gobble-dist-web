@@ -28,7 +28,13 @@ const generateInitialState = (req, res, isProfile, callback) => {
       firstName: '',
       lastName: '',
       displayName: '',
-      photoUrl: ''
+      photoUrl: '',
+      isFollowing: false,
+      isShowingUnfollowButton: false,
+      view: 'posts',
+      posts: [],
+      following: [],
+      followers: []
     },
     addPost: {
       postType: '',
@@ -56,16 +62,38 @@ const generateInitialState = (req, res, isProfile, callback) => {
   if (isProfile) {
     const facebookId = req.url.slice(1);
     fetch(`${process.env.GOBBLE_API_URL}/user?facebook_id=${facebookId}`)
-      .then(fetchedRes => fetchedRes.json())
+      .then(fetchedUser => fetchedUser.json())
       .then(user => {
-        initialState.profile = {
+        initialState.profile = Object.assign({}, initialState.profile, {
           facebookId: user.facebook_id,
           firstName: user.first_name,
           lastName: user.last_name,
           displayName: user.display_name,
           photoUrl: user.photo_url
-        };
+        });
 
+        return fetch(`${process.env.GOBBLE_API_URL}/following?facebook_id=${facebookId}`);
+      })
+      .then(fetchedFollowing => fetchedFollowing.json())
+      .then(following => {
+        initialState.profile.following = following;
+
+        return fetch(`${process.env.GOBBLE_API_URL}/followers?facebook_id=${facebookId}`);
+      })
+      .then(fetchedFollowers => fetchedFollowers.json())
+      .then(followers => {
+        initialState.profile.followers = followers;
+
+        if (!isAuth(req)) {
+          console.log('INITIAL STATE', initialState);
+          callback(initialState);
+        } else {
+          return fetch(`${process.env.GOBBLE_API_URL}/is_following?follower_id=${req.user.facebook_id}&followed_id=${facebookId}`);
+        }
+      })
+      .then(fetchedIsFollowing => fetchedIsFollowing.json())
+      .then(isFollowing => {
+        initialState.profile.isFollowing = isFollowing;
         console.log('INITIAL STATE', initialState);
         callback(initialState);
       });

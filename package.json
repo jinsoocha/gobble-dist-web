@@ -36,6 +36,7 @@
     "body-parser": "^1.15.2",
     "can-use-dom": "^0.1.0",
     "d3": "4.0.0",
+    "deep-equal": "^1.0.1",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "express-session": "^1.13.0",
