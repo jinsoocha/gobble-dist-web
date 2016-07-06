@@ -28,24 +28,28 @@ class Search extends Component {
       if (view === 'users') {
         SearchView = () => (
           <div className="search-view">
+            <ResultsOptionsContainer />
             <UserResultsContainer />
           </div>
         );
       } else if (view === 'products') {
         SearchView = () => (
           <div className="search-view">
+            <ResultsOptionsContainer />
             <ProductResultsContainer />
           </div>
         );
       } else if (view === 'reviews') {
         SearchView = () => (
           <div className="search-view">
+            <ResultsOptionsContainer />
             <ReviewResultsContainer />
           </div>
         );
       } else { // view === 'all'
         SearchView = () => (
           <div className="search-view">
+            <ResultsOptionsContainer />
             <UserResultsContainer />
             <ProductResultsContainer />
             <ReviewResultsContainer />
@@ -58,7 +62,6 @@ class Search extends Component {
       <MainLayoutContainer>
         <div className="search">
           <h1 className="search-title">Search results for "{query}"</h1>
-          <ResultsOptionsContainer />
           <SearchView />
         </div>
       </MainLayoutContainer>

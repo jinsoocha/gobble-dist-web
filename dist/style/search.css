@@ -15,9 +15,29 @@
 }
 
 .search-summary {
-  
+  color: rgb(100, 100, 100);
+  margin-bottom: 15px;
+}
+
+.search-summary-value {
+  font-weight: 400;
+}
+
+.results-option {
+  color: rgb(100, 100, 100);
+  font-size: 17px;
+  background-color: rgb(245, 245, 245);
+  border-radius: 5px;
+  border: 1px solid rgb(200, 200, 200);
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.results-option:hover, .results-option:active {
+  background-color: #fff;
 }
 
 .search-results-title {
-
+  text-transform: uppercase;
+  font-size: 17px;
 }

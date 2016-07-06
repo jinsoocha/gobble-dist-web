@@ -13,16 +13,16 @@ const ResultsOptions = (props) => {
       <div className="results-options pure-menu pure-menu-horizontal">
         <ul className="pure-menu-list">
           <li className="pure-menu-item">
-            <span className="pure-menu-link" onClick={changeResultsView.bind(null, 'all')}>All</span>
+            <span className="results-option pure-menu-link" onClick={changeResultsView.bind(null, 'all')}>All</span>
           </li>
           <li className="pure-menu-item">
-            <span className="pure-menu-link" onClick={changeResultsView.bind(null, 'users')}>Users</span>
+            <span className="results-option pure-menu-link" onClick={changeResultsView.bind(null, 'users')}>Users</span>
           </li>
           <li className="pure-menu-item">
-            <span className="pure-menu-link" onClick={changeResultsView.bind(null, 'products')}>Products</span>
+            <span className="results-option pure-menu-link" onClick={changeResultsView.bind(null, 'products')}>Products</span>
           </li>
           <li className="pure-menu-item">
-            <span className="pure-menu-link" onClick={changeResultsView.bind(null, 'reviews')}>Review</span>
+            <span className="results-option pure-menu-link" onClick={changeResultsView.bind(null, 'reviews')}>Reviews</span>
           </li>
         </ul>
       </div>
