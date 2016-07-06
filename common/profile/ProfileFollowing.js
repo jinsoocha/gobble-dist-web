@@ -11,7 +11,7 @@ const ProfileFollowing = (props) => {
     );
   } else {
     return (
-      <div className="profile-following-view">
+      <div className="profile-following-view pure-g">
         {props.following.map(user =>
           <UserBlock
             key={user.facebook_id}

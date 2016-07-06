@@ -11,7 +11,7 @@ const ProfileFollowers = (props) => {
     );
   } else {
     return (
-      <div className="profile-followers-view">
+      <div className="profile-followers-view pure-g">
         {props.followers.map(user =>
           <UserBlock
             key={user.facebook_id}
