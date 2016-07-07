@@ -9,21 +9,32 @@ const UserResult = (props) => (
     </div>
     <div>
       <a className="user-result-name" href={`/${props.user.facebook_id}`}>{props.user.display_name}</a>
-    </div>      
+    </div>
   </div>
 );
 
-const UserResults = (props) => (
-  <div className="search-results user-results">
-    <h3 className="search-results-title">Users</h3>
-    {props.userResults.map(user =>
-      <UserResult
-        key={user.facebook_id}
-        user={user}
-      />
-    )}
-  </div>
-);
+const UserResults = (props) => {
+  if (props.userResults.length > 0) {
+    return (
+      <div className="search-results user-results">
+        <h3 className="search-results-title">Users</h3>
+        {props.userResults.map(user =>
+          <UserResult
+            key={user.facebook_id}
+            user={user}
+          />
+        )}
+      </div>
+    );
+  } else {
+    return (
+      <div className="search-results user-results">
+        <h3 className="search-results-title">Users</h3>
+        <span className="no-results">No users found.</span>
+      </div>
+    );
+  }
+};
 
 UserResults.propTypes = {
   userResults: PropTypes.array.isRequired
