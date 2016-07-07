@@ -47,3 +47,12 @@ export function getPostsByRipple(userId) {
       .catch(err => console.log(`Error in getPostsByRipple: ${err}`));
   };
 }
+
+export function getPostsByUserId(userId) {
+  return dispatch => {
+    fetch(`${GOBBLE_API_URL}/post/profile?facebookId=${userId}`)
+      .then(res => res.json())
+      .then(posts => dispatch({ type: 'UPDATE_POSTS', posts }))
+      .catch(err => console.log(`Error in getPostsByUserId: ${err}`));
+  };
+}

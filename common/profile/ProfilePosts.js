@@ -1,7 +1,11 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+
+import Posts from '../shared/post/PostContainer';
 
 const ProfilePosts = () => (
-  <h1>ProfilePosts</h1>
+  <div className="profile-posts">
+    <Posts type="profile" />
+  </div>
 );
 
 export default ProfilePosts;

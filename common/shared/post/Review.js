@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import ReviewProfile from './ReviewProfile';
 import Content from './Content';
 import Comments from '../comment/CommentsContainer';
-import Media from '../media/Media';
+import Media from '../media/MediaContainer';
 
 const Review = props => (
   <div className="review">
@@ -33,3 +33,4 @@ Review.propTypes = {
 };
 
 export default Review;
+

@@ -4,7 +4,7 @@ import Medium from './Medium';
 
 class Media extends Component {
   componentDidMount() {
-    this.getMedia(this.postId);
+    this.props.getMedia(this.postId);
   }
 
   render() {
