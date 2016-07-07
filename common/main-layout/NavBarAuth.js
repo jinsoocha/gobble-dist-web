@@ -8,7 +8,9 @@ const NavBarAuth = (props) => {
   return (
     <div className="navbar-auth navbar-wrapper">
       <div className="navbar-menu pure-menu pure-menu-horizontal">
-        <a href="/" className="navbar-menu-heading pure-menu-heading">LOGO</a>
+        <a href="/" className="navbar-menu-heading pure-menu-heading">
+          <img className="navbar-logo" alt="Gobble Logo" src="/images/gobble-logo.png" />
+        </a>
         <SearchBarContainer />
         <ul className="navbar-menu-list pure-menu-list">
           <li className="pure-menu-item">
