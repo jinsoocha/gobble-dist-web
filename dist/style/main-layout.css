@@ -160,14 +160,23 @@
 /* Footer */
 .footer {
   text-align: center;
-  background-color: rgb(247, 247, 247);
-  border-top: 1px solid rgb(240, 240, 240);
+  background-color: rgb(245, 245, 245);
+  border-top: 2px solid rgb(235, 235, 235);
   padding: 35px 0 25px;
 }
 
 .footer .copyright {
   margin-top: 10px;
   font-size: 14px;
+}
+
+.footer-links {
+  margin: 10px auto 20px;
+}
+
+.footer-link {
+  font-size: 14px;
+  margin: 0 13px;
 }
 
 .drawingBuffer {
