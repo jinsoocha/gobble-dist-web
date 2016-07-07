@@ -104,3 +104,19 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* Live Stream */
+.outgoing-stream {
+
+}
+
+.stream-live button {
+  margin: 20px 0;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: rgb(119, 190, 67);
+  color: rgb(245, 245, 245);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
