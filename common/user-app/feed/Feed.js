@@ -1,7 +1,7 @@
 import React from 'react';
 import AddPostContainer from './../../shared/add-post/AddPostContainer';
 
-import Posts from '../post/PostContainer';
+import Posts from '../../shared/post/PostContainer';
 
 const Feed = () => (
   <div className="feed-view">

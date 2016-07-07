@@ -16,17 +16,17 @@ class Medium extends Component {
   renderImage(path) {
     return (
       <a href={path}>
-        <img src={path} style={{ maxWidth: '100px' }} />
+        <img src={path} style={{ maxWidth: '100px' }} alt="content" />
       </a>
     );
   }
   renderVideo(path) {
     return (
-      <video width="320" height="240" style={{ width: '320', height: '240' }} controls>
+      <video style={{ width: '320', height: '240' }} controls>
         <source src={path} />
         Your browser does not support the video tag.
       </video>
-    ); 
+    );
   }
   renderContent() {
     const url = this.validUrl();
@@ -36,7 +36,6 @@ class Medium extends Component {
       return this.renderImage(path);
     }
     return this.renderVideo(path);
-
   }
   render() {
     return (
@@ -45,8 +44,6 @@ class Medium extends Component {
       </div>
     );
   }
-
-
 };
 
 Medium.propTypes = {

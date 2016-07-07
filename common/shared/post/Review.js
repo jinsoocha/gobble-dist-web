@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react';
 import ReviewProfile from './ReviewProfile';
 import Content from './Content';
 import Comments from '../comment/CommentsContainer';
+import Media from '../media/Media';
 
 const Review = props => (
   <div className="review">
@@ -13,6 +14,7 @@ const Review = props => (
       photo_url={props.photo_url}
     />
     <Content comment={props.comment} />
+    <Media postId={props.postId} />
     <Comments postId={props.postId} />
   </div>
 );

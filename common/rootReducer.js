@@ -6,8 +6,9 @@ import searchReducer from './search/searchReducer';
 import foodProductReducer from './food-product/foodProductReducer';
 import profileReducer from './profile/profileReducer';
 import addPostReducer from './shared/add-post/addPostReducer';
-import commentReducer from './user-app/comment/commentsReducer';
-import postsReducer from './user-app/post/postsReducer';
+import commentReducer from './shared/comment/commentsReducer';
+import postsReducer from './shared/post/postsReducer';
+import recReducer from './user-app/user-rec/recReducer';
 
 const rootReducer = combineReducers({
   layout: mainLayoutReducer,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   addPost: addPostReducer,
   routing: routerReducer,
   comment: commentReducer,
-  post: postsReducer
+  post: postsReducer,
+  rec: recReducer
 });
 
 export default rootReducer;

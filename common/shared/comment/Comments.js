@@ -11,7 +11,7 @@ class Comments extends Component {
   render() {
     return (
       <div className="comments">
-        {Array.isArray(this.props.comments) ? this.props.comments.map(comment => <Comment {...comment} />) : ''}
+        {Array.isArray(this.props.comments) ? this.props.comments.map(comment => <Comment key={comment.Post_created_at} {...comment} />) : ''}
         <AddComment postId={this.props.postId} />
       </div>
     );
