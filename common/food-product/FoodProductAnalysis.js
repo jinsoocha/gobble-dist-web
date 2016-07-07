@@ -13,12 +13,11 @@ class FoodProductAnalysis extends Component {
   }
 
   render() {
-    const { productAnalysis, categoryComparison, showProductDetails,
+    const { facebookId, productAnalysis, categoryComparison, showProductDetails,
       selectedProduct, getRandomRecommendations, recommendationsStorage } = this.props;
     return (
       <div>
-        {Object.keys(productAnalysis).length > 0 ?
-        (<div>Compare with the category:{' '}
+        <div>Compare with the category:{' '}
           <select
             style={{ marginBottom: 20 }}
             defaultValue={
@@ -38,6 +37,7 @@ class FoodProductAnalysis extends Component {
           </select>
           {!categoryComparison ? null :
           (<AnalysisEntry
+            facebookId={facebookId}
             key={categoryComparison}
             basicInfo={productAnalysis.basicInfo}
             category={categoryComparison}
@@ -47,8 +47,7 @@ class FoodProductAnalysis extends Component {
             getRandomRecommendations={getRandomRecommendations}
             recommendationsStorage={recommendationsStorage}
           />)}
-        </div>)
-        : (<h3>Please return later for the analysis and recommendation!</h3>)}
+        </div>
       </div>
     );
   }

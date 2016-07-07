@@ -5,6 +5,7 @@ class RecommendationEntry extends Component {
   constructor(props) {
     super(props);
     this.showProductDetails = this.showProductDetails.bind(this);
+    this.addToWish = this.addToWish.bind(this);
   }
 
   componentDidUpdate() {
@@ -31,7 +32,33 @@ class RecommendationEntry extends Component {
     this.props.showProductDetails(this.props.product.upc);
   }
 
+  addToWish(e) {
+    e.preventDefault();
+    if (this.props.facebookId === '') {
+      console.log('Not signed in ', this.props.facebookId);
+    } else {
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      fetch('http://localhost:4569/wish', {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({ upc: this.props.product.upc, facebookId: this.props.facebookId }),
+        headers,
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+    }
+  }
+
   render() {
+    let button;
+    if (this.props.facebookId === '') {
+      button = <div>Please sign in to add this item on your wish list</div>;
+    } else {
+      button = <button onClick={this.addToWish}>Add to wish list</button>;
+    }
     const { product, selectedProduct } = this.props;
     let productIntro;
     if (product.quality.length === 1) {
@@ -53,7 +80,7 @@ class RecommendationEntry extends Component {
       </div>);
     }
     return (
-      <div style={{ marginRight: 20 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: 20 }}>
         {productIntro}
         <img
           onClick={this.showProductDetails}
@@ -61,8 +88,9 @@ class RecommendationEntry extends Component {
           src={product.image}
           width="100"
           height="100"
-          style={{ marginTop: 30 }}
+          style={{ marginTop: 30, marginBottom: 30 }}
         />
+        {button}
         {selectedProduct !== product.upc ? null :
         (<div>
           <div>

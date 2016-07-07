@@ -2,7 +2,7 @@ export const GET_PRODUCT_ANALYSIS = 'GET_PRODUCT_ANALYSIS';
 export const GET_CATEGORY_COMPARISON = 'GET_CATEGORY_COMPARISON';
 export const SHOW_PRODUCT_DETAILS = 'SHOW_PRODUCT_DETAILS';
 export const GET_RANDOM_RECOMMENDATIONS = 'GET_RANDOM_RECOMMENDATIONS';
-
+export const GET_REVIEWS = 'GET_REVIEWS';
 
 export function getProductAnalysis(productAnalysis) {
   return {
@@ -30,5 +30,12 @@ export function getRandomRecommendations(recs, category) {
     type: GET_RANDOM_RECOMMENDATIONS,
     recs,
     category,
+  };
+}
+
+export function getReviews(reviews) {
+  return {
+    type: GET_REVIEWS,
+    reviews,
   };
 }
