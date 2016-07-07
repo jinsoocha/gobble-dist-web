@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Posts from '../post/PostContainer';
+import Posts from '../../shared/post/PostContainer';
 
 const Popular = () => (
   <div className="popular-view">

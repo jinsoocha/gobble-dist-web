@@ -15,9 +15,9 @@ class Posts extends Component {
 
   renderPost(info) {
     if (info.rating) {
-      return <Review {...info} />;
+      return <Review key={info.Post_created_at} {...info} />;
     } else {
-      return <Wish {...info} />;
+      return <Wish key={info.Post_created_at} {...info} />;
     }
   }
   render() {

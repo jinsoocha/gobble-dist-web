@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import fetch from 'isomorphic-fetch';
 
 class AddComment extends Component {
   constructor(props) {
@@ -18,6 +17,7 @@ class AddComment extends Component {
 
   handleSubmit() {
     const comment = this.state.text;
+    if (!comment) return;
     this.props.pushComment(this.props.facebookId, this.props.postId, comment, this.props.first_name, this.props.last_name);
     this.setState({ text: '' });
   }
