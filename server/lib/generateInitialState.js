@@ -47,7 +47,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       followers: []
     },
     addPost: {
-      postType: '',
+      postType: ''
     },
     post: {
       facebookId: '',

@@ -1,4 +1,6 @@
-import { CHANGE_POST_TYPE } from './AddPostActions';
+import {
+  CHANGE_POST_TYPE
+} from './AddPostActions';
 
 const addPostInitialState = {
   postType: ''

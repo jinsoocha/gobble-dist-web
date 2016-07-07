@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { PEERJS_KEY } from './../../../../env/client.js';
+import { postLive } from './streamLiveUtils';
 
 const StartLiveButton = (props) => (
   <button
@@ -40,12 +41,15 @@ class StreamLive extends Component {
   }
 
   startLiveStream() {
-    this._startUserMedia();
-    this._startPeer();
-
     if (this.state.description === '') {
-      this.setState({ description: `Jack Zhang's Gobble Live Stream.` });
+      this.setState({ description: `${this.props.userFirstName} - Gobble Live Stream.` });
     }
+
+    this._startUserMedia(() => {
+      this._startPeer(() => {
+        postLive(this.props.userFacebookId, 1, this.state.peerId, 0, this.state.description);
+      });
+    });
   }
 
   endLiveStream() {
@@ -59,7 +63,7 @@ class StreamLive extends Component {
     });
   }
 
-  _startUserMedia() {
+  _startUserMedia(callback) {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
     if (!navigator.getUserMedia) console.error('navigator.getUserMedia not supported');
 
@@ -77,6 +81,7 @@ class StreamLive extends Component {
       video.src = window.URL.createObjectURL(outgoingStream);
       video.onloadedmetadata = () => {
         video.play();
+        callback();
       };
     };
 
@@ -87,7 +92,7 @@ class StreamLive extends Component {
     navigator.getUserMedia(constraints, successCb, errorCb);
   }
 
-  _startPeer() {
+  _startPeer(callback) {
     const peerConfig = {
       key: PEERJS_KEY,
       debug: 3
@@ -101,8 +106,10 @@ class StreamLive extends Component {
         peerId,
         active: true
       });
+
       console.log(this.state);
       console.log(`My streamingPeer ID is: ${peerId}`);
+      callback();
     });
 
     streamingPeer.on('close', () => {
@@ -144,7 +151,8 @@ class StreamLive extends Component {
 }
 
 StreamLive.propTypes = {
-
+  userFirstName: PropTypes.string.isRequired,
+  userFacebookId: PropTypes.string.isRequired
 };
 
 export default StreamLive;
