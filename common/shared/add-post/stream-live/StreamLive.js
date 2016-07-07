@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
-
 import { PEERJS_KEY } from './../../../../env/client.js';
+
+const StartLiveButton = (props) => (
+  <button
+    onClick={props.startLiveStream}
+    className="pure-button pure-button-primary button-xlarge button-success"
+  >
+    Go live!
+  </button>
+);
+
+const EndLiveButton = (props) => (
+  <button
+    onClick={props.endLiveStream}
+    className="pure-button pure-button-primary button-xlarge button-success"
+  >
+    Stop streaming
+  </button>
+);
 
 class StreamLive extends Component {
   constructor(props) {
     super(props);
     this.startLiveStream = this.startLiveStream.bind(this);
+    this.endLiveStream = this.endLiveStream.bind(this);
 
     this.state = {
       active: false,
@@ -14,24 +32,25 @@ class StreamLive extends Component {
     };
   }
 
-  componentWillMount() {
-    this.setState({
-      active: false,
-      peerId: '',
-      description: ''
-    });
-  }
-
   componentWillUnmount() {
     if (this.state.active) {
-      streamingPeer.destroy();
-      outgoingStream.getTracks()[0].stop();
+      this.endLiveStream();
     }
   }
 
   startLiveStream() {
     this._startUserMedia();
     this._startPeer();
+  }
+
+  endLiveStream() {
+    streamingPeer.destroy();
+    outgoingStream.getTracks()[0].stop();
+    this.setState({
+      active: false,
+      peerId: '',
+      description: ''
+    });
   }
 
   _startUserMedia() {
@@ -41,7 +60,7 @@ class StreamLive extends Component {
     const constraints = {
       audio: false,
       video: {
-        width: 450
+        width: 400
       }
     };
 
@@ -93,14 +112,14 @@ class StreamLive extends Component {
         <h3>Live Stream</h3>
         <video
           className="video outgoing-stream"
-          poster="http://dummyimage.com/450X345/000000/dadcfa.png&text=Click below to go live!"
+          poster="http://dummyimage.com/400X320/000000/dadcfa.png&text=Click below to go live!"
         />
-        <button
-          onClick={this.startLiveStream}
-          className="pure-button pure-button-primary button-xlarge button-success"
-        >
-          Go live!
-        </button>
+        <div className="stream-live-button-wrapper">
+          {this.state.active ?
+            <EndLiveButton endLiveStream={this.endLiveStream} /> :
+            <StartLiveButton startLiveStream={this.startLiveStream} />
+          }
+        </div>
       </div>
     );
   }
