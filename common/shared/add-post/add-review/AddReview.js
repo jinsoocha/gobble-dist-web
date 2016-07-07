@@ -23,6 +23,12 @@ class AddReview extends Component {
     this.handleMediaChange = this.handleMediaChange.bind(this);
     this.handleSubmitPost = this.handleSubmitPost.bind(this);
     this.handleBarcodeChange = this.handleBarcodeChange.bind(this);
+    this.handleBarcodeInput = this.handleBarcodeInput.bind(this);
+  }
+
+  handleBarcodeInput(e) {
+    console.log(e.target.value);
+    this.setState({ upc: e.target.value });
   }
 
   handleBarcodeChange(upc) {
@@ -64,6 +70,7 @@ class AddReview extends Component {
     })
     .then((res) => {
       console.log(res);
+      location.href = `/food/${this.state.upc}`;
     })
     .catch((err) => {
       console.err(err);
@@ -75,6 +82,7 @@ class AddReview extends Component {
       <div className="add-review">
         <h2>Review A Product</h2>
         <p>1. Scan a product barcode.</p>
+        <input type="text" placeholder="or type here" onChange={this.handleBarcodeInput} />
         <BarCodeScanner handleBarcodeChange={this.handleBarcodeChange} />
         <span className="upc-state">UPC: {this.state.upc}</span>
         <p>2. Give a rating, from 1 to 5.</p>

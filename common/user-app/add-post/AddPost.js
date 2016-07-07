@@ -50,7 +50,6 @@ class AddPost extends Component {
     if (isNaN(this.state.upc)) {
       return;
     }
-
     console.log('facebookId', this.props.facebookId);
     console.log('upc: ', this.state.upc);
     console.log('rating: ', this.state.rating);

@@ -47,19 +47,14 @@ class RecommendationEntry extends Component {
       })
       .then((data) => {
         console.log(data);
+        this.props.addToWish(this.props.product.name);
       })
       .catch((err) => console.log(err));
     }
   }
 
   render() {
-    let button;
-    if (this.props.facebookId === '') {
-      button = <div>Please sign in to add this item on your wish list</div>;
-    } else {
-      button = <button onClick={this.addToWish}>Add to wish list</button>;
-    }
-    const { product, selectedProduct } = this.props;
+    const { product, selectedProduct, addedWish, facebookId } = this.props;
     let productIntro;
     if (product.quality.length === 1) {
       if (product.quality[0] === 'BadNutrients') {
@@ -90,7 +85,8 @@ class RecommendationEntry extends Component {
           height="100"
           style={{ marginTop: 30, marginBottom: 30 }}
         />
-        {button}
+        {facebookId === '' ? null : <button onClick={this.addToWish}>Add to wish list</button>}
+        {addedWish === '' ? null : <div>{addedWish} is now in your wish list!</div>}
         {selectedProduct !== product.upc ? null :
         (<div>
           <div>
@@ -111,6 +107,8 @@ RecommendationEntry.propTypes = {
   showProductDetails: PropTypes.func.isRequired,
   selectedProduct: PropTypes.number.isRequired,
   basicInfo: PropTypes.object.isRequired,
+  addedWish: PropTypes.string.isRequired,
+  addToWish: PropTypes.func.isRequired,
 };
 
 export default RecommendationEntry;

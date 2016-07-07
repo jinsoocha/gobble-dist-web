@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FoodProduct from './FoodProduct';
-import { getProductAnalysis, getCategoryComparison, showProductDetails, getRandomRecommendations, getReviews } from './FoodProductActions';
+import { getProductAnalysis, getCategoryComparison, showProductDetails, getRandomRecommendations, getReviews, addToWish } from './FoodProductActions';
 
 const mapStateToProps = state => ({
   upc: state.foodProduct.upc,
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
   recommendationsStorage: state.foodProduct.recommendationsStorage,
   facebookId: state.layout.navBarUser.facebookId,
   reviews: state.foodProduct.reviews,
+  addedWish: state.foodProduct.addedWish,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -27,6 +28,9 @@ const mapDispatchToProps = dispatch => ({
   },
   getReviews: (reviews) => {
     dispatch(getReviews(reviews));
+  },
+  addToWish: (addedWish) => {
+    dispatch(addToWish(addedWish));
   }
 });
 
