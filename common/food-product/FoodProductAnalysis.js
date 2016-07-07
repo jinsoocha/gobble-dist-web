@@ -17,8 +17,7 @@ class FoodProductAnalysis extends Component {
       selectedProduct, getRandomRecommendations, recommendationsStorage } = this.props;
     return (
       <div>
-        {Object.keys(productAnalysis).length > 0 ?
-        (<div>Compare with the category:{' '}
+        <div>Compare with the category:{' '}
           <select
             style={{ marginBottom: 20 }}
             defaultValue={
@@ -48,8 +47,7 @@ class FoodProductAnalysis extends Component {
             getRandomRecommendations={getRandomRecommendations}
             recommendationsStorage={recommendationsStorage}
           />)}
-        </div>)
-        : (<h3>Please return later for the analysis and recommendation!</h3>)}
+        </div>
       </div>
     );
   }

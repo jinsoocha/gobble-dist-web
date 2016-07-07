@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import fetch from 'isomorphic-fetch';
 import MainLayoutContainer from './../main-layout/MainLayoutContainer';
 import FoodProductAnalysis from './FoodProductAnalysis';
+import ReviewEntry from './ReviewEntry';
 
 class FoodProduct extends Component {
 
@@ -25,6 +26,16 @@ class FoodProduct extends Component {
       );
     })
     .catch((err) => console.log(err));
+
+    fetch(`http://localhost:4569/product/getReviews?upc=${this.props.upc}`, {
+      method: 'GET',
+    })
+    .then((res) => res.json())
+    .catch((err) => console.log(err))
+    .then((data) => {
+      this.props.getReviews(data);
+    })
+    .catch((err) => console.log(err));
   }
 
   render() {
@@ -38,21 +49,39 @@ class FoodProduct extends Component {
         height="300"
         style={{ marginBottom: 30 }}
       />;
+    const stars = [];
+    for (let i = 0; i < this.props.reviews.reduce((sum, review) => sum + review.rating, 0) / this.props.reviews.length; i ++) {
+      stars.push(<div key={i} className={'fa fa-star'} />);
+    }
     return (
       <MainLayoutContainer>
         {name}
         {image}
-        <FoodProductAnalysis
-          facebookId={this.props.facebookId}
-          upc={this.props.upc}
-          productAnalysis={this.props.productAnalysis}
-          getCategoryComparison={this.props.getCategoryComparison}
-          categoryComparison={this.props.categoryComparison}
-          showProductDetails={this.props.showProductDetails}
-          selectedProduct={this.props.selectedProduct}
-          getRandomRecommendations={this.props.getRandomRecommendations}
-          recommendationsStorage={this.props.recommendationsStorage}
-        />
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+          {this.props.reviews.length === 0 ? null :
+            <div>
+              <h3 style={{ marginBottom: 30 }}>Overall rating: {stars}</h3>
+              {this.props.reviews.map((review) =>
+                <ReviewEntry
+                  key={review.postId}
+                  review={review}
+                />)}
+            </div>}
+          {Object.keys(this.props.productAnalysis).length === 0 ? null :
+            <div>
+              <FoodProductAnalysis
+                facebookId={this.props.facebookId}
+                upc={this.props.upc}
+                productAnalysis={this.props.productAnalysis}
+                getCategoryComparison={this.props.getCategoryComparison}
+                categoryComparison={this.props.categoryComparison}
+                showProductDetails={this.props.showProductDetails}
+                selectedProduct={this.props.selectedProduct}
+                getRandomRecommendations={this.props.getRandomRecommendations}
+                recommendationsStorage={this.props.recommendationsStorage}
+              />
+            </div>}
+        </div>
       </MainLayoutContainer>
     );
   }
@@ -60,6 +89,8 @@ class FoodProduct extends Component {
 
 FoodProduct.propTypes = {
   upc: PropTypes.string.isRequired,
+  reviews: PropTypes.array.isRequired,
+  getReviews: PropTypes.func.isRequired,
   getProductAnalysis: PropTypes.func.isRequired,
   productAnalysis: PropTypes.object.isRequired,
   getCategoryComparison: PropTypes.func.isRequired,

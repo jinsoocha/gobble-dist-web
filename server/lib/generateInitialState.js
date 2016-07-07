@@ -23,6 +23,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       selectedProduct: 0,
       recommendationsStorage: {},
       facebookId: '',
+      reviews: [],
     },
     profile: {
       facebookId: '',
