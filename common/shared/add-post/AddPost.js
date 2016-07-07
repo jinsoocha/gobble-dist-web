@@ -2,15 +2,14 @@ import React, { PropTypes } from 'react';
 import PostTypeBarContainer from './PostTypeBarContainer';
 
 import AddReview from './add-review/AddReview';
+import StreamLive from './stream-live/StreamLive';
 
 const AddPost = (props) => {
   let PostView;
   if (props.postType === 'review') {
     PostView = AddReview;
   } else if (props.postType === 'stream') {
-    PostView = () => (
-      <h1>Live Stream</h1>
-    );
+    PostView = StreamLive;
   } else { // default initalState is ''
     PostView = () => (
       <div className="add-post-instructions">
