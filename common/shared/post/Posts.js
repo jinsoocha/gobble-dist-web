@@ -5,28 +5,32 @@ import Wish from './Wish';
 
 class Posts extends Component {
   componentDidMount() {
-    if (this.props.type === 'date') {
-      this.props.getPostsByDate();
-    }
-    if (this.props.type === 'friends') {
-      this.props.getPostsByFriends(this.props.facebookId);
-    }
-    if (this.props.type === 'ripple') {
-      this.props.getPostsByRipple(this.props.facebookId);
+    switch (this.props.type) {
+      case 'friends':
+        this.props.getPostsByFriends(this.props.facebookId);
+        break;
+      case 'ripple':
+        this.props.getPostsByRipple(this.props.facebookId);
+        break;
+      case 'profile':
+        this.props.getPostsByUserId(this.props.facebookId);
+        break;
+      default: // date
+        this.props.getPostsByDate();
     }
   }
 
   renderPost(info) {
     if (info.rating) {
-      return <Review key={info.Post_created_at} {...info} />;
+      return <Review key={info.postId} {...info} />;
     } else {
-      return <Wish key={info.Post_created_at} {...info} />;
+      return <Wish key={info.postId} {...info} />;
     }
   }
   render() {
     return (
       <div className="posts">
-        {this.props.posts ? this.props.posts.map(post => this.renderPost(post)) : ''}
+        {this.props.posts ? this.props.posts.map(post => this.renderPost(post)) : null}
       </div>
     );
   }
