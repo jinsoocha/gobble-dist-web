@@ -11,6 +11,9 @@ class Posts extends Component {
     if (this.props.type === 'friends') {
       this.props.getPostsByFriends(this.props.facebookId);
     }
+    if (this.props.type === 'ripple') {
+      this.props.getPostsByRipple(this.props.facebookId);
+    }
   }
 
   renderPost(info) {
