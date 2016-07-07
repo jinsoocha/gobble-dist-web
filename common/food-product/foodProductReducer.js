@@ -1,5 +1,5 @@
 import { GET_PRODUCT_ANALYSIS, GET_CATEGORY_COMPARISON,
-  SHOW_PRODUCT_DETAILS, GET_RANDOM_RECOMMENDATIONS, GET_REVIEWS } from './FoodProductActions';
+  SHOW_PRODUCT_DETAILS, GET_RANDOM_RECOMMENDATIONS, GET_REVIEWS, ADD_TO_WISH } from './FoodProductActions';
 
 const foodProductInitialState = {
   upc: '',
@@ -9,6 +9,7 @@ const foodProductInitialState = {
   recommendationsStorage: {},
   facebookId: '',
   reviews: [],
+  addedWish: '',
 };
 
 const foodProductReducer = (state = foodProductInitialState, action) => {
@@ -20,6 +21,10 @@ const foodProductReducer = (state = foodProductInitialState, action) => {
     case GET_PRODUCT_ANALYSIS:
       return Object.assign({}, state, {
         productAnalysis: action.productAnalysis,
+      });
+    case ADD_TO_WISH:
+      return Object.assign({}, state, {
+        addedWish: action.addedWish,
       });
     case GET_CATEGORY_COMPARISON:
       return Object.assign({}, state, {

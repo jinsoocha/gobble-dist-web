@@ -3,6 +3,7 @@ export const GET_CATEGORY_COMPARISON = 'GET_CATEGORY_COMPARISON';
 export const SHOW_PRODUCT_DETAILS = 'SHOW_PRODUCT_DETAILS';
 export const GET_RANDOM_RECOMMENDATIONS = 'GET_RANDOM_RECOMMENDATIONS';
 export const GET_REVIEWS = 'GET_REVIEWS';
+export const ADD_TO_WISH = 'ADD_TO_WISH';
 
 export function getProductAnalysis(productAnalysis) {
   return {
@@ -37,5 +38,12 @@ export function getReviews(reviews) {
   return {
     type: GET_REVIEWS,
     reviews,
+  };
+}
+
+export function addToWish(addedWish) {
+  return {
+    type: ADD_TO_WISH,
+    addedWish,
   };
 }

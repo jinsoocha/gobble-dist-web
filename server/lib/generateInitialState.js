@@ -31,6 +31,7 @@ const generateInitialState = (req, res, isProfile, callback) => {
       recommendationsStorage: {},
       facebookId: '',
       reviews: [],
+      addedWish: ''
     },
     profile: {
       facebookId: '',

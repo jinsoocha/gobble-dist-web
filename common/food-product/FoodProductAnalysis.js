@@ -14,7 +14,7 @@ class FoodProductAnalysis extends Component {
 
   render() {
     const { facebookId, productAnalysis, categoryComparison, showProductDetails,
-      selectedProduct, getRandomRecommendations, recommendationsStorage } = this.props;
+      selectedProduct, getRandomRecommendations, recommendationsStorage, addedWish, addToWish } = this.props;
     return (
       <div>
         <div>Compare with the category:{' '}
@@ -46,6 +46,8 @@ class FoodProductAnalysis extends Component {
             selectedProduct={selectedProduct}
             getRandomRecommendations={getRandomRecommendations}
             recommendationsStorage={recommendationsStorage}
+            addedWish={addedWish}
+            addToWish={addToWish}
           />)}
         </div>
       </div>
@@ -62,6 +64,8 @@ FoodProductAnalysis.propTypes = {
   selectedProduct: PropTypes.number.isRequired,
   getRandomRecommendations: PropTypes.func.isRequired,
   recommendationsStorage: PropTypes.object.isRequired,
+  addedWish: PropTypes.string.isRequired,
+  addToWish: PropTypes.func.isRequired,
 };
 
 export default FoodProductAnalysis;

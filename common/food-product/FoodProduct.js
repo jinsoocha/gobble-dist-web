@@ -79,6 +79,8 @@ class FoodProduct extends Component {
                 selectedProduct={this.props.selectedProduct}
                 getRandomRecommendations={this.props.getRandomRecommendations}
                 recommendationsStorage={this.props.recommendationsStorage}
+                addedWish={this.props.addedWish}
+                addToWish={this.props.addToWish}
               />
             </div>}
         </div>
@@ -99,6 +101,8 @@ FoodProduct.propTypes = {
   selectedProduct: PropTypes.number.isRequired,
   getRandomRecommendations: PropTypes.func.isRequired,
   recommendationsStorage: PropTypes.object.isRequired,
+  addedWish: PropTypes.string.isRequired,
+  addToWish: PropTypes.func.isRequired,
 };
 
 export default FoodProduct;

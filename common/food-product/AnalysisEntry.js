@@ -28,6 +28,7 @@ class AnalysisEntry extends Component {
       }
       return true;
     });
+    console.log(data, category)
     getRandomRecommendations(recs, category);
   }
 
@@ -58,7 +59,7 @@ class AnalysisEntry extends Component {
 
   render() {
     const {
-      facebookId, category, data, showProductDetails, selectedProduct, recommendationsStorage, basicInfo,
+      facebookId, category, data, showProductDetails, selectedProduct, recommendationsStorage, basicInfo, addedWish, addToWish
     } = this.props;
     return (
       <div>
@@ -98,6 +99,8 @@ class AnalysisEntry extends Component {
             product={recommendationsStorage[category][product]}
             showProductDetails={showProductDetails}
             selectedProduct={selectedProduct}
+            addedWish={addedWish}
+            addToWish={addToWish}
           />
         )}
         </div>
@@ -114,6 +117,8 @@ AnalysisEntry.propTypes = {
   getRandomRecommendations: PropTypes.func.isRequired,
   recommendationsStorage: PropTypes.object.isRequired,
   basicInfo: PropTypes.object.isRequired,
+  addedWish: PropTypes.string.isRequired,
+  addToWish: PropTypes.func.isRequired,
 };
 
 export default AnalysisEntry;
