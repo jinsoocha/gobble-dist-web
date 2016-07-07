@@ -7,7 +7,7 @@ const ResultsOptions = (props) => {
       <div className="search-summary">
         Found
         <span className="search-summary-value">&nbsp;{numUsers}</span> users,
-        <span className="search-summary-value">&nbsp;{numProducts}</span> products, &
+        <span className="search-summary-value">&nbsp;{numProducts}</span> products, and
         <span className="search-summary-value">&nbsp;{numReviews}</span> reviews.
       </div>
       <div className="results-options pure-menu pure-menu-horizontal">

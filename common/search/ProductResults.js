@@ -1,8 +1,15 @@
 import React, { PropTypes } from 'react';
 
-const ProductResult = () => (
+const ProductResult = (props) => (
   <div className="product-result">
-    Product Information Here
+    <div className="product-energy-brand">
+      Brand: <span className="product-result-value">{props.product.brand}</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Calories: <span className="product-result-value">{props.product.energy}</span>
+    </div>
+    <div className="product-result-name">
+      <a href={`/food/${props.product.upc}`}>{props.product.name}</a>
+    </div>
   </div>
 );
 

@@ -50,7 +50,7 @@
 .user-result,
 .review-result,
 .product-result {
-  width: 275px;
+  width: 325px;
   margin: 10px auto 5px;
   height: 55px;
   background-color: #fff;
@@ -98,4 +98,17 @@
   letter-spacing: .5px;
   color: rgb(150, 150, 150);
 }
+
+/* Product Result */
+.product-energy-brand {
+  margin: 5px auto;
+  font-size: 12px;
+}
+
+.product-result-value {
+  font-weight: 400;
+  font-size: 13px;
+}
+
+
 
