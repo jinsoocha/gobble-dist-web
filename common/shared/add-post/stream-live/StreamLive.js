@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { PEERJS_KEY } from './../../../../env/client.js';
 
 const StartLiveButton = (props) => (
   <button
     onClick={props.startLiveStream}
-    className="pure-button pure-button-primary button-xlarge button-success"
+    className="pure-button pure-button-primary button-xlarge button-success start-live"
   >
     Go live!
   </button>
@@ -13,7 +13,7 @@ const StartLiveButton = (props) => (
 const EndLiveButton = (props) => (
   <button
     onClick={props.endLiveStream}
-    className="pure-button pure-button-primary button-xlarge button-success"
+    className="pure-button pure-button-primary button-xlarge button-success end-live"
   >
     Stop streaming
   </button>
@@ -26,6 +26,7 @@ class StreamLive extends Component {
     this.endLiveStream = this.endLiveStream.bind(this);
 
     this.state = {
+      instructions: 'Live Stream',
       active: false,
       peerId: '',
       description: ''
@@ -41,12 +42,17 @@ class StreamLive extends Component {
   startLiveStream() {
     this._startUserMedia();
     this._startPeer();
+
+    if (this.state.description === '') {
+      this.setState({ description: `Jack Zhang's Gobble Live Stream.` });
+    }
   }
 
   endLiveStream() {
     streamingPeer.destroy();
     outgoingStream.getTracks()[0].stop();
     this.setState({
+      instructions: 'Live Stream',
       active: false,
       peerId: '',
       description: ''
@@ -60,7 +66,8 @@ class StreamLive extends Component {
     const constraints = {
       audio: false,
       video: {
-        width: 400
+        width: 370,
+        height: 330
       }
     };
 
@@ -90,6 +97,7 @@ class StreamLive extends Component {
 
     streamingPeer.on('open', peerId => {
       this.setState({
+        instructions: "You're live!",
         peerId,
         active: true
       });
@@ -109,10 +117,20 @@ class StreamLive extends Component {
   render() {
     return (
       <div className="stream-live">
-        <h3>Live Stream</h3>
+        <h2>{this.state.instructions}</h2>
         <video
           className="video outgoing-stream"
-          poster="http://dummyimage.com/400X320/000000/dadcfa.png&text=Click below to go live!"
+          poster="http://dummyimage.com/370X330/000000/dadcfa.png&text=Click below to go live!"
+        />
+        <div className="stream-live-description-label">Live Stream Description</div>
+        <textarea
+          className="stream-live-description"
+          type="text"
+          placeholder="What are you gobbling on? Give your followers a description!"
+          value={this.state.description}
+          onChange={(e) => {
+            this.setState({ description: e.target.value });
+          }}
         />
         <div className="stream-live-button-wrapper">
           {this.state.active ?
@@ -124,6 +142,10 @@ class StreamLive extends Component {
     );
   }
 }
+
+StreamLive.propTypes = {
+
+};
 
 export default StreamLive;
 

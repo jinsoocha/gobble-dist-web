@@ -107,16 +107,38 @@
 
 /* Live Stream */
 .outgoing-stream {
-
+  border-radius: 5px;
+  border: 10px solid rgb(100, 100, 100);
 }
 
 .stream-live button {
   margin: 20px 0;
   font-size: 16px;
   font-weight: 400;
-  background-color: rgb(119, 190, 67);
   color: rgb(245, 245, 245);
   border-radius: 5px;
   cursor: pointer;
+}
+
+.stream-live-description-label {
+  color: rgb(150, 100, 150);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 25px 0 10px;
+}
+
+textarea.stream-live-description {
+  outline: none;
+  padding: 10px;
+  height: 100px;
+  width: 400px;
+}
+
+.stream-live button.start-live {
+  background-color: rgb(119, 190, 67);
+}
+
+.stream-live button.end-live {
+  background-color: rgb(119, 190, 67);
 }
 
