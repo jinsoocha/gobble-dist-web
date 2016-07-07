@@ -15,7 +15,7 @@ export function getPostsByDate(date) {
     fetch(`${GOBBLE_API_URL}/post/date${date2}`)
       .then(res => res.json())
       .then(posts => {
-        dispatch({ type: GET_POSTS_BY_DATE, posts });
+        dispatch({ type: 'UPDATE_POSTS', posts });
       })
       .catch(err => console.log(`Error in getPostsByDate: ${err}`));
   };
@@ -33,9 +33,17 @@ export function getPostsByFriends(userId, date) {
     fetch(`${GOBBLE_API_URL}/post/friends?facebookId=${userId}${date2}`)
       .then(res => res.json())
       .then(posts => {
-        console.log(posts);
-        dispatch({ type: GET_POSTS_BY_FRIENDS, posts });
+        dispatch({ type: 'UPDATE_POSTS', posts });
       })
       .catch(err => console.log(`Error in getPostsByFriends: ${err}`));
+  };
+}
+
+export function getPostsByRipple(userId) {
+  return dispatch => {
+    fetch(`${GOBBLE_API_URL}/post/ripple?userId=${userId}`)
+      .then(res => res.json())
+      .then(posts => dispatch({ type: 'UPDATE_POSTS', posts }))
+      .catch(err => console.log(`Error in getPostsByRipple: ${err}`));
   };
 }
