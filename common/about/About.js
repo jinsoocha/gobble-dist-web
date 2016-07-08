@@ -29,7 +29,7 @@ const About = () => (
       </div>
       <div>
         <h1>Gobble is a team of four full stack engineers in San Francisco.</h1>
-        <h2>Check out our github and feel free to send any feedback!</h2>
+        <h2>Check out our <a className="github" href="https://github.com/gobble43">github</a> and feel free to send any feedback!</h2>
       </div>
     </div>
   </MainLayoutContainer>

@@ -7,7 +7,6 @@
 
 .about img {
   border-radius: 15px;
-  margin-right: 30px;
 }
 
 .intro {
@@ -25,10 +24,24 @@
   justify-content: center;
 }
 
-a {
+.images a {
+  margin-right: 30px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.images a:hover {
+  color: black;
+  font-size: 20px;
+}
+
+.github {
   color: black;
 }
 
-a:hover {
+.github:hover {
+  font-size: 30px;
   color: black;
 }
