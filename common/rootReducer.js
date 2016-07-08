@@ -10,7 +10,6 @@ import commentReducer from './shared/comment/commentsReducer';
 import postsReducer from './shared/post/postsReducer';
 import recReducer from './user-app/user-rec/recReducer';
 import mediaReducer from './shared/media/mediaReducer';
-import postsReducer from './user-app/post/postsReducer';
 import liveReducer from './user-app/live/liveReducer';
 
 const rootReducer = combineReducers({
