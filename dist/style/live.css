@@ -1,0 +1,45 @@
+.live-view {
+  margin-top: 30px;
+}
+
+.live-title {
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: 3px;
+  margin: 10px auto 25px;
+}
+
+.live-title i {
+  margin: 0 15px;
+}
+
+video.incoming-stream-video {
+  border-radius: 5px;
+  border: 10px solid rgb(100, 100, 100);
+}
+
+.incoming-stream-info {
+
+}
+
+.incoming-stream-start-time {
+
+}
+
+.incoming-stream-description {
+
+}
+
+.incoming-stream-duration {
+
+}
+
+.incoming-stream-start-time {
+
+}
+
+hr.live-hr {
+  width: 800px;
+  height: 0;
+  border: 1px solid rgb(200, 200, 200);
+}

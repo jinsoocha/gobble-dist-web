@@ -21,7 +21,7 @@ import ProfileContainer from './../../common/profile/ProfileContainer';
 import Landing from './../../common/landing/Landing';
 
 const renderAbout = (req, res) => {
-  generateInitialState(req, res, false, initialState => {
+  generateInitialState(req, res, false, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('about', {
@@ -36,7 +36,7 @@ const renderAbout = (req, res) => {
 };
 
 const renderFoodLanding = (req, res) => {
-  generateInitialState(req, res, false, initialState => {
+  generateInitialState(req, res, false, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('food-landing', {
@@ -51,7 +51,7 @@ const renderFoodLanding = (req, res) => {
 };
 
 const renderFoodProduct = (req, res) => {
-  generateInitialState(req, res, false, initialState => {
+  generateInitialState(req, res, false, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('food-product', {
@@ -66,7 +66,7 @@ const renderFoodProduct = (req, res) => {
 };
 
 const renderSearch = (req, res) => {
-  generateInitialState(req, res, false, initialState => {
+  generateInitialState(req, res, false, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('search', {
@@ -81,7 +81,7 @@ const renderSearch = (req, res) => {
 };
 
 const renderProfile = (req, res) => {
-  generateInitialState(req, res, true, initialState => {
+  generateInitialState(req, res, true, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('profile', {
@@ -96,7 +96,7 @@ const renderProfile = (req, res) => {
 };
 
 const renderLanding = (req, res) => {
-  generateInitialState(req, res, false, initialState => {
+  generateInitialState(req, res, false, false, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('landing', {
@@ -112,7 +112,7 @@ const renderLanding = (req, res) => {
 
 const renderUserApp = (req, res, renderProps) => {
   // Valid React Router route found - render corresponding component
-  generateInitialState(req, res, false, initialState => {
+  generateInitialState(req, res, false, true, initialState => {
     const store = configureStore(initialState);
 
     res.status(200).render('user-app', {

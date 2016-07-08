@@ -106,7 +106,7 @@
 }
 
 /* Live Stream */
-.outgoing-stream {
+video.outgoing-stream-video {
   border-radius: 5px;
   border: 10px solid rgb(100, 100, 100);
 }

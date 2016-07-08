@@ -129,7 +129,7 @@ class StreamLive extends Component {
       <div className="stream-live">
         <h2>{this.state.instructions}</h2>
         <video
-          className="video outgoing-stream"
+          className="video outgoing-stream-video"
           poster="http://dummyimage.com/370X330/000000/dadcfa.png&text=Click below to go live!"
         />
         <div className="stream-live-description-label">Live Stream Description</div>
