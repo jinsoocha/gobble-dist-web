@@ -1,15 +1,25 @@
 import React, { Component, PropTypes } from 'react';
+import moment from 'moment';
 
 class IncomingStream extends Component {
   constructor(props) {
     super(props);
-    this.state = { duration: 'N/A', relativeStartTime: 'N/A' };
+
     this.startIncomingStream = this.startIncomingStream.bind(this);
+    this.state = {
+      relativeStartTime: 'N/A',
+      currentlyWatching: 'N/A'
+    };
   }
 
-  componentDidMount() {
-    if (this.props.incomingPeerId !== '') {
-      this.startIncomingStream();
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.incomingPeerId !== '') {
+      this.setState({
+        currentlyWatching: nextProps.currentlyWatching.display_name,
+        relativeStartTime: moment(nextProps.startTime, moment.ISO_8601).fromNow()
+      });
+
+      this.startIncomingStream(nextProps.incomingPeerId);
     }
   }
 
@@ -18,12 +28,13 @@ class IncomingStream extends Component {
     this.props.resetIncomingStream();
   }
 
-  startIncomingStream() {
-    console.log('yay!');
+  startIncomingStream(peerId) {
+    console.log(peerId);
   }
 
   render() {
-    const { currentlyWatching, description } = this.props;
+    const { description } = this.props;
+    const { currentlyWatching, relativeStartTime } = this.state;
     return (
       <div className="incoming-stream">
         <video
@@ -33,16 +44,12 @@ class IncomingStream extends Component {
         <div className="incoming-stream-info">
           <div className="incoming-stream-name">
             Currently watching:&nbsp;
-            <span className="stream-name-value">{currentlyWatching.display_name}</span>
+            <span className="stream-name-value">{currentlyWatching}</span>
           </div>
           <div className="incoming-stream-description">{description}</div>
-          <div className="incoming-stream-duration">
-            Duration:&nbsp;
-            <span className="stream-duration-value">{this.state.duration}</span>
-          </div>
           <div className="incoming-stream-start-time">
-            Started&nbsp;
-            <span className="stream-start-time-value">{this.state.relativeStartTime}</span>
+            Started:&nbsp;
+            <span className="stream-start-time-value">{relativeStartTime}</span>
           </div>
         </div>
       </div>
