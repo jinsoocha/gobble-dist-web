@@ -1,0 +1,18 @@
+.gobbleTitle {
+  font-size: 70px;
+  padding-top: 40px;
+  margin: 0px;
+  color: purple;
+}
+
+.gobbleLandingLink {
+  position: relative;
+  top: 465px;
+  left: 360px;
+  font-size: 27px;
+}
+
+.gobbleGrapes {
+  position: relative;
+  bottom: 20px;
+}
