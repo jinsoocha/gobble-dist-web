@@ -1,19 +1,18 @@
 import { connect } from 'react-redux';
 import LiveOptions from './LiveOptions';
 
-import { changeLiveOptionsView } from './LiveActions';
-
-const mapStateToProps = state => ({
-  view: state.live.view
-});
+import { changeLiveOptionsView, changeLiveListFilter } from './LiveActions';
 
 const mapDispatchToProps = dispatch => ({
   changeLiveOptionsView: view => {
     dispatch(changeLiveOptionsView(view));
+  },
+  changeLiveListFilter: filter => {
+    dispatch(changeLiveListFilter(filter));
   }
 });
 
 export default connect(
-  mapStateToProps,
+  () => ({}),
   mapDispatchToProps
 )(LiveOptions);

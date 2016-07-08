@@ -2,7 +2,16 @@ import { connect } from 'react-redux';
 import LiveList from './LiveList';
 
 const applyFilter = (liveList, filter) => {
-  return liveList;
+  switch (filter) {
+    case 'all':
+      return liveList;
+    case 'active':
+      return liveList.filter(live => !!live.active);
+    case 'ended':
+      return liveList.filter(live => !!!live.active);
+    default:
+      return liveList;
+  }
 };
 
 const mapStateToProps = state => ({
