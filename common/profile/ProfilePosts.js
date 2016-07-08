@@ -1,10 +1,8 @@
 import React from 'react';
 
-import Posts from '../shared/post/PostContainer';
-
 const ProfilePosts = () => (
   <div className="profile-posts">
-    <Posts type="profile" />
+    <h3>No posts to show at the moment.</h3>
   </div>
 );
 

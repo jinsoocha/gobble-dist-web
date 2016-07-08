@@ -8,7 +8,7 @@ const Feed = () => (
   <div className="feed-view">
     <AddPostContainer />
     <Recommendations />
-    <Posts type="date" />
+    <Posts type="friends" />
   </div>
 );
 

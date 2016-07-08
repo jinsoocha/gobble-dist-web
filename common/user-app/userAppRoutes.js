@@ -1,6 +1,6 @@
 import UserAppLayout from './UserAppLayout';
 import Feed from './feed/Feed';
-import Popular from './popular/Popular';
+import Trending from './trending/Trending';
 import Ripple from './ripple/Ripple';
 import LiveContainer from './live/LiveContainer';
 
@@ -17,8 +17,8 @@ const userAppRoutes = {
       component: Feed
     },
     {
-      path: '/popular',
-      component: Popular
+      path: '/trending',
+      component: Trending
     },
     {
       path: '/ripple',
