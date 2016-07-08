@@ -48,27 +48,29 @@ class FoodProduct extends Component {
         src={this.props.productAnalysis.basicInfo.image}
         width="300"
         height="300"
-        style={{ marginBottom: 30 }}
+        style={{ marginBottom: 30, borderRadius: '20px' }}
       />;
     const stars = [];
     for (let i = 0; i < this.props.reviews.reduce((sum, review) => sum + review.rating, 0) / this.props.reviews.length; i ++) {
-      stars.push(<div key={i} className={'fa fa-star'} />);
+      stars.push(<div key={i} className={'fa fa-star'} style={{ color: 'rgb(119, 190, 67)' }} />);
     }
     return (
       <MainLayoutContainer>
         <div className="foodContainer">
-          {name}
-          {image}
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-            {this.props.reviews.length === 0 ? null :
-              <div>
-                <h3 style={{ marginBottom: 30 }}>Overall rating: {stars}</h3>
-                {this.props.reviews.map((review) =>
-                  <ReviewEntry
-                    key={review.postId}
-                    review={review}
-                  />)}
-              </div>}
+          <div className="left">
+            {name}
+            {image}
+              {this.props.reviews.length === 0 ? null :
+                <div>
+                  <h3 style={{ marginBottom: 30 }}>Overall rating: {stars}</h3>
+                  {this.props.reviews.map((review) =>
+                    <ReviewEntry
+                      key={review.postId}
+                      review={review}
+                    />)}
+                </div>}
+          </div>
+          <div className="right">
             {Object.keys(this.props.productAnalysis).length === 0 ? null :
               <div>
                 <FoodProductAnalysis

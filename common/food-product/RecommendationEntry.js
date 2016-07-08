@@ -75,15 +75,15 @@ class RecommendationEntry extends Component {
       </div>);
     }
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: 20 }}>
+      <div className="rec" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: 20 }}>
         {productIntro}
         <img
           onClick={this.showProductDetails}
           role="presentation"
           src={product.image}
-          width="100"
-          height="100"
-          style={{ marginTop: 30, marginBottom: 30 }}
+          width="200"
+          height="200"
+          style={{ marginTop: 30, marginBottom: 30, borderRadius: '20px' }}
         />
         {facebookId === '' ? null : <button onClick={this.addToWish}>Add to wish list</button>}
         {addedWish === '' ? null : <div>{addedWish} is now in your wish list!</div>}

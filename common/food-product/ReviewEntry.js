@@ -4,7 +4,7 @@ const ReviewEntry = (props) => {
   const { review } = props;
   const stars = [];
   for (let i = 0; i < review.rating; i ++) {
-    stars.push(<div key={i} className={'fa fa-star'} />);
+    stars.push(<div key={i} className={'fa fa-star'} style={{ color: 'rgb(119, 190, 67)' }} />);
   }
   return (
     <div style={{ display: 'flex', flexDirection: 'row', marginBottom: 30 }}>
