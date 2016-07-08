@@ -56,34 +56,36 @@ class FoodProduct extends Component {
     }
     return (
       <MainLayoutContainer>
-        {name}
-        {image}
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-          {this.props.reviews.length === 0 ? null :
-            <div>
-              <h3 style={{ marginBottom: 30 }}>Overall rating: {stars}</h3>
-              {this.props.reviews.map((review) =>
-                <ReviewEntry
-                  key={review.postId}
-                  review={review}
-                />)}
-            </div>}
-          {Object.keys(this.props.productAnalysis).length === 0 ? null :
-            <div>
-              <FoodProductAnalysis
-                facebookId={this.props.facebookId}
-                upc={this.props.upc}
-                productAnalysis={this.props.productAnalysis}
-                getCategoryComparison={this.props.getCategoryComparison}
-                categoryComparison={this.props.categoryComparison}
-                showProductDetails={this.props.showProductDetails}
-                selectedProduct={this.props.selectedProduct}
-                getRandomRecommendations={this.props.getRandomRecommendations}
-                recommendationsStorage={this.props.recommendationsStorage}
-                addedWish={this.props.addedWish}
-                addToWish={this.props.addToWish}
-              />
-            </div>}
+        <div className="foodContainer">
+          {name}
+          {image}
+          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+            {this.props.reviews.length === 0 ? null :
+              <div>
+                <h3 style={{ marginBottom: 30 }}>Overall rating: {stars}</h3>
+                {this.props.reviews.map((review) =>
+                  <ReviewEntry
+                    key={review.postId}
+                    review={review}
+                  />)}
+              </div>}
+            {Object.keys(this.props.productAnalysis).length === 0 ? null :
+              <div>
+                <FoodProductAnalysis
+                  facebookId={this.props.facebookId}
+                  upc={this.props.upc}
+                  productAnalysis={this.props.productAnalysis}
+                  getCategoryComparison={this.props.getCategoryComparison}
+                  categoryComparison={this.props.categoryComparison}
+                  showProductDetails={this.props.showProductDetails}
+                  selectedProduct={this.props.selectedProduct}
+                  getRandomRecommendations={this.props.getRandomRecommendations}
+                  recommendationsStorage={this.props.recommendationsStorage}
+                  addedWish={this.props.addedWish}
+                  addToWish={this.props.addToWish}
+                />
+              </div>}
+          </div>
         </div>
       </MainLayoutContainer>
     );
