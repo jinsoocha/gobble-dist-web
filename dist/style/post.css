@@ -1,0 +1,169 @@
+.recs, .posts {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 40%;
+}
+.recs {
+  background-color: white;
+  border: 1px solid rgb(225, 225, 225);
+}
+.review, .wish {
+  margin-top: 15px !important;
+  box-sizing: content-box;
+  border: 1px solid rgb(225, 225, 225);
+  background-color: white;
+}
+
+.medium {
+  display: inline-block;
+  margin-right: 7px;
+}
+.medium-modal {
+  max-width: 750px;
+}
+.media {
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.posts {
+  text-align: left;
+}
+
+.medium-close-modal {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
+
+/*.review, .wish {
+  display: block;
+  border-bottom: 1px solid rgb(225, 225, 225); 
+}*/
+
+.add-comment-textarea {
+  resize: none;
+  border: 1px solid #dddfe2;
+}
+.add-comment-input {
+  background-color: red;
+  box-sizing: border-box;
+}
+.add-comment-textarea {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+.add-comment-photo {
+  padding: 10px;
+  width: 12.5%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.add-comment-button {
+  width: 15%;
+  padding-left: 5px;
+  box-sizing: border-box;
+}
+
+.comments-username {
+  padding-right: 7px;
+  float: left;
+}
+.review-profile {
+  margin-top: 0;
+  display: block;
+}
+.comment-content {
+  word-wrap: break-word;
+  max-width: 100%
+}
+.comment-username-row {
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+.username .username-link {
+  font-weight: bold;
+  color: black;
+}
+
+.username .username-link:hover {
+  color: orange;
+  text-decoration: underline;
+}
+
+.username {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*.post-content {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+}*/
+.review {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  position: relative;
+  vertical-align: top;
+}
+.review-right {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 15px;
+  width: 82.5%;
+  box-sizing: border-box;
+}
+
+.review-left {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 10px;
+  display: inline-block;
+  width: 17.5%; 
+  box-sizing: border-box;
+}
+
+.comments {
+  background-color: #e9ebee;
+}
+.comment-left {
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 12.5%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.comment-right {
+  padding-top: 10px;
+  vertical-align: top;
+  width: 87.5%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.small-photo-img {
+  border-radius: 10px;
+}
+
+.review .review-profile .username {
+  display: inline-block;
+
+}
+
+.add-comment, .add-comment-input {
+  width: 100%;
+  box-sizing: border-box;
+
+}

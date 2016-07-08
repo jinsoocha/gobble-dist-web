@@ -1,22 +1,22 @@
 import React, { PropTypes } from 'react';
 
-import ReviewProfile from './ReviewProfile';
-import Content from './Content';
+import ReviewContent from './ReviewContent';
 import Comments from '../comment/CommentsContainer';
-import Media from '../media/MediaContainer';
-import Rating from './Rating';
+
 
 const Review = props => (
   <div className="review">
-    <ReviewProfile
+    <ReviewContent
       facebook_id={props.facebook_id}
       first_name={props.first_name}
       last_name={props.last_name}
       photo_url={props.photo_url}
+      upc={props.upc}
+      name={props.name}
+      comment={props.comment}
+      rating={props.rating}
+      postId={props.postId}
     />
-    <Rating rating={props.rating} />
-    <Content comment={props.comment} />
-    <Media postId={props.postId} />
     <Comments postId={props.postId} />
   </div>
 );

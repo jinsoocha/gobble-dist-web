@@ -12,7 +12,7 @@ class Rating extends Component {
   renderStars() {
     const stars = [];
     for (let i = 0; i < 5; i++) {
-      stars.push(<Star filled={i < this.props.rating} />);
+      stars.push(<Star key={i} filled={i < this.props.rating} />);
     }
     return stars;
   }

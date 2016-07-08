@@ -1,10 +1,15 @@
-.posts {
+/*.posts {
   display: block;
   text-align: center;
   margin: 0 auto;
   width: 500px;
   background-color: white;
   border: 1px solid rgb(225, 225, 225);
+}
+
+.review, .wish {
+  display: block;
+  border-bottom: 1px solid rgb(225, 225, 225); 
 }
 
 .review, .wish {
@@ -43,4 +48,4 @@
 
 .ripple-view {
   margin-top: 10px;
-}
+}*/
