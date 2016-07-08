@@ -6,13 +6,13 @@ const NutrientEntry = (props) => {
   if (quality === 'bad' && data.ratio > 1) {
     analysis =
       (<div>
-        <strong>High {nutrient} warning:</strong>
+        <strong>High {nutrient} warning: </strong>
         {(data.ratio * 100).toFixed(2)} % more than other {category} products!
       </div>);
   } else if (quality === 'good' && data.ratio < 1) {
     analysis =
       (<div>
-        <strong>Low {nutrient} warning:</strong>
+        <strong>Low {nutrient} warning: </strong>
         {((1 - data.ratio) * 100).toFixed(2)} % less than other {category} products!
       </div>);
   } else {
