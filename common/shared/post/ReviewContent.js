@@ -12,7 +12,7 @@ const ReviewContent = props => (
       <SmallPhoto photo_url={props.photo_url} />
     </div>
     <div className="review-right">
-      <Username facebook_id={props.facebook_id} first_name={props.first_name} last_name={props.last_name} />
+      <span className="review-title"><Username facebook_id={props.facebook_id} first_name={props.first_name} last_name={props.last_name} /> added a review.</span>
       <ProductLink upc={props.upc} name={props.name} />
       <PostContent comment={props.comment} rating={props.rating} />
       <Media postId={props.postId} />

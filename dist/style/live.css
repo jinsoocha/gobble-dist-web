@@ -1,0 +1,142 @@
+.live-view {
+  margin-top: 30px;
+}
+
+.live-title {
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: 3px;
+  margin: 10px auto 25px;
+}
+
+.live-title i {
+  margin: 0 15px;
+}
+
+video.incoming-stream-video {
+  border-radius: 5px;
+  border: 10px solid rgb(100, 100, 100);
+}
+
+.incoming-stream-info {
+  margin: 20px auto;
+  width: 500px;
+  padding: 10px 25px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.incoming-stream-name {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+span.stream-name-value {
+  font-weight: 400;
+}
+
+.incoming-stream-description {
+  margin: 5px 0 15px;
+  font-style: italic;
+  color: rgb(100, 100, 100);
+}
+
+.incoming-stream-start-time {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+span.stream-start-time-value {
+  font-weight: 400;
+}
+
+hr.live-hr {
+  width: 800px;
+  height: 0;
+  border: 1px solid rgb(200, 200, 200);
+  margin: 40px auto 30px;
+}
+
+.live-options-title {
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin: 0 auto;
+}
+
+.live-options {
+  margin: 25px 0 30px;
+}
+
+.live-option {
+  color: rgb(100, 100, 100);
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 400;
+  background-color: rgb(245, 245, 245);
+  border-radius: 5px;
+  border: 1px solid rgb(200, 200, 200);
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.live-option:hover, .live-option:active {
+  background-color: #fff;
+}
+
+
+.live-list {
+  margin: 0 auto;
+}
+
+.live-list-entry {
+  padding: 12px 25px;
+  font-size: 14px;
+  /*background-color: rgb(245, 245, 245);*/
+  border-radius: 5px;
+  border: 1px solid rgb(180, 180, 180);
+  width: 550px;
+  margin: 10px auto;
+}
+
+.live-list-entry.true {
+  border: 1px solid rgb(110, 51, 95);
+}
+
+.live-list-entry.true:hover, .live-list-entry.true:active {
+  background-color: rgb(200, 250, 200);
+}
+
+.list-entry-user a {
+  font-weight: 400;
+  color: rgb(110, 51, 95);
+  padding-right: 20px;
+  border-right: 2px solid rgb(200, 200, 200);
+}
+
+.list-entry-started {
+  font-weight: 400;
+  padding: 0 20px;
+  border-right: 2px solid rgb(200, 200, 200);
+}
+
+.list-entry-status {
+  padding-left: 20px;
+}
+
+.list-entry-status .active {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: green;
+}
+
+.list-entry-status .ended {
+  font-weight: 400;
+}
+
+.no-live-streams {
+  color: rgb(100, 100, 100);
+  font-size: 16px;
+}

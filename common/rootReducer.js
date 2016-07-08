@@ -10,6 +10,7 @@ import commentReducer from './shared/comment/commentsReducer';
 import postsReducer from './shared/post/postsReducer';
 import recReducer from './user-app/user-rec/recReducer';
 import mediaReducer from './shared/media/mediaReducer';
+import liveReducer from './user-app/live/liveReducer';
 
 const rootReducer = combineReducers({
   layout: mainLayoutReducer,
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   comment: commentReducer,
   post: postsReducer,
   rec: recReducer,
-  media: mediaReducer
+  media: mediaReducer,
+  live: liveReducer
 });
 
 export default rootReducer;

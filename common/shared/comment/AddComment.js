@@ -29,7 +29,7 @@ class AddComment extends Component {
     return (
       <div className="add-comment">
         <SmallPhoto className="add-comment-photo" photo_url={this.props.photoUrl} size={40} />
-        <TextArea minRows={1} maxRows={4} className="add-comment-textarea" onChange={this.handleTextChange} value={this.state.text} />
+        <TextArea minRows={1} maxRows={4} className="add-comment-textarea" onChange={this.handleTextChange} value={this.state.text} placeholder="Add a comment" />
         <img src="/images/post.png" onClick={this.handleSubmit} className="add-comment-button" alt="post" />
       </div>
     );
