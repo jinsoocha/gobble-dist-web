@@ -7,11 +7,14 @@
 .recs {
   background-color: white;
   border: 1px solid rgb(225, 225, 225);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .review, .wish {
   margin-top: 15px !important;
   box-sizing: content-box;
   border: 1px solid rgb(225, 225, 225);
+  border-radius: 5px;
   background-color: white;
 }
 
@@ -35,8 +38,11 @@
 
 .medium-close-modal {
   position: absolute;
-  right: 3px;
-  top: 3px;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+  right: 10px;
+  top: 8px;
 }
 
 /*.review, .wish {
@@ -44,10 +50,6 @@
   border-bottom: 1px solid rgb(225, 225, 225); 
 }*/
 
-.add-comment-textarea {
-  resize: none;
-  border: 1px solid #dddfe2;
-}
 .add-comment-input {
   background-color: red;
   box-sizing: border-box;
@@ -56,9 +58,21 @@
   display: inline-block;
   width: 70%;
   height: 100%;
-  font-size: 20px;
+  font-size: 15px;
   box-sizing: border-box;
+  padding: 4px 10px 4px 4px;
+  height: 25px;
+  resize: none;
+  border: 1px solid #dddfe2;
+  overflow: auto;
+  outline: none;
 }
+
+.add-comment-textarea:focus,
+.add-comment-textarea:active {
+  border: 1px solid rgb(110, 51, 95);
+}
+
 .add-comment-photo {
   padding: 10px;
   width: 12.5%;
@@ -69,6 +83,7 @@
   width: 15%;
   padding-left: 5px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .comments-username {
@@ -165,5 +180,5 @@
 .add-comment, .add-comment-input {
   width: 100%;
   box-sizing: border-box;
-
+  border-top: 1px solid rgb(160, 160, 160);
 }
