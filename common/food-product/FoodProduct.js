@@ -33,7 +33,9 @@ class FoodProduct extends Component {
     .then((res) => res.json())
     .catch((err) => console.log(err))
     .then((data) => {
-      this.props.getReviews(data);
+      if (data) {
+        this.props.getReviews(data);
+      }
     })
     .catch((err) => console.log(err));
   }
