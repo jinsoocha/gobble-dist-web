@@ -71,7 +71,7 @@ class RippleMap extends Component {
         containerElement={(
           <div
             style={{
-              height: '100%',
+              height: '600px',
               width: '90%',
               marginLeft: '30px',
             }}
