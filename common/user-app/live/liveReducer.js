@@ -1,5 +1,6 @@
 import {
-  RESET_INCOMING_STREAM
+  RESET_INCOMING_STREAM,
+  CHANGE_LIVE_OPTIONS_VIEW
 } from './LiveActions';
 
 const liveInitialState = {
@@ -7,6 +8,7 @@ const liveInitialState = {
   currentlyWatching: 'N/A',
   description: 'Find active live streams below.',
   startTime: 'N/A',
+  view: 'all',
   liveAll: [],
   liveList: []
 };
@@ -19,6 +21,10 @@ const liveReducer = (state = liveInitialState, action) => {
         currentlyWatching: 'N/A',
         description: 'Find active live streams below.',
         startTime: 'N/A'
+      });
+    case CHANGE_LIVE_OPTIONS_VIEW:
+      return Object.assign({}, state, {
+        view: action.view
       });
     default:
       return state;

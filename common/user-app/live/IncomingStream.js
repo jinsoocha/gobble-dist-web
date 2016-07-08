@@ -4,11 +4,22 @@ class IncomingStream extends Component {
   constructor(props) {
     super(props);
     this.state = { duration: 'N/A', relativeStartTime: 'N/A' };
+    this.startIncomingStream = this.startIncomingStream.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.peerId !== '') {
+      this.startIncomingStream();
+    }
   }
 
   componentWillUnmount() {
     this.setState({ duration: 'N/A', relativeStartTime: 'N/A' });
     this.props.resetIncomingStream();
+  }
+
+  startIncomingStream() {
+
   }
 
   render() {
@@ -20,10 +31,19 @@ class IncomingStream extends Component {
           poster="http://dummyimage.com/370X330/000000/dadcfa.png&text=Choose a live stream to watch below."
         />
         <div className="incoming-stream-info">
-          <div className="incoming-stream-name">Currently watching: {currentlyWatching}</div>
+          <div className="incoming-stream-name">
+            Currently watching:&nbsp;
+            <span className="stream-name-value">{currentlyWatching}</span>
+          </div>
           <div className="incoming-stream-description">{description}</div>
-          <div className="incoming-stream-duration">Duration: {this.state.duration}</div>
-          <div className="incoming-stream-start-time">Started {this.state.relativeStartTime}</div>
+          <div className="incoming-stream-duration">
+            Duration:&nbsp;
+            <span className="stream-duration-value">{this.state.duration}</span>
+          </div>
+          <div className="incoming-stream-start-time">
+            Started&nbsp;
+            <span className="stream-start-time-value">{this.state.relativeStartTime}</span>
+          </div>
         </div>
       </div>
     );

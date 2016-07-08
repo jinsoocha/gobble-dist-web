@@ -57,6 +57,7 @@ const generateInitialState = (req, res, isProfile, isUserApp, callback) => {
       currentlyWatching: 'N/A',
       description: 'Find active live streams below.',
       startTime: 'N/A',
+      view: 'all',
       liveAll: [],
       liveList: []
     }
