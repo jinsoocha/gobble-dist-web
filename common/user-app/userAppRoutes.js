@@ -2,6 +2,7 @@ import UserAppLayout from './UserAppLayout';
 import Feed from './feed/Feed';
 import Popular from './popular/Popular';
 import Ripple from './ripple/Ripple';
+import Live from './live/Live';
 
 const userAppRoutes = {
   path: '',
@@ -22,6 +23,10 @@ const userAppRoutes = {
     {
       path: '/ripple',
       component: Ripple
+    },
+    {
+      path: '/live',
+      component: Live
     }
   ]
 };

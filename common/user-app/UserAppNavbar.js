@@ -7,6 +7,7 @@ const UserAppNavbar = () => (
       <li className="pure-menu-item"><Link to="/feed" className="pure-menu-link">Feed</Link></li>
       <li className="pure-menu-item"><Link to="/popular" className="pure-menu-link">Popular</Link></li>
       <li className="pure-menu-item"><Link to="/ripple" className="pure-menu-link">Rippling</Link></li>
+      <li className="pure-menu-item"><Link to="/live" className="pure-menu-link">Live</Link></li>
     </ul>
   </div>
 );
