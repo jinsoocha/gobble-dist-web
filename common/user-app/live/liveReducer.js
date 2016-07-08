@@ -1,6 +1,7 @@
 import {
   RESET_INCOMING_STREAM,
-  CHANGE_LIVE_OPTIONS_VIEW
+  CHANGE_LIVE_OPTIONS_VIEW,
+  CHANGE_LIVE_LIST_FILTER
 } from './LiveActions';
 
 const liveInitialState = {
@@ -10,7 +11,8 @@ const liveInitialState = {
   startTime: 'N/A',
   view: 'all',
   liveAll: [],
-  liveList: []
+  liveList: [],
+  liveListFilter: 'all'
 };
 
 const liveReducer = (state = liveInitialState, action) => {
@@ -25,6 +27,10 @@ const liveReducer = (state = liveInitialState, action) => {
     case CHANGE_LIVE_OPTIONS_VIEW:
       return Object.assign({}, state, {
         view: action.view
+      });
+    case CHANGE_LIVE_LIST_FILTER:
+      return Object.assign({}, state, {
+        liveListFilter: action.filter
       });
     default:
       return state;

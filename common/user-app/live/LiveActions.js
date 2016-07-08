@@ -8,3 +8,9 @@ export const changeLiveOptionsView = view => ({
   type: CHANGE_LIVE_OPTIONS_VIEW,
   view
 });
+
+export const CHANGE_LIVE_LIST_FILTER = 'CHANGE_LIVE_LIST_FILTER';
+export const changeLiveListFilter = filter => ({
+  type: CHANGE_LIVE_LIST_FILTER,
+  filter
+});

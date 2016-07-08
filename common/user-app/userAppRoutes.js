@@ -2,7 +2,7 @@ import UserAppLayout from './UserAppLayout';
 import Feed from './feed/Feed';
 import Popular from './popular/Popular';
 import Ripple from './ripple/Ripple';
-import Live from './live/Live';
+import LiveContainer from './live/LiveContainer';
 
 const userAppRoutes = {
   path: '',
@@ -26,7 +26,7 @@ const userAppRoutes = {
     },
     {
       path: '/live',
-      component: Live
+      component: LiveContainer
     }
   ]
 };

@@ -59,7 +59,8 @@ const generateInitialState = (req, res, isProfile, isUserApp, callback) => {
       startTime: 'N/A',
       view: 'all',
       liveAll: [],
-      liveList: []
+      liveList: [],
+      liveListFilter: 'all'
     }
   };
 
