@@ -21,7 +21,7 @@ const liveReducer = (state = liveInitialState, action) => {
     case RESET_INCOMING_STREAM:
       return Object.assign({}, state, {
         incomingPeerId: '',
-        currentlyWatching: 'N/A',
+        currentlyWatching: {},
         description: 'Find active live streams below.',
         startTime: 'N/A'
       });

@@ -80,10 +80,10 @@ class StreamLive extends Component {
 
     const successCb = outgoingStream => {
       window.outgoingStream = outgoingStream;
-      window.video = document.querySelector('.outgoing-stream-video');
-      video.src = window.URL.createObjectURL(outgoingStream);
-      video.onloadedmetadata = () => {
-        video.play();
+      window.outgoingVideo = document.querySelector('.outgoing-stream-video');
+      outgoingVideo.src = window.URL.createObjectURL(outgoingStream);
+      outgoingVideo.onloadedmetadata = () => {
+        outgoingVideo.play();
         callback();
       };
     };
@@ -121,6 +121,10 @@ class StreamLive extends Component {
 
     streamingPeer.on('error', err => {
       console.error(err);
+    });
+
+    streamingPeer.on('call', call => {
+      call.answer(window.outgoingStream);
     });
   }
 

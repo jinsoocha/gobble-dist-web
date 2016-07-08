@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { PEERJS_KEY } from './../../../env/client';
 import moment from 'moment';
 
 class IncomingStream extends Component {
@@ -29,7 +30,72 @@ class IncomingStream extends Component {
   }
 
   startIncomingStream(peerId) {
-    console.log(peerId);
+    this._startUserMedia(() => {
+      this._startPeer(() => {
+        this._startCall(peerId);
+      });
+    });
+  }
+
+  _startPeer(callback) {
+    const peerConfig = {
+      key: PEERJS_KEY,
+      debug: 3
+    };
+
+    window.receivingPeer = new Peer(peerConfig);
+
+    receivingPeer.on('open', peerId => {
+      console.log(`My receivingPeer ID is: ${peerId}`);
+      callback();
+    });
+
+    receivingPeer.on('close', () => {
+      console.log('Incoming stream peer connection closed.');
+    });
+
+    receivingPeer.on('error', err => {
+      console.error(err);
+    });
+  }
+
+  _startUserMedia(callback) {
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+    if (!navigator.getUserMedia) console.error('navigator.getUserMedia not supported');
+
+    const constraints = {
+      audio: false,
+      video: {
+        width: 370,
+        height: 330
+      }
+    };
+
+    const successCb = mediaStream => {
+      window.mediaStream = mediaStream;
+      callback();
+    };
+
+    const errorCb = err => {
+      console.error(err);
+    };
+
+    navigator.getUserMedia(constraints, successCb, errorCb);
+  }
+
+
+  _startCall(destPeerId) {
+    const call = receivingPeer.call(destPeerId, mediaStream);
+    call.on('stream', incomingStream => {
+      console.log('Receiving stream');
+
+      window.incomingStream = incomingStream;
+      window.incomingVideo = document.querySelector('.incoming-stream-video');
+      incomingVideo.src = window.URL.createObjectURL(incomingStream);
+      incomingVideo.onloadedmetadata = () => {
+        incomingVideo.play();
+      };
+    });
   }
 
   render() {
