@@ -65,7 +65,7 @@ class Medium extends Component {
   renderContent(onClick, height, width) {
     const url = this.validUrl();
     if (!url) return null;
-    const path = `${GOBBLE_MEDIA_URL}/images/${url}`;
+    const path = this.props.urlCompressed ? `${GOBBLE_MEDIA_URL}/images/compressedImages/${urlCompressed}` : `${GOBBLE_MEDIA_URL}/images/${url}`;
     const isImage = url.match(/jpg$|jpeg$|png$/) !== null;
     if (isImage) {
       return this.renderImage(path, onClick, `${width ? `${width}px` : ''}`, `${height ? `${height}px` : ''}`);
