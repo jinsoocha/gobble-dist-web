@@ -19,15 +19,24 @@
   display: inline-block;
   margin-right: 7px;
 }
-
+.medium-modal {
+  max-width: 750px;
+}
 .media {
   display: block;
   margin-top: 20px;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .posts {
   text-align: left;
+}
+
+.medium-close-modal {
+  position: absolute;
+  right: 3px;
+  top: 3px;
 }
 
 /*.review, .wish {

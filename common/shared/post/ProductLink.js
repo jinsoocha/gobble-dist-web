@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const ProductLink = props => (
   <div className="product-link">
-    <a href={`/food/${props.upc}`}>{props.name}</a>
+    Rated Product: <a href={`/food/${props.upc}`}>{props.name}</a>
   </div>
 );
 
