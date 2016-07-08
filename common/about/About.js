@@ -10,26 +10,26 @@ const About = () => (
         <h1>Start <strong>gobbling</strong> today!</h1>
       </div>
       <div className="images">
-        <a href="https://github.com/jackrzhang">
+        <a href="https://github.com/jackrzhang" target="_blank">
           <img role="presentation" src="https://avatars2.githubusercontent.com/u/12771126?v=3&s=400" width="250" height="250" />
           <h2>Jack Zhang</h2>
         </a>
-        <a href="https://github.com/jinsoocha">
+        <a href="https://github.com/jinsoocha" target="_blank">
           <img role="presentation" src="https://avatars3.githubusercontent.com/u/17713849?v=3&s=400" width="250" height="250" />
           <h2>Jinsoo Cha</h2>
         </a>
-        <a href="https://github.com/leoadelstein">
+        <a href="https://github.com/leoadelstein" target="_blank">
           <img role="presentation" src="https://avatars1.githubusercontent.com/u/6300455?v=3&s=400" width="250" height="250" />
           <h2>Leo Adelstein</h2>
         </a>
-        <a href="https://github.com/willwtang">
+        <a href="https://github.com/willwtang" target="_blank">
           <img role="presentation" src="https://avatars0.githubusercontent.com/u/17257262?v=3&s=400" width="250" height="250" />
           <h2>Will Tang</h2>
         </a>
       </div>
-      <div>
+      <div className="about-github">
         <h1>Gobble is a team of four full stack engineers in San Francisco.</h1>
-        <h2>Check out our <a className="github" href="https://github.com/gobble43">github</a> and feel free to send any feedback!</h2>
+        <h2>Check out our <a className="github" href="https://github.com/gobble43" target="_blank">github</a> and feel free to send any feedback!</h2>
       </div>
     </div>
   </MainLayoutContainer>

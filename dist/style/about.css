@@ -10,12 +10,17 @@
 }
 
 .intro {
-   margin-top: 50px;
-   margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .title {
+  font-size: 30px;
   margin-bottom: 30px;
+}
+
+.intro h1 {
+  font-size: 18px;
 }
 
 .images {
@@ -37,8 +42,14 @@
   font-size: 20px;
 }
 
-.github {
+.about-github h1 {
+  font-size: 20px;
   color: black;
+}
+
+.about-github h2 {
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .github:hover {
