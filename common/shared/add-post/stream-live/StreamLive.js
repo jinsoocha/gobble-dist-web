@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { PEERJS_KEY } from './../../../../env/client.js';
-import { postLive } from './streamLiveUtils';
+import { postLive, endLive } from './streamLiveUtils';
 
 const StartLiveButton = (props) => (
   <button
@@ -55,6 +55,9 @@ class StreamLive extends Component {
   endLiveStream() {
     streamingPeer.destroy();
     outgoingStream.getTracks()[0].stop();
+
+    endLive(this.props.userFacebookId, this.state.peerId);
+
     this.setState({
       instructions: 'Live Stream',
       active: false,
