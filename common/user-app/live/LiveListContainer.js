@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import LiveList from './LiveList';
 
+import { connectIncomingStream } from './LiveActions';
+
 const applyFilter = (liveList, filter) => {
   switch (filter) {
     case 'all':
@@ -18,6 +20,13 @@ const mapStateToProps = state => ({
   filteredLiveList: applyFilter(state.live.liveList, state.live.liveListFilter)
 });
 
+const mapDispatchToProps = dispatch => ({
+  connectIncomingStream: live => {
+    dispatch(connectIncomingStream(live));
+  }
+});
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(LiveList);

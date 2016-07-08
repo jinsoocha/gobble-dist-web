@@ -54,7 +54,7 @@ const generateInitialState = (req, res, isProfile, isUserApp, callback) => {
     },
     live: {
       incomingPeerId: '',
-      currentlyWatching: 'N/A',
+      currentlyWatching: {},
       description: 'Find active live streams below.',
       startTime: 'N/A',
       view: 'all',

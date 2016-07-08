@@ -14,3 +14,12 @@ export const changeLiveListFilter = filter => ({
   type: CHANGE_LIVE_LIST_FILTER,
   filter
 });
+
+export const CONNECT_INCOMING_STREAM = 'CONNECT_INCOMING_STREAM';
+export const connectIncomingStream = live => ({
+  type: CONNECT_INCOMING_STREAM,
+  incomingPeerId: live.peer_id,
+  currentlyWatching: live.user,
+  description: live.description,
+  startTime: live.Live_created_at
+});

@@ -10,7 +10,14 @@ const LiveListEntry = (props) => {
       <span className="list-entry-started">{moment(props.live.Live_created_at, moment.ISO_8601).format('MMMM Do, YYYY - h:mm a')}</span>
       <span className="list-entry-status">
         {!!props.live.active ?
-          <span className="active">Watch Live <i className="fa fa-video-camera" aria-hidden="true"></i></span> :
+          <span
+            className="active"
+            onClick={() => {
+              props.connectIncomingStream(props.live);
+            }}
+          >
+            Watch Live <i className="fa fa-video-camera" aria-hidden="true"></i>
+          </span> :
           <span className="ended">Ended</span>
         }
       </span>
@@ -19,7 +26,8 @@ const LiveListEntry = (props) => {
 };
 
 LiveListEntry.propTypes = {
-  live: PropTypes.object.isRequired
+  live: PropTypes.object.isRequired,
+  connectIncomingStream: PropTypes.func.isRequired
 };
 
 const LiveList = (props) => {
@@ -34,6 +42,7 @@ const LiveList = (props) => {
           <LiveListEntry
             key={liveListEntry.peer_id}
             live={liveListEntry}
+            connectIncomingStream={props.connectIncomingStream}
           />
         )}
       </div>
@@ -43,6 +52,7 @@ const LiveList = (props) => {
 
 LiveList.propTypes = {
   filteredLiveList: PropTypes.array.isRequired,
+  connectIncomingStream: PropTypes.func.isRequired
 };
 
 export default LiveList;

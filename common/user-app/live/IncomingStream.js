@@ -8,7 +8,7 @@ class IncomingStream extends Component {
   }
 
   componentDidMount() {
-    if (this.props.peerId !== '') {
+    if (this.props.incomingPeerId !== '') {
       this.startIncomingStream();
     }
   }
@@ -19,7 +19,7 @@ class IncomingStream extends Component {
   }
 
   startIncomingStream() {
-
+    console.log('yay!');
   }
 
   render() {
@@ -33,7 +33,7 @@ class IncomingStream extends Component {
         <div className="incoming-stream-info">
           <div className="incoming-stream-name">
             Currently watching:&nbsp;
-            <span className="stream-name-value">{currentlyWatching}</span>
+            <span className="stream-name-value">{currentlyWatching.display_name}</span>
           </div>
           <div className="incoming-stream-description">{description}</div>
           <div className="incoming-stream-duration">
@@ -52,7 +52,7 @@ class IncomingStream extends Component {
 
 IncomingStream.propTypes = {
   incomingPeerId: PropTypes.string.isRequired,
-  currentlyWatching: PropTypes.string.isRequired,
+  currentlyWatching: PropTypes.object.isRequired,
   description: PropTypes.string.isRequired,
   startTime: PropTypes.string.isRequired,
   resetIncomingStream: PropTypes.func.isRequired
