@@ -39,7 +39,8 @@ class FoodProduct extends Component {
   }
 
   render() {
-    const name = Object.keys(this.props.productAnalysis).length === 0 ? null :
+    const name = Object.keys(this.props.productAnalysis).length === 0 ?
+      <h1>..Product analysis is being produced..<br />Refresh to see the product details.</h1> :
       <h1>{this.props.productAnalysis.basicInfo.name}</h1>;
     const image = Object.keys(this.props.productAnalysis).length === 0 ? null :
       <img
