@@ -80,7 +80,7 @@ class StreamLive extends Component {
 
     const successCb = outgoingStream => {
       window.outgoingStream = outgoingStream;
-      window.video = document.querySelector('.outgoing-stream');
+      window.video = document.querySelector('.outgoing-stream-video');
       video.src = window.URL.createObjectURL(outgoingStream);
       video.onloadedmetadata = () => {
         video.play();

@@ -24,6 +24,7 @@ const Live = (props) => {
       </h1>
       <IncomingStreamContainer />
       <hr className="live-hr" />
+      <div className="live-options-title">Live Streams</div>
       <LiveOptionsContainer />
       <LiveView />
     </div>
