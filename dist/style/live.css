@@ -28,19 +28,27 @@ video.incoming-stream-video {
 }
 
 .incoming-stream-name {
+  font-size: 20px;
+  margin-top: 5px;
+}
 
+span.stream-name-value {
+  font-weight: 400;
 }
 
 .incoming-stream-description {
-
+  margin: 5px 0 15px;
+  font-style: italic;
+  color: rgb(100, 100, 100);
 }
 
 .incoming-stream-start-time {
-
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
 
-.stream-start-time-value {
-
+span.stream-start-time-value {
+  font-weight: 400;
 }
 
 hr.live-hr {

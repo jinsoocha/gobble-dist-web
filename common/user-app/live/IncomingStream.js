@@ -17,7 +17,7 @@ class IncomingStream extends Component {
     if (nextProps.incomingPeerId !== '') {
       this.setState({
         currentlyWatching: nextProps.currentlyWatching.display_name,
-        relativeStartTime: moment(nextProps.startTime, moment.ISO_8601).fromNow()
+        relativeStartTime: moment(nextProps.startTime, moment.ISO_8601).format('MMMM Do, YYYY - h:mm a')
       });
 
       this.startIncomingStream(nextProps.incomingPeerId);
