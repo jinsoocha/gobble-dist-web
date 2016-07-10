@@ -76,6 +76,7 @@ class RecommendationEntry extends Component {
         Click to see the recommended product details!
       </div>);
     }
+    const productPage = `/food/${product.upc}`;
     return (
       <div className="rec" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: 20 }}>
         {productIntro}
@@ -93,8 +94,8 @@ class RecommendationEntry extends Component {
         (<div>
           <div>
             <p>Name: {product.name} <br />
-            Brand: {product.brand}<br />
-            Barcode: {product.upc}</p>
+            Brand: {product.brand}<br /></p>
+            <a href={productPage}>Go to the product page</a>
           </div>
           <div ref="productComparisonChart">
           </div>
