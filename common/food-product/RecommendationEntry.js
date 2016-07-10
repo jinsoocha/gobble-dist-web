@@ -15,8 +15,10 @@ class RecommendationEntry extends Component {
     const chartData = [];
     let contents = {};
     Object.keys(product).forEach((key) => {
-      if (key !== 'name' && key !== 'brand' && key !== 'upc' && key !== 'nutrient'
-        && key !== 'quality' && key !== 'image' && product[key] !== null && basicInfo[key]) {
+      if (key !== 'upc' && key !== 'image' && key !== 'brand' && key !== 'name'
+        && key !== 'categories' && key !== 'tags' && key !== 'ingredients'
+        && product[key] !== null && key !== 'nutrient'
+        && key !== 'quality' && basicInfo[key]) {
         contents.name = key;
         contents[basicInfo.name] = basicInfo[key];
         contents[product.name] = product[key];
@@ -105,7 +107,6 @@ class RecommendationEntry extends Component {
 RecommendationEntry.propTypes = {
   product: PropTypes.object.isRequired,
   showProductDetails: PropTypes.func.isRequired,
-  selectedProduct: PropTypes.number.isRequired,
   basicInfo: PropTypes.object.isRequired,
   addedWish: PropTypes.string.isRequired,
   addToWish: PropTypes.func.isRequired,
