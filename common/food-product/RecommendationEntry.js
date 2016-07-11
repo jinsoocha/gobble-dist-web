@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import fetch from 'isomorphic-fetch';
 const productComparisonChart = require('./productComparisonChart');
+const gobbleAPI = process.env.GOBBLE_API_URL;
 
 class RecommendationEntry extends Component {
   constructor(props) {
@@ -41,7 +43,7 @@ class RecommendationEntry extends Component {
     } else {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      fetch('http://localhost:4569/wish', {
+      fetch(`${gobbleAPI}/wish`, {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify({ upc: this.props.product.upc, facebookId: this.props.facebookId }),

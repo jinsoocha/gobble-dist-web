@@ -3,13 +3,14 @@ import fetch from 'isomorphic-fetch';
 import MainLayoutContainer from './../main-layout/MainLayoutContainer';
 import FoodProductAnalysis from './FoodProductAnalysis';
 import ReviewEntry from './ReviewEntry';
+const gobbleAPI = process.env.GOBBLE_API_URL;
 
 class FoodProduct extends Component {
 
   componentWillMount() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    fetch('http://localhost:4569/product/getRecommendation', {
+    fetch(`${gobbleAPI}/product/getRecommendation`, {
       method: 'POST',
       mode: 'cors',
       body: JSON.stringify({ upc: this.props.upc }),
@@ -28,7 +29,7 @@ class FoodProduct extends Component {
     })
     .catch((err) => console.log(err));
 
-    fetch(`http://localhost:4569/product/getReviews?upc=${this.props.upc}`, {
+    fetch(`${gobbleAPI}/product/getReviews?upc=${this.props.upc}`, {
       method: 'GET',
     })
     .then((res) => res.json())
