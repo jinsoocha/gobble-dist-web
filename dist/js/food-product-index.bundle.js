@@ -24833,6 +24833,10 @@
 
 	var _ReviewEntry2 = _interopRequireDefault(_ReviewEntry);
 
+	var _client = __webpack_require__(209);
+
+	var _client2 = _interopRequireDefault(_client);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24857,7 +24861,7 @@
 
 	      var headers = new Headers();
 	      headers.append('Content-Type', 'application/json');
-	      (0, _isomorphicFetch2.default)('http://localhost:4569/product/getRecommendation', {
+	      (0, _isomorphicFetch2.default)(_client2.default.GOBBLE_API_URL + '/product/getRecommendation', {
 	        method: 'POST',
 	        mode: 'cors',
 	        body: JSON.stringify({ upc: this.props.upc }),
@@ -24874,7 +24878,7 @@
 	        return console.log(err);
 	      });
 
-	      (0, _isomorphicFetch2.default)('http://localhost:4569/product/getReviews?upc=' + this.props.upc, {
+	      (0, _isomorphicFetch2.default)(_client2.default.GOBBLE_API_URL + '/product/getReviews?upc=' + this.props.upc, {
 	        method: 'GET'
 	      }).then(function (res) {
 	        return res.json();
@@ -28840,6 +28844,14 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _isomorphicFetch = __webpack_require__(207);
+
+	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
+
+	var _client = __webpack_require__(209);
+
+	var _client2 = _interopRequireDefault(_client);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28902,7 +28914,7 @@
 	      } else {
 	        var headers = new Headers();
 	        headers.append('Content-Type', 'application/json');
-	        fetch('http://localhost:4569/wish', {
+	        (0, _isomorphicFetch2.default)(_client2.default.GOBBLE_API_URL + '/wish', {
 	          method: 'POST',
 	          mode: 'cors',
 	          body: JSON.stringify({ upc: this.props.product.upc, facebookId: this.props.facebookId }),

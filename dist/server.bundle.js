@@ -271,7 +271,7 @@ require("source-map-support").install();
 	    // Register the application using a Facebook Developer Account
 	    clientID: process.env.FACEBOOK_ID,
 	    clientSecret: process.env.FACEBOOK_SECRET,
-	    callbackURL: '' + process.env.PROTOCOL + process.env.HOST + ':' + process.env.PORT + '/auth/facebook/callback',
+	    callbackURL: process.env.PROTOCOL + '192.241.211.240:' + process.env.PORT + '/auth/facebook/callback',
 	    enableProof: true,
 	    profileFields: ['id', 'name', 'email', 'displayName', 'gender', 'picture.type(large)']
 	  }, function (accessToken, refreshToken, profile, done) {
@@ -26304,6 +26304,10 @@ require("source-map-support").install();
 	
 	var _ReviewEntry2 = _interopRequireDefault(_ReviewEntry);
 	
+	var _client = __webpack_require__(192);
+	
+	var _client2 = _interopRequireDefault(_client);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26328,7 +26332,7 @@ require("source-map-support").install();
 	
 	      var headers = new Headers();
 	      headers.append('Content-Type', 'application/json');
-	      (0, _isomorphicFetch2.default)('http://localhost:4569/product/getRecommendation', {
+	      (0, _isomorphicFetch2.default)(_client2.default.GOBBLE_API_URL + '/product/getRecommendation', {
 	        method: 'POST',
 	        mode: 'cors',
 	        body: JSON.stringify({ upc: this.props.upc }),
@@ -26345,7 +26349,7 @@ require("source-map-support").install();
 	        return console.log(err);
 	      });
 	
-	      (0, _isomorphicFetch2.default)('http://localhost:4569/product/getReviews?upc=' + this.props.upc, {
+	      (0, _isomorphicFetch2.default)(_client2.default.GOBBLE_API_URL + '/product/getReviews?upc=' + this.props.upc, {
 	        method: 'GET'
 	      }).then(function (res) {
 	        return res.json();
@@ -26848,6 +26852,14 @@ require("source-map-support").install();
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _isomorphicFetch = __webpack_require__(13);
+	
+	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
+	
+	var _client = __webpack_require__(192);
+	
+	var _client2 = _interopRequireDefault(_client);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26910,7 +26922,7 @@ require("source-map-support").install();
 	      } else {
 	        var headers = new Headers();
 	        headers.append('Content-Type', 'application/json');
-	        fetch('http://localhost:4569/wish', {
+	        (0, _isomorphicFetch2.default)(_client2.default.GOBBLE_API_URL + '/wish', {
 	          method: 'POST',
 	          mode: 'cors',
 	          body: JSON.stringify({ upc: this.props.product.upc, facebookId: this.props.facebookId }),
