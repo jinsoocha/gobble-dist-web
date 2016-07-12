@@ -1,19 +1,17 @@
 .gobbleTitle {
-  font-size: 70px;
+  font-size: 50px;
   padding-top: 40px;
-  margin: 0px;
-  color: purple;
+  margin-top: 50px;
 }
 
 .gobbleLandingLink {
-  position: relative;
-  top: 465px;
-  left: 360px;
   font-size: 27px;
+  color: black;
 }
 
 .gobbleGrapes {
   position: relative;
+  margin-top: 50px;
   bottom: 20px;
   z-index: -1;
 }

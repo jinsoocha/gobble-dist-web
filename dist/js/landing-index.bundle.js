@@ -24781,7 +24781,7 @@
 	        'Get Started for FREE'
 	      )
 	    ),
-	    _react2.default.createElement('img', { className: 'gobbleGrapes', src: '/images/grapes.png', alt: 'grapes', height: '650', width: '750' })
+	    _react2.default.createElement('img', { className: 'gobbleGrapes', src: '/images/gobble-logo.png', alt: 'grapes', height: '300', width: '500' })
 	  );
 	};
 

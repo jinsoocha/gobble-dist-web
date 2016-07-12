@@ -271,7 +271,7 @@ require("source-map-support").install();
 	    // Register the application using a Facebook Developer Account
 	    clientID: process.env.FACEBOOK_ID,
 	    clientSecret: process.env.FACEBOOK_SECRET,
-	    callbackURL: process.env.PROTOCOL + '159.203.216.209:' + process.env.PORT + '/auth/facebook/callback',
+	    callbackURL: '' + process.env.PROTOCOL + process.env.HOST + ':' + process.env.PORT + '/auth/facebook/callback',
 	    enableProof: true,
 	    profileFields: ['id', 'name', 'email', 'displayName', 'gender', 'picture.type(large)']
 	  }, function (accessToken, refreshToken, profile, done) {
@@ -28804,7 +28804,7 @@ require("source-map-support").install();
 	        'Get Started for FREE'
 	      )
 	    ),
-	    _react2.default.createElement('img', { className: 'gobbleGrapes', src: '/images/grapes.png', alt: 'grapes', height: '650', width: '750' })
+	    _react2.default.createElement('img', { className: 'gobbleGrapes', src: '/images/gobble-logo.png', alt: 'grapes', height: '300', width: '500' })
 	  );
 	};
 	
